@@ -1,0 +1,335 @@
+/* Made by Dmitry Glinskiy, contact me at glinskiy.net */
+body {
+  background-color: #f1f1f1;
+  -webkit-print-color-adjust:exact;
+}
+
+h1 {
+  padding: 0.5em 0;
+}
+
+.pagebreak {
+  page-break-before: always;
+}
+
+.container-custom {
+  width: 932px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 0 15px;
+  background-color: #ffffff;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+}
+
+/*========================================*/
+/* Шапки бланков */
+/*========================================*/
+.logo { padding: 12px 0 0; width: 300px; margin: 0 300px; }
+
+.header {
+  width: 100%;
+  text-align: center;
+  padding: 10px 10px 0 160px;
+  border-bottom: 1px solid #00807b;
+  margin: 0 15px 15px;
+}
+.header p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 20px;
+}
+.logo-rp {
+  float: left;
+  width: 150px;
+  margin-left: -160px;
+  margin-top: 15px;
+}
+.addresses {
+  display: inline-block;
+  font-size: 12px;
+  line-height: 16px;
+  padding-top: 5px;
+  padding-bottom: 15px;
+}
+
+/*========================================*/
+/* Формы ввода данных пациента */
+/*========================================*/
+.patient-data {
+  padding-bottom: 20px !important;
+}
+
+h5 {
+  color: #00807b;
+  padding-bottom: 10px;
+  padding-top: 20px;
+  border-top: 6px solid #eee;
+}
+
+input.form-control {
+  display: inline-block;
+  max-width: 200px;
+  border: none;
+  background-color: rgba(0,0,0,0.05);
+  height: 32px;
+  padding: 8px 6px;
+}
+
+input.medium-field { width: 120px; }
+input.short-field {  max-width: 30px; }
+input.inline-mini {  width: 90px; height: 20px; }
+input.name-field {   max-width: 330px; }
+
+select.select-control {
+  display: inline-block;
+  width: 120px;
+  border: none;
+  background-color: rgba(0,0,0,0.05);
+  height: 32px;
+  padding: 0px 6px;
+  vertical-align: baseline;
+}
+#subtest-8-select {
+  width: 210px;
+  padding: 0;
+}
+#subtest-8-select option {
+  padding: 0;
+}
+
+textarea.form-control {
+  border: none;
+  background-color: rgba(0,0,0,0.05);
+  margin: 10px 0;
+  position: relative;
+  z-index: 10;
+}
+
+.label-120 {
+  width: 175px;
+  text-align: right;
+}
+
+select.doctor-select {
+  width: 162px;
+  position: relative;
+  z-index: 10;
+}
+.doctor-signature {
+  display: inline-block;
+  border-top: 1px solid #666;
+  color: #666;
+  padding: 0 40px;
+  font-size: 13px;
+  line-height: 14px;
+  position: relative;
+  top: 18px;
+  z-index: 10;
+}
+#signature-doctorA,
+#signature-doctorB,
+#signature-doctorC {
+  width: 330px;
+  height: 166px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -70px;
+  margin-top: -98px;
+  transform: scale(0.5);
+  z-index: 0;
+}
+.baerbach { background: transparent url('../images/sig-baerbach.png') no-repeat 50% 50% / cover; }
+.juk { background: transparent url('../images/sig-juk.png') no-repeat 50% 50% / cover; }
+.nikulin { background: transparent url('../images/sig-nikulin.png') no-repeat 50% 50% / cover; }
+.mineev { background: transparent url('../images/sig-mineev.png') no-repeat 50% 50% / cover; }
+.krotko { background: transparent url('../images/sig-krotko.png') no-repeat 50% 50% / cover; }
+.olejnikova { background: transparent url('../images/sig-olejnikova.png') no-repeat 50% 50% / cover; }
+.taldykina { background: transparent url('../images/sig-taldykina.png') no-repeat 50% 50% / cover; }
+.parshikov { background: transparent url('../images/sig-parshikov.png') no-repeat 50% 50% / cover; }
+
+
+/*========================================*/
+/* Main Table */
+/*========================================*/
+.table { margin-bottom: 0; }
+.main-table th,
+.main-table td {
+  vertical-align: middle;
+  border-color: #fff;
+  padding: 0;
+}
+
+.subtest-group-1 .clr { background-color: #fff; }
+.subtest-group-2 .clr { background-color: #eee; }
+.subtest-group-3 .clr { background-color: #fff; }
+.subtest-group-4 .clr { background-color: #eee; }
+
+.clr {
+  display: inline-block;
+  width: 100%;
+  height: 40px;
+  line-height: 32px;
+  padding: 4px 0;
+}
+th .clr, .thpad {
+  padding-left: 8px;
+}
+.th-clr {
+  font-weight: 500;
+  background-color: #00807b;
+  color: #fff;
+  line-height: 18px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  height: 100%;
+}
+
+.unbold {
+  font-weight: normal!important;
+}
+
+.main-table td .form-control,
+.scale-field,
+.summ-field {
+  display: inline-block;
+  width: 60px;
+  text-align: center;
+  padding: 5px 10px;
+  line-height: 18px;
+  height: 28px;
+}
+.scale-field {
+  background-color: rgba(255,255,255,0.85);
+  border-radius: 5px;
+  font-weight: bold;
+}
+.summ-field {
+}
+
+.total-scale {
+  background-color: rgba(240,240,240,0.85);
+  font-weight: bold;
+}
+
+.row-divider {
+  margin: 30px 0;
+}
+
+
+/*========================================*/
+/* Graphs */
+/*========================================*/
+.graph-table {
+  width: 100%;
+  margin: 16px 0 0;
+}
+
+.graph-table td {
+  padding: 0 10px;
+  line-height: 34px;
+  min-height: 34px;
+  border-top: none;
+}
+.cell-normality {
+  float: left;
+  height: 40px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 90%;
+  line-height: 14px;
+  padding: 13px 4px;
+}
+
+.cell-very-subnormal { width: 14.285%; padding: 6px 4px; background-color: #eee;}
+.cell-subnormal { width: 14.285%; background-color: #ccc; padding: 6px 4px;}
+.cell-normal { width: 28.57%; background-color: #aaa; }
+.cell-supnormal { width: 14.285%; background-color: #ccc; padding: 6px 4px;}
+.cell-very-supnormal { width: 28.57%; background-color: #eee; }
+
+.graph-caption {
+  width: 30%;
+}
+
+.graph-ruler {
+}
+
+.graph-bar-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.graph-bar {
+  position: relative;
+  width: 100%;
+  height: 32px;
+  background: transparent url('../images/ruler.svg') no-repeat 50% 50% / 100%;
+  overflow: hidden;
+}
+
+.graph-value {
+  position: absolute;
+  height: 20px;
+  line-height: 20px;
+  top: 6px;
+  background-color: rgba(133,190,255,1);
+  color: #000;
+  text-align: center;
+  font-size: 90%;
+}
+
+.graph-lines {
+  position: absolute;
+  top: -34px;
+  min-width: 2.45%;
+  text-align: center;
+  font-weight: bold;
+  color: #333;
+}
+
+.graph-20 { left: -1.2%; }
+.graph-30 { left: 13.08%; }
+.graph-40 { left: 27.4%; }
+.graph-50 { left: 41.7%; }
+.graph-60 { left: 56.04%; }
+.graph-70 { left: 70.42%; }
+.graph-80 { left: 84.7%; }
+.graph-90 { left: 98.8%; }
+
+
+/* Print styles */
+@media print {
+  body {
+    background-color: #fff;
+    padding: 0;
+    margin: 0;
+  }
+
+  .container-custom {
+    min-height: auto;
+    width: 900px!important;
+    max-width:900px;
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
+  .row, .col, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-12 {
+    padding: 0;
+    margin: 0;
+  }
+  .debug-output {
+    display: none;
+  }
+  input.form-control::placeholder {
+    color: transparent;
+  }
+  select {
+    -webkit-appearance: none !important;
+  }
+  #subtest-8-select {
+    background-color: transparent !important;
+  }
+
+}
+/* Made by Dmitry Glinskiy, contact me at glinskiy.net */
