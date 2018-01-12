@@ -1,31 +1,12 @@
 // Made by Dmitry Glinskiy, contact me at glinskiy.net
-// Primitive range and summ functions
-function getSumm(a,b) {
-  return a + b;
-};
-
-function range(x, min, max) {
-  return x >= min && x <= max;
-};
-
-function rangeShort(x, min, max) {
-  return x >= min && x < max;
-};
-
-
 // Variables
-var ageYears = 0;
-var ageMonths = 0;
-var ageConverted = null;
-var genderSelected = null;
 var tablePrimaryName = 0;
 var tableSecondaryName = 0;
-
+var tableBotShortName = 0;
 
 // Chooses B1-2 table based on age and gender
 var primaryTableAgeRange = [
-  0,48,52,56,60,64,68,72,76,80,84,88,92,96,102,108,114,120,126,
-  132,138,144,150,156,162,168,180,192,204,228,264
+  0,48,52,56,60,64,68,72,76,80,84,88,92,96,102,108,114,120,126,132,138,144,150,156,162,168,180,192,204,228,264
 ];
 var primaryTablePrefix = [
   'AgeUnrealisticallyYoung',
@@ -34,11 +15,83 @@ var primaryTablePrefix = [
   '_110to115', '_116to1111', '_120to125', '_126to1211', '_130to135', '_136to1311', '_140to1411',
   '_150to1511', '_160to1611', '_170to1811', '_190to2111'
 ];
+
+// ==================================
+// Bot-Short variant main logic
+// ==================================
+function chooseBotShortTable () {
+  let index;
+  for (index = 0; index < primaryTableAgeRange.length - 1; index++) {
+    if (rangeShort(patient.ageConverted, primaryTableAgeRange[index], primaryTableAgeRange[index + 1])) {
+      tableBotShortName = 'botshort_' + patient.gender + primaryTablePrefix[index];
+    } else {
+    };
+  };
+  $('.tables-primary').html(tableBotShortName); // ToDo: bot-short вместо праймари
+};
+
+// Реагируем на ввод результатов субтеста
+function subtestBotShortGo(lastSubtest) {
+  var lastSubtestResult = $('.sub-res-bs' + lastSubtest).val();
+  var lastSubtestScale = 19 + scanArray(tableBotShortName, lastSubtest, lastSubtestResult);
+  var lastSubtestPercentile = table_percentiles[lastSubtestScale - 19];
+  var lastSubtestCategory = getBotShortCategory(lastSubtestScale);
+  var lastSubtestSpread = table_bs_c3[lastSubtest][selectAgeGroup()];
+  var lastSubtestRange = getSubtestRange(lastSubtestScale, lastSubtestSpread);
+
+  $('.subtest-bs' + lastSubtest + '-scale').html(lastSubtestScale);
+  $('.subtest-bs' + lastSubtest + '-spread').html(lastSubtestSpread);
+  $('.subtest-bs' + lastSubtest + '-range').html(lastSubtestRange);
+  $('.subtest-bs' + lastSubtest + '-percentile').html(lastSubtestPercentile);
+  $('.subtest-bs' + lastSubtest + '-category').html(lastSubtestCategory);
+
+  $('.last-subtest').html(lastSubtest + ' (' + lastSubtestResult + ')'); // Debug info ToDo: Delete
+
+  renderBotShortGraph();
+};
+
+// Gets category name for results
+function getBotShortCategory(scaleToPut) {
+  var categoryName = 0;
+
+  if (range(scaleToPut,0,30)) {
+    categoryName = 'Знач. ниже нормы';
+  } else if (range(scaleToPut,31,40)) {
+    categoryName = 'Ниже нормы';
+  } else if (range(scaleToPut,41,59)) {
+    categoryName = 'Норма';
+  } else if (range(scaleToPut,60,69)) {
+    categoryName = 'Выше нормы';
+  } else if (range(scaleToPut,70,99)) {
+    categoryName = 'Знач. выше нормы';
+  } else {
+    categoryName = 'ошибка';
+  }
+
+  return categoryName;
+};
+
+
+// Рендерим графики
+function renderBotShortGraph() {
+  var percentModifier = 1.4285;
+  var graphSubtestScale = parseInt($('.subtest-bs1-scale').html());
+  var graphSubtestSpread = parseInt($('.subtest-bs1-spread').html());
+  var graphWidth = graphSubtestSpread * 2 * percentModifier;
+  var graphPosition = (graphSubtestScale - 20 - graphSubtestSpread) * percentModifier;
+  $('.graph-subtest-bs1-value').css({'width':graphWidth + '%', 'left':graphPosition + '%'});
+  $('.graph-subtest-bs1-value').html(graphSubtestScale + '±' + graphSubtestSpread);
+};
+
+
+// ==================================
+// Bot-2 main logic
+// ==================================
 function choosePrimaryTable () {
   let index;
   for (index = 0; index < primaryTableAgeRange.length - 1; index++) {
-    if (rangeShort(ageConverted, primaryTableAgeRange[index], primaryTableAgeRange[index + 1])) {
-      tablePrimaryName = 'primary_' + genderSelected + primaryTablePrefix[index];
+    if (rangeShort(patient.ageConverted, primaryTableAgeRange[index], primaryTableAgeRange[index + 1])) {
+      tablePrimaryName = 'primary_' + patient.gender + primaryTablePrefix[index];
     } else {
     };
   };
@@ -47,22 +100,22 @@ function choosePrimaryTable () {
 
 // Chooses B4-5 table based on age and gender
 function chooseSecondaryTable () {
-  if (range(ageConverted, 0, 47)) {
+  if (range(patient.ageConverted, 0, 47)) {
     tableSecondaryName = 'AgeUnrealisticallyYoung';
-  } else if (range(ageConverted, 48, 59)) {
-    tableSecondaryName = 'secondary_' + genderSelected + '_40to411';
-  } else if (range(ageConverted, 60, 71)) {
-    tableSecondaryName = 'secondary_' + genderSelected + '_50to511';
-  } else if (range(ageConverted, 72, 95)) {
-    tableSecondaryName = 'secondary_' + genderSelected + '_60to711';
-  } else if (range(ageConverted, 96, 119)) {
-    tableSecondaryName = 'secondary_' + genderSelected + '_80to911';
-  } else if (range(ageConverted, 120, 143)) {
-    tableSecondaryName = 'secondary_' + genderSelected + '_100to1111';
-  } else if (range(ageConverted, 144, 179)) {
-    tableSecondaryName = 'secondary_' + genderSelected + '_120to1411';
-  } else if (range(ageConverted, 180, 264)) {
-    tableSecondaryName = 'secondary_' + genderSelected + '_150to2111';
+  } else if (range(patient.ageConverted, 48, 59)) {
+    tableSecondaryName = 'secondary_' + patient.gender + '_40to411';
+  } else if (range(patient.ageConverted, 60, 71)) {
+    tableSecondaryName = 'secondary_' + patient.gender + '_50to511';
+  } else if (range(patient.ageConverted, 72, 95)) {
+    tableSecondaryName = 'secondary_' + patient.gender + '_60to711';
+  } else if (range(patient.ageConverted, 96, 119)) {
+    tableSecondaryName = 'secondary_' + patient.gender + '_80to911';
+  } else if (range(patient.ageConverted, 120, 143)) {
+    tableSecondaryName = 'secondary_' + patient.gender + '_100to1111';
+  } else if (range(patient.ageConverted, 144, 179)) {
+    tableSecondaryName = 'secondary_' + patient.gender + '_120to1411';
+  } else if (range(patient.ageConverted, 180, 264)) {
+    tableSecondaryName = 'secondary_' + patient.gender + '_150to2111';
   } else {
     tableSecondaryName = 'AgeUnrealisticallyOld';
   }
@@ -77,7 +130,7 @@ function subtestGo(a,b) {
   var lastSubtestResult = $('.sub-res-' + a).val();
   var lastSubtestScale = scanArray(tablePrimaryName, lastSubtest, lastSubtestResult);
   var lastSubtestCategory = getSubtestCategory(lastSubtestScale);
-  var lastSubtestSpread = getSubtestSpread(lastSubtest);
+  var lastSubtestSpread = table_c1[lastSubtest][selectAgeGroup()];
   var lastSubtestRange = getSubtestRange(lastSubtestScale, lastSubtestSpread);
 
   $('.subtest-' + lastSubtest + '-scale').html(lastSubtestScale);
@@ -133,26 +186,22 @@ function getSubtestCategory(scaleToPut) {
   return categoryName;
 };
 
-
-// Берем данные из таблицы С1
-function getSubtestSpread (subtest) {
+// Выбор возрастной категории для таблиц С1 и C3 (spread)
+function selectAgeGroup() {
   var ageGroup;
-
-  if (range(ageYears, 4, 12)) {
-    ageGroup = ageYears;
-  } else if (range(ageYears, 13, 14)) {
+  if (range(patient.ageYears, 4, 12)) {
+    ageGroup = patient.ageYears;
+  } else if (range(patient.ageYears, 13, 14)) {
     ageGroup = 13;
-  } else if (range(ageYears, 15, 16)) {
+  } else if (range(patient.ageYears, 15, 16)) {
     ageGroup = 14;
-  } else if (range(ageYears, 17, 21)) {
+  } else if (range(patient.ageYears, 17, 21)) {
     ageGroup = 15;
   } else {
-    alert('Ошибка в обработке таблицы С1. Нужен дебаг: getSubtestSpread');
+    alert('Ошибка в обработке таблицы С1.');
   }
-
-  return table_c1[subtest][ageGroup];
-};
-
+  return ageGroup;
+}
 
 // Определяем интервал на базе разброса
 function getSubtestRange(scale, spread) {
@@ -183,27 +232,6 @@ function getSummaryCategory(scaleToPut) {
 
   return categoryName;
 };
-
-
-// Берем данные из таблицы С3
-function getSummarySpread(summary) {
-  var ageGroup;
-
-  if (range(ageYears, 4, 12)) {
-    ageGroup = ageYears;
-  } else if (range(ageYears, 13, 14)) {
-    ageGroup = 13;
-  } else if (range(ageYears, 15, 16)) {
-    ageGroup = 14;
-  } else if (range(ageYears, 17, 21)) {
-    ageGroup = 15;
-  } else {
-    alert('Ошибка в обработке таблицы С3. Нужен дебаг: getSummarySpread');
-  }
-
-  return table_c3[summary][ageGroup];
-};
-
 
 // Проверяет, готовы ли данные для суммирования, если да, запускает обновление строки саммари
 function runSubtestSumm (summary) {
@@ -251,7 +279,8 @@ function updateSubtestSum(summaryNo, summarySum) {
   var summaryPercentile = window[tableSecondaryName][7][summaryScaleIndex];
   var summaryCategory = getSummaryCategory(summaryScale);
 
-  var summarySpread = getSummarySpread(summaryNo); // by C3
+  var summarySpread = table_c3[summaryNo][selectAgeGroup()];
+
   var summaryRange = getSubtestRange(summaryScale, summarySpread);
 
   $('.summary-' + summaryNo + '-summ').html(summarySum);
@@ -280,13 +309,6 @@ function checkSumsReady () {
   }
 };
 
-//
-function setAgeConverted (a,b) {
-  ageConverted = ageYears * 12 + ageMonths;
-  $('.age-converted').html(ageConverted);
-};
-
-
 // Update grand totals, yes!
 function updateTotals () {
   var table_total_scale = 'table_total_scale';
@@ -296,7 +318,7 @@ function updateTotals () {
   var totalScaleIndex = parseInt(scanArray(table_total_scale, totalAgeGroup, totalScore));
   var totalScale = window[table_total_scale][5][totalScaleIndex];
   var totalPercentile = window[table_total_scale][6][totalScaleIndex];
-  var totalSpread = getSummarySpread(6);
+  var totalSpread = table_c3[6][selectAgeGroup()];
   var totalRange = getSubtestRange(totalScale, totalSpread);
   var totalCategory = getSummaryCategory(totalScale);
 
@@ -313,13 +335,13 @@ function updateTotals () {
 
 // Возрастной диапазон из таблицы B7
 function getTotalAgeGroup (subtest) {
-  if (genderSelected == 'female' && range(ageYears, 4, 9)) {
+  if (patient.gender == 'female' && range(patient.ageYears, 4, 9)) {
     return 1;
-  } else if (genderSelected == 'female' && range(ageYears, 10, 21)) {
+  } else if (patient.gender == 'female' && range(patient.ageYears, 10, 21)) {
     return 2;
-  } else if (genderSelected == 'male' && range(ageYears, 4, 9)) {
+  } else if (patient.gender == 'male' && range(patient.ageYears, 4, 9)) {
     return 3;
-  } else if (genderSelected == 'male' && range(ageYears, 10, 21)) {
+  } else if (patient.gender == 'male' && range(patient.ageYears, 10, 21)) {
     return 4;
   } else {
     alert('Ошибка в getTotalAgeGroup');
@@ -390,34 +412,6 @@ function readSummarySpread(summaryNumber) {
 
 
 $(document).ready(function(){
-  // Реагируем на смену возраста
-  $('#age-years').on('change', function() {
-    ageYears = parseInt(this.value);
-    ageMonths = parseInt($('#age-months').val());
-    setAgeConverted (ageYears, ageMonths);
-    ageConverted && genderSelected && choosePrimaryTable();
-    ageConverted && genderSelected && chooseSecondaryTable();
-
-    $('#age-years-copy').val(ageYears);
-  });
-
-  // Реагируем на смену возраста
-  $('#age-months').on('change', function() {
-    ageMonths = parseInt(this.value);
-    ageYears = parseInt($('#age-years').val());
-    setAgeConverted (ageYears, ageMonths);
-    ageConverted && genderSelected && choosePrimaryTable();
-    ageConverted && genderSelected && chooseSecondaryTable();
-  });
-
-  // Реагируем на смену пола
-  $('#gender').on('change', function() {
-    genderSelected = $('#gender').val();
-    $('.selected-gender').html(genderSelected);
-    ageConverted && genderSelected && choosePrimaryTable();
-    ageConverted && genderSelected && chooseSecondaryTable();
-  });
-
 // Непонятно, как обрабатывать 9 и 9a
   $('#subtest-8-select').on('change', function() {
     var strVal = this.value;
@@ -428,6 +422,17 @@ $(document).ready(function(){
       $('.graph-caption-8').html('8b. Полные отжимания');
     } else {
       $('.graph-caption-8').html('8a. Отжимания с колен');
+    }
+  });
+
+// Тип отжиманий BotShort обрабатываем
+  $('#subtest-bs-select').on('change', function() {
+    $('.sub-res-bs1').attr('onchange','subtestBotShortGo(' + this.value + ');');
+
+    if (this.value == 1) {
+      $('.graph-caption-bs1').html('A. Отжимания с колен');
+    } else {
+      $('.graph-caption-bs1').html('B. Полные отжимания');
     }
   });
 
