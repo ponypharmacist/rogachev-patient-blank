@@ -10,6 +10,31 @@ var patient = {}
 // Основные реакции на изменения полей
 //=========================================
 $(document).ready(function(){
+  // Меню бланков и выбор страниц для печати
+  $('.print-menu-link').click(function(){
+    $('.print-menu-item .print-page-button').removeClass('selected');
+    $('.print-menu-item.selected').removeClass('selected');
+    $('.section-global.visible').removeClass('visible');
+    $('.section-global.printable').removeClass('printable');
+
+    var menuTarget = $(this).attr('rel');
+
+    $('#pp-button-' + menuTarget).addClass('selected');
+    $('#section-' + menuTarget).addClass('visible');
+    $('#section-' + menuTarget).addClass('printable');
+    $('#pm-item-' + menuTarget).addClass('selected');
+  });
+
+  $('.print-page-button').click(function(){
+    var printTarget = $(this).attr('rel');
+    if ($(this).hasClass('selected')) {
+      $(this).removeClass('selected');
+      $('#section-' + printTarget).removeClass('printable');
+    } else {
+      $(this).addClass('selected');
+      $('#section-' + printTarget).addClass('printable');
+    };
+  });
 
   // Кнопки для скрытия элементов
   $('.element-remover').click(function(){

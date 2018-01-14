@@ -15,6 +15,80 @@ body {
 }
 
 /*========================================*/
+/* Меню выбора раздела и печати */
+/*========================================*/
+.print-menu {
+  position: fixed;
+  width: 180px;
+  float: left;
+  margin-left: -196px;
+  margin-top: 56px;
+  border-top: 12px solid #00807b;
+  border-bottom: 12px solid #00807b;
+  background-color: #ffffff;
+}
+.print-menu-icon {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  background: transparent url('../images/printer.svg') no-repeat 50% 50% / 100%;
+  top: -48px;
+  left: -42px;
+  opacity: 0.4;
+}
+.print-menu-item {
+  position: relative;
+  border-bottom: 1px solid #ddd;
+}
+.print-menu-item:nth-child(2) {
+  border-top: 1px solid #ddd;
+}
+.print-page-button {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  left: -40px;
+  top: 8px;
+  background: transparent url('../images/paper.svg') no-repeat 50% 50% / 100%;
+  cursor: pointer;
+}
+.print-page-button:hover {
+  opacity: 0.5;
+}
+.print-page-button.selected {
+  background: transparent url('../images/paper-ok.svg') no-repeat 50% 50% / 100%;
+}
+.print-menu-link {
+  display: block;
+  color: #fff;
+  background-color: #00807b;
+  padding: 9px 12px 8px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.print-menu-link:hover {
+  color: #00807b;
+  background-color: #ddd;
+  text-decoration: none;
+}
+.print-menu-item.selected .print-menu-link {
+  margin-right: -1px;
+  color: #00807b;
+  background-color: #fff;
+}
+
+/*========================================*/
+/* Отображение глобальных секций */
+/*========================================*/
+.section-global {
+  display: none;
+  min-height: 100vh;
+}
+.visible {
+  display: block;
+}
+
+/*========================================*/
 /* Шапка бланка */
 /*========================================*/
 .header {
@@ -46,6 +120,22 @@ body {
   padding: 12px 0 0;
   width: 300px;
   margin: 0 300px;
+}
+
+/*========================================*/
+/* Пациент - данные */
+/*========================================*/
+#patient-data-entry {
+  color: #fff;
+  background-color: #00807b;
+  padding: 16px 0;
+  margin-bottom: 16px;
+}
+#patient-data-entry h5 {
+  color: #fff;
+  padding-bottom: 8px;
+}
+.patient-data-pasted {
 }
 
 /*========================================*/
@@ -87,47 +177,36 @@ body {
   flex-grow: 1;
 }
 
-input.form-control {
+input.form-control,
+textarea.form-control,
+select.select-control {
   display: inline-block;
-  max-width: 200px;
-  border: none;
   background-color: rgba(0,0,0,0.05);
+  border: none;
   height: 32px;
-  padding: 8px 6px;
 }
-
+input.form-control {
+  padding: 8px 6px;
+  max-width: 200px;
+}
 textarea.form-control {
-  display: inline-block;
-  border: none;
-  background-color: rgba(0,0,0,0.05);
-  height: 32px;
   padding: 8px 6px;
   line-height: 16px;
-}
-/* Bot Variant Textarea
-textarea.form-control {
-  margin: 10px 0;
   position: relative;
   z-index: 10;
-}*/
+}
+select.select-control {
+  width: 120px;
+  padding: 0px 6px;
+  vertical-align: baseline; /* Bot variant Select */
+}
 
 input.medium-field { width: 120px; }
 input.short-field {  max-width: 30px; }
 input.inline-mini {  width: 90px; height: 20px; }
 input.name-field {   max-width: 380px; }
 
-select.select-control {
-  display: inline-block;
-  width: 120px;
-  border: none;
-  background-color: rgba(0,0,0,0.05);
-  height: 32px;
-  padding: 0px 6px;
-}
-/* Bot variant Select
-select.select-control {
-  vertical-align: baseline;
-} */
+
 
 input[readonly] {
   background-color: transparent !important;
@@ -285,8 +364,10 @@ select.doctor-select {
 #signature-doctorA,
 #signature-doctorB,
 #signature-doctorC,
-#signature-doctorBotShort,
-#signature-doctorBot2 {
+#signature-doctorBotShortOne,
+#signature-doctorBotShortTwo,
+#signature-doctorBot2One,
+#signature-doctorBot2Two {
   width: 330px;
   height: 166px;
   position: absolute;
@@ -498,6 +579,7 @@ th .clr, .thpad {
   }
 
   .header {
+    display: block;
     margin: 0 0 15px;
     padding: 0 0 0 160px;
   }
@@ -536,7 +618,7 @@ th .clr, .thpad {
     -webkit-appearance: none;
   }
   /* BOT may contain unaccounted select controls --- select { -webkit-appearance: none !important; } */
-  
+
   #subtest-8-select {
     background-color: transparent !important;
   }
@@ -561,5 +643,6 @@ th .clr, .thpad {
   }
 
   .pagebreak { page-break-before: always; }
-  .no-print, .element-remover, .diagnosis-hint { display: none!important; }
+  .no-print, .element-remover, .diagnosis-hint, #patient-data-entry { display: none!important; }
+  .printable { display: block!important; }
 }
