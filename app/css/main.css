@@ -87,6 +87,12 @@ body {
 .visible {
   display: block;
 }
+.visual-page-divider {
+  width: 100%;
+  height: 6px;
+  background-color: #00807b;
+  margin: 48px 0;
+}
 
 /*========================================*/
 /* Шапка бланка */
@@ -134,8 +140,6 @@ body {
 #patient-data-entry h5 {
   color: #fff;
   padding-bottom: 8px;
-}
-.patient-data-pasted {
 }
 
 /*========================================*/
@@ -206,8 +210,6 @@ input.short-field {  max-width: 30px; }
 input.inline-mini {  width: 90px; height: 20px; }
 input.name-field {   max-width: 380px; }
 
-
-
 input[readonly] {
   background-color: transparent !important;
 }
@@ -223,12 +225,6 @@ input[readonly] {
   text-align: center;
   height: 32px;
   margin: auto 0;
-}
-
-input.input-diagnosis {
-  width: 100%;
-  max-width: 100%;
-  padding: 12px 6px;
 }
 
 textarea.input-diagnosis {
@@ -345,6 +341,9 @@ h5 {
   top: 75%;
 }
 
+.signature-block {
+  position: relative;
+}
 select.doctor-select {
   width: 162px;
   position: relative;
@@ -361,13 +360,7 @@ select.doctor-select {
   top: 18px;
   z-index: 10;
 }
-#signature-doctorA,
-#signature-doctorB,
-#signature-doctorC,
-#signature-doctorBotShortOne,
-#signature-doctorBotShortTwo,
-#signature-doctorBot2One,
-#signature-doctorBot2Two {
+.signature-picture {
   width: 330px;
   height: 166px;
   position: absolute;

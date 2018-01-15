@@ -27,11 +27,11 @@
         </div>
         <div id="pm-item-b1" class="print-menu-item">
           <div rel="b1" id="pp-button-b1" class="print-page-button"></div>
-          <div rel="b1" class="print-menu-link">BOT-2</div>
+          <div rel="b1" class="print-menu-link">BOT-short</div>
         </div>
         <div id="pm-item-b2" class="print-menu-item">
           <div rel="b2" id="pp-button-b2" class="print-page-button"></div>
-          <div rel="b2" class="print-menu-link">BOT-short</div>
+          <div rel="b2" class="print-menu-link">BOT-2</div>
         </div>
       </div>
 
@@ -76,9 +76,7 @@
       </div>
 
       <div id="section-a1" class="section-global visible printable">
-        <!--<h5>Бланк антропометрического обследования <a id="clearable-page-1" class="element-remover is-clearable-page-1" style="right:22px;">1</a>  <a id="clearable-page-2" class="element-remover is-clearable-page-2">2</a></h5>-->
-
-        <div class="row patient-data-pasted">
+        <div class="row">
           <div class="header">
             <img src="images/logo-rp.jpg" class="logo-rp" alt="Логотип НИИ" title="Логотип НИИ">
             <p>Федеральное государственное бюджетное учреждение<br/>
@@ -91,23 +89,23 @@
             ОКПО 13157861, ОГРН 1027739507212, ИНН/КПП 7728008953/772801001</span></p>
           </div>
 
-          <div class="col-12 is-clearable-page-1">
+          <div class="col-12">
             <h5>Бланк антропометрического обследования I</h5>
           </div>
 
-          <div class="col-7 is-clearable-page-1">
+          <div class="col-7">
             Ф.И.О. пациента: <span class="pasted-text fullName-copy"></span><br/>
             Пол: <span class="pasted-text gender-copy">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>.<br/>
             Возраст: <span class="pasted-text ageYears-copy">&nbsp;&nbsp;&nbsp;</span> лет, <span class="pasted-text ageMonths-copy">0</span> мес.
           </div>
-          <div class="col-5 is-clearable-page-1">
+          <div class="col-5">
             Идентификационный номер: <span class="pasted-text idNumber-copy"></span><br/>
             Диагноз: <span class="pasted-text diagnosisMKB-copy"></span><br/>
             Категория: <span class="pasted-text category-copy"></span>
           </div>
         </div>
 
-        <div class="row is-clearable-page-1">
+        <div class="row">
           <!-- Таблица 1. Антропометрические показатели -->
           <div class="col-12 is-hideable-table-1">
             <div class="table-like table-like-1">
@@ -275,7 +273,6 @@
           <div class="col-12 page-1-last-block">
             <h5 class="h5-padded is-hideable-h1">Заключение <a id="hideable-h1" class="element-remover">✕</a></h5>
             <div class="diagnosis-block is-hideable-d-1-1"><b>Физическое развитие</b> <a id="hideable-d-1-1" class="element-remover">✕</a><br/>
-            <!--<input id="conclusionAPhysicalDevelopment" type="text" placeholder="..." class="form-control input-diagnosis update-object" tabindex="26">-->
             <textarea id="conclusionAPhysicalDevelopment" class="form-control input-diagnosis update-object" placeholder="..." rows="1" tabindex="26"></textarea>
             <span class="diagnosis-hint">(резко снижено, снижено, в пределах поло-возрастной нормы, повышено, значительно повышено, гармонично, дисгармонично)</span></div>
 
@@ -296,9 +293,9 @@
             <span class="diagnosis-hint">(не выявлены, выявлены (какие))</span></div>
           </div>
 
-          <div class="col-7" style="position:relative;">
+          <div class="col-7 signature-block">
             <label>Исследователь:</label>
-            <select id="doctorA" class="select-control doctor-select update-object" tabindex="32">
+            <select id="doctor-a1" class="select-control doctor-select update-object" tabindex="32">
               <option value="" selected></option>
               <option value="baerbach">Баербах А.В.</option>
               <option value="juk">Жук Д.В.</option>
@@ -310,18 +307,18 @@
               <option value="parshikov">Паршиков А.С.</option>
             </select>
             <span class="doctor-signature">(подпись)</span>
-            <div id="signature-doctorA"></div>
+            <div id="signature-doctor-a1" class="signature-picture"></div>
           </div>
           <div class="col-5">
             <label>Дата исследования:</label>
-            <input id="dateA" type="text" class="form-control update-object" placeholder="..." tabindex="33">
+            <input id="date-a1" type="text" class="form-control update-object" placeholder="..." tabindex="33">
           </div>
         </div> <!-- /row last in page 1 -->
       </div> <!-- end section-a1 -->
 
       <div id="section-a2" class="section-global">
       <!-- Лист 2 -->
-        <div class="row patient-data-pasted">
+        <div class="row">
           <div class="header">
             <img src="images/logo-rp.jpg" class="logo-rp" alt="Логотип НИИ" title="Логотип НИИ">
             <p>Федеральное государственное бюджетное учреждение<br/>
@@ -334,16 +331,16 @@
             ОКПО 13157861, ОГРН 1027739507212, ИНН/КПП 7728008953/772801001</span></p>
           </div>
 
-          <div class="col-12 is-clearable-page-1">
+          <div class="col-12">
             <h5>Бланк антропометрического обследования II<br/>
           </div>
 
-          <div class="col-7 is-clearable-page-1">
+          <div class="col-7">
             Ф.И.О. пациента: <span class="pasted-text fullName-copy"></span><br/>
             Пол: <span class="pasted-text gender-copy">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>.<br/>
             Возраст: <span class="pasted-text ageYears-copy">&nbsp;&nbsp;&nbsp;</span> лет, <span class="pasted-text ageMonths-copy">0</span> мес.
           </div>
-          <div class="col-5 is-clearable-page-1">
+          <div class="col-5">
             Идентификационный номер: <span class="pasted-text idNumber-copy"></span><br/>
             Диагноз: <span class="pasted-text diagnosisMKB-copy"></span><br/>
             Категория: <span class="pasted-text category-copy"></span>
@@ -491,7 +488,7 @@
                 </div>
               </div>
 
-              <div class="row-like thead-like is-hideable-table-4-subheader is-clearable-page-1">
+              <div class="row-like thead-like is-hideable-table-4-subheader">
                 <div class="col-8"><a id="hideable-table-4-subheader" class="element-remover">✕</a></div>
                 <div class="col-2 text-center">Абсолютное значение</div>
                 <div class="col-2 text-center is-hideable-4-col-3b">Половозрастная процентиль <a id="hideable-4-col-3b" class="element-remover">✕</a></div>
@@ -568,22 +565,29 @@
           <!-- Заключения, блок 2 -->
           <div class="col-12 page-2-last-block is-clearable-page-2">
             <h5 class="h5-padded is-hideable-h2">Заключение <a id="hideable-h2" class="element-remover">✕</a></h5>
-            <div class="diagnosis-block is-hideable-d-2-1"><b>Объем движений изменен в суставах:</b> <a id="hideable-d-2-1" class="element-remover">✕</a><br/>
-            <textarea id="conclsionBMovementLimitedInJoints" class="form-control input-diagnosis update-object" placeholder="..." rows="1" tabindex="64"></textarea>
-            <span class="diagnosis-hint">(повышен/понижен, в каких суставах)</span></div>
-
-            <div class="diagnosis-block is-hideable-d-2-2"><b>Силовая выносливость</b> <a id="hideable-d-2-2" class="element-remover">✕</a><br/>
-            <textarea id="conclsionBStrengthEndurance" class="form-control input-diagnosis update-object" placeholder="..." rows="1" tabindex="65"></textarea>
-            <span class="diagnosis-hint">(высокая, средняя, снижена в группах мышц)</span></div>
-
-            <div class="diagnosis-block is-hideable-d-2-3"><b>Переносимость физических нагрузок</b> <a id="hideable-d-2-3" class="element-remover">✕</a><br/>
-            <textarea id="conclsionBPhysicalLoadEndurance" class="form-control input-diagnosis update-object" placeholder="..." rows="1" tabindex="66"></textarea>
-            <span class="diagnosis-hint">(снижена, в пределах нормы, повышена)</span></div>
+            <div class="diagnosis-block is-hideable-d-2-1">
+              <b>Объем движений изменен в суставах:</b>
+              <a id="hideable-d-2-1" class="element-remover">✕</a><br/>
+              <textarea id="conclsionBMovementLimitedInJoints" class="form-control input-diagnosis update-object" placeholder="..." rows="1" tabindex="64"></textarea>
+              <span class="diagnosis-hint">(повышен/понижен, в каких суставах)</span>
+            </div>
+            <div class="diagnosis-block is-hideable-d-2-2">
+              <b>Силовая выносливость</b>
+              <a id="hideable-d-2-2" class="element-remover">✕</a><br/>
+              <textarea id="conclsionBStrengthEndurance" class="form-control input-diagnosis update-object" placeholder="..." rows="1" tabindex="65"></textarea>
+              <span class="diagnosis-hint">(высокая, средняя, снижена в группах мышц)</span>
+            </div>
+            <div class="diagnosis-block is-hideable-d-2-3">
+              <b>Переносимость физических нагрузок</b>
+              <a id="hideable-d-2-3" class="element-remover">✕</a><br/>
+              <textarea id="conclsionBPhysicalLoadEndurance" class="form-control input-diagnosis update-object" placeholder="..." rows="1" tabindex="66"></textarea>
+              <span class="diagnosis-hint">(снижена, в пределах нормы, повышена)</span>
+            </div>
           </div>
 
-          <div class="col-7 is-clearable-page-2" style="position:relative;">
+          <div class="col-7 is-clearable-page-2 signature-block">
             <label>Исследователь:</label>
-            <select id="doctorB" class="select-control doctor-select update-object" tabindex="67">
+            <select id="doctor-a2" class="select-control doctor-select update-object" tabindex="67">
               <option value="" selected></option>
               <option value="baerbach">Баербах А.В.</option>
               <option value="juk">Жук Д.В.</option>
@@ -595,11 +599,11 @@
               <option value="parshikov">Паршиков А.С.</option>
             </select>
             <span class="doctor-signature">(подпись)</span>
-            <div id="signature-doctorB"></div>
+            <div id="signature-doctor-a2" class="signature-picture"></div>
           </div>
           <div class="col-5 is-clearable-page-2">
             <label>Дата исследования:</label>
-            <input id="dateB" type="text" class="form-control update-object" placeholder="..." tabindex="68">
+            <input id="date-a2" type="text" class="form-control update-object" placeholder="..." tabindex="68">
           </div>
 
         </div>
@@ -607,7 +611,7 @@
 
       <div id="section-a3" class="section-global">
       <!-- Лист 3 -->
-        <div class="row patient-data-pasted">
+        <div class="row">
           <div class="header">
             <img src="images/logo-rp.jpg" class="logo-rp" alt="Логотип НИИ" title="Логотип НИИ">
             <p>Федеральное государственное бюджетное учреждение<br/>
@@ -737,17 +741,24 @@
 
           <div class="col-12">
             <h5 class="h5-padded is-hideable-h3">Заключение по постуральному контролю <a id="hideable-h3" class="element-remover">✕</a></h5>
-            <div class="diagnosis-block is-hideable-d-3-1"><b>Положение центра давления</b> <a id="hideable-d-3-1" class="element-remover">✕</a><br/>
-            <textarea id="conclusionCPressureCenterPosition" class="form-control input-diagnosis update-object" placeholder="..." rows="1" tabindex="88"></textarea>
-            <span class="diagnosis-hint">(правильное, смещение по сагиттали, фронтали)</span></div>
-
-            <div class="diagnosis-block is-hideable-d-3-2"><b>Стабильность баланса</b> <a id="hideable-d-3-2" class="element-remover">✕</a><br/>
-            <textarea id="conclusionCBalanceStability" class="form-control input-diagnosis update-object" placeholder="..." rows="1" tabindex="89"></textarea>
-            <span class="diagnosis-hint">(высокая, средняя, низкая)</span></div>
-
-            <div class="diagnosis-block is-hideable-d-3-3"><b>Приоритетная сенсорная система</b> <a id="hideable-d-3-3" class="element-remover">✕</a><br/>
-            <textarea id="conclusionCPrimarySensoricSystem" class="form-control input-diagnosis update-object" placeholder="..." rows="1" tabindex="90"></textarea>
-            <span class="diagnosis-hint">(зрение, проприорецепция)</span></div>
+            <div class="diagnosis-block is-hideable-d-3-1">
+              <b>Положение центра давления</b>
+              <a id="hideable-d-3-1" class="element-remover">✕</a><br/>
+              <textarea id="conclusionCPressureCenterPosition" class="form-control input-diagnosis update-object" placeholder="..." rows="1" tabindex="88"></textarea>
+              <span class="diagnosis-hint">(правильное, смещение по сагиттали, фронтали)</span>
+            </div>
+            <div class="diagnosis-block is-hideable-d-3-2">
+              <b>Стабильность баланса</b>
+              <a id="hideable-d-3-2" class="element-remover">✕</a><br/>
+              <textarea id="conclusionCBalanceStability" class="form-control input-diagnosis update-object" placeholder="..." rows="1" tabindex="89"></textarea>
+              <span class="diagnosis-hint">(высокая, средняя, низкая)</span>
+            </div>
+            <div class="diagnosis-block is-hideable-d-3-3">
+              <b>Приоритетная сенсорная система</b>
+              <a id="hideable-d-3-3" class="element-remover">✕</a><br/>
+              <textarea id="conclusionCPrimarySensoricSystem" class="form-control input-diagnosis update-object" placeholder="..." rows="1" tabindex="90"></textarea>
+              <span class="diagnosis-hint">(зрение, проприорецепция)</span>
+            </div>
             <div class="is-clearable-page-2" style="margin:0;line-height:14px;">&nbsp;</div>
           </div>
 
@@ -825,22 +836,29 @@
           <!-- Заключения, блок 4 -->
           <div class="col-12 page-3-last-block">
             <h5 class="h5-padded is-hideable-h4">Заключение <a id="hideable-h4" class="element-remover">✕</a></h5>
-            <div class="diagnosis-block is-hideable-d-4-1"><b>Уровень готовности к физическим нагрузкам</b> <a id="hideable-d-4-1" class="element-remover">✕</a><br/>
-            <textarea id="conclusionDPhysicalLoadReadinessLevel" class="form-control input-diagnosis update-object" placeholder="..." rows="1" tabindex="96"></textarea>
-            <span class="diagnosis-hint">(высокая, средняя, низкая)</span></div>
-
-            <div class="diagnosis-block is-hideable-d-4-2"><b>Уровень двигательной активности</b> <a id="hideable-d-4-2" class="element-remover">✕</a><br/>
-            <textarea id="conclusionDPhysicalActivityLevel" class="form-control input-diagnosis update-object" placeholder="..." rows="1" tabindex="97"></textarea>
-            <span class="diagnosis-hint">(снижен, адекватен, повышен)</span></div>
-
-            <div class="diagnosis-block is-hideable-d-4-3"><b>Риск развития метаболического синдрома</b> <a id="hideable-d-4-3" class="element-remover">✕</a><br/>
-            <textarea id="conclusionDMetabolicSyndromDevelopmentRisk" class="form-control input-diagnosis update-object" placeholder="..." rows="1" tabindex="98"></textarea>
-            <span class="diagnosis-hint">(есть, нет)</span></div>
+            <div class="diagnosis-block is-hideable-d-4-1">
+              <b>Уровень готовности к физическим нагрузкам</b>
+              <a id="hideable-d-4-1" class="element-remover">✕</a><br/>
+              <textarea id="conclusionDPhysicalLoadReadinessLevel" class="form-control input-diagnosis update-object" placeholder="..." rows="1" tabindex="96"></textarea>
+              <span class="diagnosis-hint">(высокая, средняя, низкая)</span>
+            </div>
+            <div class="diagnosis-block is-hideable-d-4-2">
+              <b>Уровень двигательной активности</b>
+              <a id="hideable-d-4-2" class="element-remover">✕</a><br/>
+              <textarea id="conclusionDPhysicalActivityLevel" class="form-control input-diagnosis update-object" placeholder="..." rows="1" tabindex="97"></textarea>
+              <span class="diagnosis-hint">(снижен, адекватен, повышен)</span>
+            </div>
+            <div class="diagnosis-block is-hideable-d-4-3">
+              <b>Риск развития метаболического синдрома</b>
+              <a id="hideable-d-4-3" class="element-remover">✕</a><br/>
+              <textarea id="conclusionDMetabolicSyndromDevelopmentRisk" class="form-control input-diagnosis update-object" placeholder="..." rows="1" tabindex="98"></textarea>
+              <span class="diagnosis-hint">(есть, нет)</span>
+            </div>
           </div>
 
-          <div class="col-7" style="position:relative;">
+          <div class="col-7 signature-block">
             <label>Исследователь:</label>
-            <select id="doctorC" class="select-control doctor-select update-object" tabindex="99">
+            <select id="doctor-a3" class="select-control doctor-select update-object" tabindex="99">
               <option value="" selected></option>
               <option value="baerbach">Баербах А.В.</option>
               <option value="juk">Жук Д.В.</option>
@@ -852,11 +870,11 @@
               <option value="parshikov">Паршиков А.С.</option>
             </select>
             <span class="doctor-signature">(подпись)</span>
-            <div id="signature-doctorC"></div>
+            <div id="signature-doctor-a3" class="signature-picture"></div>
           </div>
           <div class="col-5">
             <label>Дата исследования:</label>
-            <input id="dateC" type="text" class="form-control update-object" placeholder="..." tabindex="100">
+            <input id="date-a3" type="text" class="form-control update-object" placeholder="..." tabindex="100">
           </div>
         </div>
       </div><!-- end of section-a3 -->
@@ -865,23 +883,24 @@
 
 
 
-<!-- BOT sections -->
+      <!-- BOT sections -->
       <div id="section-b1" class="section-global">
-        <div class="row patient-data-pasted">
+        <!-- Лист 1 теста BOT-short -->
+        <div class="row">
           <div class="bot-header">
             <img src="images/bot2.png" class="logo-bot" alt="Логотип теста" title="Оценка двигательного статуса Брунинкс-Озерецкого">
           </div>
 
-          <div class="col-12 is-clearable-page-1">
+          <div class="col-12">
             <h5>Скрининговая оценка двигательного статуса</h5>
           </div>
 
-          <div class="col-7 is-clearable-page-1">
+          <div class="col-7">
             Ф.И.О. пациента: <span class="pasted-text fullName-copy"></span><br/>
             Пол: <span class="pasted-text gender-copy">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>.<br/>
             Возраст: <span class="pasted-text ageYears-copy">&nbsp;&nbsp;&nbsp;</span> лет, <span class="pasted-text ageMonths-copy">0</span> мес.
           </div>
-          <div class="col-5 is-clearable-page-1">
+          <div class="col-5">
             Идентификационный номер: <span class="pasted-text idNumber-copy"></span><br/>
             Диагноз: <span class="pasted-text diagnosisMKB-copy"></span><br/>
             Категория: <span class="pasted-text category-copy"></span>
@@ -891,7 +910,7 @@
         <div class="row patient-data">
           <div class="col-12">
             <label class="label-120">Ведущая рука (письмо):</label>
-            <select id="primary-hand-writing" class="select-control">
+            <select id="primary-hand-writing-b1" class="select-control update-object">
               <option value="right" selected>Правая</option>
               <option value="left">Левая</option>
             </select>
@@ -899,7 +918,7 @@
 
           <div class="col-12">
             <label class="label-120">Ведущая рука (бросок):</label>
-            <select id="primary-hand-throwing" class="select-control">
+            <select id="primary-hand-throwing-b1" class="select-control update-object">
               <option value="right" selected>Правая</option>
               <option value="left">Левая</option>
             </select>
@@ -907,7 +926,7 @@
 
           <div class="col-12">
             <label class="label-120">Ведущая ступня/нога:</label>
-            <select id="primary-leg" class="select-control">
+            <select id="primary-leg-b1" class="select-control update-object">
               <option value="right" selected>Правая</option>
               <option value="left">Левая</option>
             </select>
@@ -960,9 +979,9 @@
         </div>
 
         <div class="row">
-          <div class="col-7" style="position:relative;">
+          <div class="col-7 signature-block">
               <label>Исследователь:</label>
-              <select id="doctorBotShortOne" class="select-control doctor-select" tabindex="">
+              <select id="doctor-b1-1" class="select-control doctor-select update-object" tabindex="">
                 <option value="" selected></option>
                 <option value="baerbach">Баербах А.В.</option>
                 <option value="juk">Жук Д.В.</option>
@@ -974,14 +993,16 @@
                 <option value="parshikov">Паршиков А.С.</option>
               </select>
               <span class="doctor-signature">(подпись)</span>
-              <div id="signature-doctorBotShortOne"></div>
+              <div id="signature-doctor-b1-1" class="signature-picture"></div>
           </div>
           <div class="col-5">
             <label>Дата исследования:</label>
-            <input id="dateBotShort" type="text" class="form-control update-object copied-field" placeholder="..." tabindex="100">
+            <input id="date-b1" type="text" class="form-control update-object copied-field" placeholder="..." tabindex="100">
           </div>
         </div>
 
+        <!-- Лист 2 теста BOT-short -->
+        <div class="visual-page-divider no-print"></div>
         <div class="row pagebreak patient-data">
           <div class="header">
             <img src="images/logo-rp.jpg" class="logo-rp" alt="Логотип НИИ" title="Логотип НИИ">
@@ -995,29 +1016,17 @@
             ОКПО 13157861, ОГРН 1027739507212, ИНН/КПП 7728008953/772801001</span></p>
           </div>
 
-          <div class="col-12">
-            <textarea class="form-control" rows="3">Исследование мелкой и крупной моторики, координации, силы и ловкости у детей с диагнозом:</textarea>
-          </div>
-
-
-          <div class="col-7 is-clearable-page-1">
+          <div class="col-7">
             Ф.И.О. пациента: <span class="pasted-text fullName-copy"></span><br/>
             Пол: <span class="pasted-text gender-copy">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>.<br/>
             Возраст: <span class="pasted-text ageYears-copy">&nbsp;&nbsp;&nbsp;</span> лет, <span class="pasted-text ageMonths-copy">0</span> мес.
           </div>
-          <div class="col-5 is-clearable-page-1">
+          <div class="col-5">
             Идентификационный номер: <span class="pasted-text idNumber-copy"></span><br/>
             Диагноз: <span class="pasted-text diagnosisMKB-copy"></span><br/>
             Категория: <span class="pasted-text category-copy"></span>
           </div>
-
-          <div class="col-12">
-            <label class="label-120">Диагноз:</label>
-            <input id="diagnosisMKB-copy" type="text" class="form-control medium-field copied-field" placeholder="по МКБ" tabindex="">
-          </div>
-
         </div><!-- /patient-data -->
-
 
         <div class="row">
           <div class="col">
@@ -1062,9 +1071,9 @@
               <textarea class="form-control" rows="4"></textarea>
             </p>
           </div>
-          <div class="col-7" style="position:relative;">
+          <div class="col-7 signature-block">
               <label>Исследователь:</label>
-              <select id="doctorBotShortTwo" class="select-control doctor-select" tabindex="">
+              <select id="doctor-b1-2" class="select-control doctor-select update-object" tabindex="">
                 <option value="" selected></option>
                 <option value="baerbach">Баербах А.В.</option>
                 <option value="juk">Жук Д.В.</option>
@@ -1076,98 +1085,44 @@
                 <option value="parshikov">Паршиков А.С.</option>
               </select>
               <span class="doctor-signature">(подпись)</span>
-              <div id="signature-doctorBotShortTwo"></div>
+              <div id="signature-doctor-b1-2" class="signature-picture"></div>
           </div>
           <div class="col-5">
             <label>Дата исследования:</label>
-            <span class="dateBotShort-copy" class="form-control"></span>
+            <span class="date-b1-copy" class="form-control"></span>
           </div>
         </div>
       </div><!-- end of section-b1 -->
 
-      <div id="section-b2" class="section-global">
-        <div class="bot-header">
-          <img src="images/bot2.png" class="logo-bot" alt="Логотип теста" title="Оценка двигательного статуса Брунинкс-Озерецкого">
-        </div>
 
+
+
+
+      <div id="section-b2" class="section-global">
+        <!-- Лист 1 теста BOT-2 -->
         <div class="row patient-data">
+          <div class="bot-header">
+            <img src="images/bot2.png" class="logo-bot" alt="Логотип теста" title="Оценка двигательного статуса Брунинкс-Озерецкого">
+          </div>
+
           <div class="col-12">
             <h5>Оценка двигательного статуса Брунинкс-Озерецкого</h5>
           </div>
 
           <div class="col-7">
-            <label class="label-120">Ф.И.О. пациента:</label>
-            <input id="patient-name" type="text" class="form-control name-field" placeholder="Катя Крылова" tabindex="">
+            Ф.И.О. пациента: <span class="pasted-text fullName-copy"></span><br/>
+            Пол: <span class="pasted-text gender-copy">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>.<br/>
+            Возраст: <span class="pasted-text ageYears-copy">&nbsp;&nbsp;&nbsp;</span> лет, <span class="pasted-text ageMonths-copy">0</span> мес.
           </div>
-          <div class="col-5 text-right">
-            <label>Идентификационный номер:</label>
-            <input id="patient-id" type="text" class="form-control medium-field" placeholder="..." tabindex="">
-          </div>
-
-          <div class="col-7">
-            <label class="label-120">Пол:</label>
-            <select id="gender" class="select-control" tabindex="">
-              <option value="null" selected></option>
-              <option value="male">Мужской</option>
-              <option value="female">Женский</option>
-            </select>
-          </div>
-          <div class="col-5 text-right">
-            <label>Диагноз:</label>
-            <input id="diagnosisMKB" type="text" class="form-control medium-field copied-field" placeholder="по МКБ" tabindex="">
-          </div>
-
-          <div class="col-9">
-            <label class="label-120">Возраст:</label>
-            <select class="select-control" id="age-years">
-              <option value="4" selected>4 года</option>
-              <option value="5">5 лет</option>
-              <option value="6">6 лет</option>
-              <option value="7">7 лет</option>
-              <option value="8">8 лет</option>
-              <option value="9">9 лет</option>
-              <option value="10">10 лет</option>
-              <option value="11">11 лет</option>
-              <option value="12">12 лет</option>
-              <option value="13">13 лет</option>
-              <option value="14">14 лет</option>
-              <option value="15">15 лет</option>
-              <option value="16">16 лет</option>
-              <option value="17">17 лет</option>
-              <option value="18">18 лет</option>
-              <option value="19">19 лет</option>
-              <option value="20">20 лет</option>
-              <option value="21">21 год</option>
-            </select>
-
-            <select class="select-control" id="age-months">
-              <option value="0" selected>0 месяцев</option>
-              <option value="1">1 месяц</option>
-              <option value="2">2 месяца</option>
-              <option value="3">3 месяца</option>
-              <option value="4">4 месяца</option>
-              <option value="5">5 месяцев</option>
-              <option value="6">6 месяцев</option>
-              <option value="7">7 месяцев</option>
-              <option value="8">8 месяцев</option>
-              <option value="9">9 месяцев</option>
-              <option value="10">10 месяцев</option>
-              <option value="11">11 месяцев</option>
-            </select>
-          </div>
-
-          <div class="col-3 text-right">
-            <label>Категория:</label>
-            <select id="category" type="text" class="select-control medium-field">
-              <option value="" selected></option>
-              <option value="ОМС">ОМС</option>
-              <option value="А">А</option>
-            </select>
+          <div class="col-5">
+            Идентификационный номер: <span class="pasted-text idNumber-copy"></span><br/>
+            Диагноз: <span class="pasted-text diagnosisMKB-copy"></span><br/>
+            Категория: <span class="pasted-text category-copy"></span>
           </div>
 
           <div class="col-12">
             <label class="label-120">Ведущая рука (письмо):</label>
-            <select id="primary-hand-writing" class="select-control">
+            <select id="primary-hand-writing-b2" class="select-control update-object">
               <option value="right" selected>Правая</option>
               <option value="left">Левая</option>
             </select>
@@ -1175,7 +1130,7 @@
 
           <div class="col-12">
             <label class="label-120">Ведущая рука (бросок):</label>
-            <select id="primary-hand-throwing" class="select-control">
+            <select id="primary-hand-throwing-b2" class="select-control update-object">
               <option value="right" selected>Правая</option>
               <option value="left">Левая</option>
             </select>
@@ -1183,7 +1138,7 @@
 
           <div class="col-12">
             <label class="label-120">Ведущая ступня/нога:</label>
-            <select id="primary-leg" class="select-control">
+            <select id="primary-leg-b2" class="select-control update-object">
               <option value="right" selected>Правая</option>
               <option value="left">Левая</option>
             </select>
@@ -1359,9 +1314,9 @@
         </div>
 
         <div class="row">
-          <div class="col-7" style="position:relative;">
+          <div class="col-7 signature-block">
               <label>Исследователь:</label>
-              <select id="doctorBot2One" class="select-control doctor-select" tabindex="">
+              <select id="doctor-b2-1" class="select-control doctor-select update-object" tabindex="">
                 <option value="" selected></option>
                 <option value="baerbach">Баербах А.В.</option>
                 <option value="juk">Жук Д.В.</option>
@@ -1373,77 +1328,40 @@
                 <option value="parshikov">Паршиков А.С.</option>
               </select>
               <span class="doctor-signature">(подпись)</span>
-              <div id="signature-doctorBot2One"></div>
+              <div id="signature-doctor-b2-1" class="signature-picture"></div>
+          </div>
+          <div class="col-5">
+            <label>Дата исследования:</label>
+            <input id="date-b2" type="text" class="form-control update-object copied-field" placeholder="..." tabindex="100">
           </div>
         </div>
 
-        <div class="row patient-data">
-          <div class="col-12">
-            <textarea class="form-control" rows="3">Исследование мелкой и крупной моторики, координации, силы и ловкости у детей с диагнозом:</textarea>
+        <!-- Лист 2 теста BOT-2 -->
+        <div class="visual-page-divider no-print"></div>
+        <div class="row pagebreak patient-data">
+          <div class="header">
+            <img src="images/logo-rp.jpg" class="logo-rp" alt="Логотип НИИ" title="Логотип НИИ">
+            <p>Федеральное государственное бюджетное учреждение<br/>
+            <b>«Национальный медицинский исследовательский центр детской гематологии, онкологии и&nbsp;иммунологии имени&nbsp;Дмитрия&nbsp;Рогачева»</b><br/>
+            Министерства Здравоохранения Российской Федерации<br/>
+
+            <span class="addresses">(ФГБУ  «НМИЦ  ДГОИ им. Дмитрия Рогачева»  Минздрава России)<br/>
+            117198, г. Москва, ул. Саморы Машела,&nbsp;д.1.<br/>
+            Телефон: 8&nbsp;(495)&nbsp;937-50-24, факс: 8&nbsp;(495)&nbsp;936-22-36, e-mail:&nbsp;info@niidg.ru<br/>
+            ОКПО 13157861, ОГРН 1027739507212, ИНН/КПП 7728008953/772801001</span></p>
           </div>
 
           <div class="col-7">
-            <label class="label-120">Ф.И.О. пациента:</label>
-            <input id="patient-name-copy" type="text" class="form-control name-field" placeholder="Катя Крылова" tabindex="">
+            Ф.И.О. пациента: <span class="pasted-text fullName-copy"></span><br/>
+            Пол: <span class="pasted-text gender-copy">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>.<br/>
+            Возраст: <span class="pasted-text ageYears-copy">&nbsp;&nbsp;&nbsp;</span> лет, <span class="pasted-text ageMonths-copy">0</span> мес.
           </div>
-          <div class="col-5 text-right">
-            <label>Идентификационный номер:</label>
-            <input id="patient-id-copy" type="text" class="form-control medium-field" placeholder="..." tabindex="">
+          <div class="col-5">
+            Идентификационный номер: <span class="pasted-text idNumber-copy"></span><br/>
+            Диагноз: <span class="pasted-text diagnosisMKB-copy"></span><br/>
+            Категория: <span class="pasted-text category-copy"></span>
           </div>
-
-          <div class="col-7">
-            <label class="label-120">Пол:</label>
-            <select id="gender-copy" class="select-control" tabindex="">
-              <option value="null" selected></option>
-              <option value="male">Мужской</option>
-              <option value="female">Женский</option>
-            </select>
-          </div>
-          <div class="col-5 text-right">
-            <label>Дата обследования:</label>
-            <input id="test-date-copy" type="text" class="form-control medium-field" placeholder="..." tabindex="">
-          </div>
-
-          <div class="col-9">
-            <label class="label-120">Возраст:</label>
-            <select class="select-control" id="age-years-copy">
-              <option value="4" selected>4 года</option>
-              <option value="5">5 лет</option>
-              <option value="6">6 лет</option>
-              <option value="7">7 лет</option>
-              <option value="8">8 лет</option>
-              <option value="9">9 лет</option>
-              <option value="10">10 лет</option>
-              <option value="11">11 лет</option>
-              <option value="12">12 лет</option>
-              <option value="13">13 лет</option>
-              <option value="14">14 лет</option>
-              <option value="15">15 лет</option>
-              <option value="16">16 лет</option>
-              <option value="17">17 лет</option>
-              <option value="18">18 лет</option>
-              <option value="19">19 лет</option>
-              <option value="20">20 лет</option>
-              <option value="21">21 год</option>
-            </select>
-          </div>
-
-          <div class="col-3 text-right">
-            <label>Категория:</label>
-            <select id="category-copy" type="text" class="select-control medium-field">
-              <option value="" selected></option>
-              <option value="ОМС">ОМС</option>
-              <option value="А">А</option>
-            </select>
-          </div>
-
-          <div class="col-12">
-            <label class="label-120">Диагноз:</label>
-            <input id="diagnosisMKB-copy" type="text" class="form-control medium-field copied-field" placeholder="по МКБ" tabindex="">
-          </div>
-
         </div><!-- /patient-data -->
-
 
         <div class="row">
           <div class="col">
@@ -1601,9 +1519,9 @@
               <textarea class="form-control" rows="4"></textarea>
             </p>
           </div>
-          <div class="col-7" style="position:relative;">
+          <div class="col-7 signature-block">
               <label>Исследователь:</label>
-              <select id="doctorBot2Two" class="select-control doctor-select" tabindex="">
+              <select id="doctor-b2-2" class="select-control doctor-select update-object" tabindex="">
                 <option value="" selected></option>
                 <option value="baerbach">Баербах А.В.</option>
                 <option value="juk">Жук Д.В.</option>
@@ -1615,7 +1533,11 @@
                 <option value="parshikov">Паршиков А.С.</option>
               </select>
               <span class="doctor-signature">(подпись)</span>
-              <div id="signature-doctorBot2Two"></div>
+              <div id="signature-doctor-b2-2" class="signature-picture"></div>
+          </div>
+          <div class="col-5">
+            <label>Дата исследования:</label>
+            <span class="date-b2-copy" class="form-control"></span>
           </div>
         </div>
 

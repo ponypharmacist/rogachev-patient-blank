@@ -55,7 +55,7 @@ function refillCopiedFields() {
 // Вспоминаем подписи при импорте пациента
 //=========================================
 function refillSignatures() {
-  let signatureInputs = ['doctorA', 'doctorB', 'doctorC'];
+  let signatureInputs = ['doctor-a1', 'doctor-a2', 'doctor-a3', 'doctor-b1-1', 'doctor-b1-2', 'doctor-b2-1', 'doctor-b2-2'];
   signatureInputs.forEach(function(field, i, signatureInputs) {
     let selectedDoctor = $('#' + field).val();
     $("#signature-" + field).attr('class', selectedDoctor);
