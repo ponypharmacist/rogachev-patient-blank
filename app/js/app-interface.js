@@ -4,8 +4,14 @@
 //=========================================
 // Patient object
 //=========================================
-var patient = {}
+var patient = {};
 
+function genderAgeReady () {
+  fillReferenceValues();
+  chooseTable('botshort');
+  chooseTable('primary');
+  chooseSecondaryTable();
+};
 //=========================================
 // Основные реакции на изменения полей
 //=========================================
@@ -62,8 +68,8 @@ $(document).ready(function(){
     patient.ageYears = parseInt(this.value);
     patient.ageMonths = parseInt($('#ageMonths').val());
     patient.ageConverted = patient.ageYears * 12 + patient.ageMonths;
-
-    patient.gender && patient.ageConverted && fillReferenceValues() && choosePrimaryTable() && chooseSecondaryTable() && chooseBotShortTable();
+    $('#age-converted').html(patient.ageConverted);
+    patient.gender && patient.ageConverted && genderAgeReady();
   });
 
   // Реагируем на смену возраста
@@ -71,17 +77,17 @@ $(document).ready(function(){
     patient.ageMonths = parseInt(this.value);
     patient.ageYears = parseInt($('#ageYears').val());
     patient.ageConverted = patient.ageYears * 12 + patient.ageMonths;
-
-    patient.gender && patient.ageConverted && fillReferenceValues() && choosePrimaryTable() && chooseSecondaryTable() && chooseBotShortTable();
+    $('#age-converted').html(patient.ageConverted);
+    patient.gender && patient.ageConverted && genderAgeReady();
   });
 
   // Реагируем на смену пола
   $('#gender').on('change', function() {
     patient.gender = $('#gender').val();
     pasteRussianGender();
-    patient.gender && patient.ageConverted && fillReferenceValues() && choosePrimaryTable() && chooseSecondaryTable() && chooseBotShortTable();
+    $('#selected-gender').html(patient.gender);
+    patient.gender && patient.ageConverted && genderAgeReady();
   });
-
 
   // Ставим подписи специалистов
   $('.doctor-select').on('change', function() {

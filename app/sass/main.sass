@@ -131,7 +131,8 @@ h5
 
 // Пациент - данные
 .patient-data
-  line-height: 32px
+  padding-bottom: 8px
+  line-height: 28px
 
 #patient-data-entry
   color: #fff
@@ -139,9 +140,25 @@ h5
   padding: 16px 0
   margin-bottom: 16px
 
-#patient-data-entry h5
-  color: #fff
-  padding-bottom: 8px
+#patient-data-entry
+  h5
+    color: #fff
+    padding-bottom: 8px
+
+  input,
+  select
+    color: #fff
+
+  *::placeholder
+    color: #37a9a5
+
+  select option
+    background-color: #00807b
+
+  input:focus
+    background-color: #00807b
+    box-shadow: 0 0 0 3px rgba(55, 169, 165, 0.25)
+
 
 // Пациент - таблицы и формы
 .table-like
@@ -202,6 +219,9 @@ select.select-control
   padding: 0px 6px
   vertical-align: baseline
 
+.patient-data select
+  height: 24px
+
 input.medium-field
   width: 120px
 
@@ -241,6 +261,7 @@ input:focus
 .diagnosis-hint
   font-size: 12px
   color: #666
+  padding-bottom: 8px
 
 .pasted-text
   font-weight: bold
@@ -407,10 +428,6 @@ select.doctor-select
 #subtest-8-select, #subtest-bs-select option
   padding: 0
 
-.label-120
-  width: 175px
-  text-align: right
-
 .subtest-group-1 .clr,
 .subtest-group-3 .clr
   background-color: #fff
@@ -466,7 +483,7 @@ th .clr, .thpad
 // BOT Graphs
 .graph-table
   width: 100%
-  margin: 16px 0 0
+  margin: 32px 0 0
 
 .graph-table td
   padding: 0 10px
@@ -586,6 +603,15 @@ th .clr, .thpad
     padding: 0
     margin: 0
 
+  .single-page
+    min-height: 100vh
+    display: flex
+    flex-direction: column
+
+  .single-page .signature-row
+    margin-top: auto
+    padding-bottom: 4px
+
   .row,
   .col,
   .col-2,
@@ -600,6 +626,9 @@ th .clr, .thpad
   .col-12
     padding: 0
     margin: 0
+
+  .row.patient-data
+    padding-bottom: 8px
 
   .header
     display: block

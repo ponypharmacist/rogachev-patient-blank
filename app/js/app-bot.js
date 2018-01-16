@@ -1,8 +1,4 @@
 // Made by Dmitry Glinskiy, contact me at glinskiy.net
-// Variables
-var tableSecondaryName = 0;
-var tableBotShortName = 0;
-
 // Chooses B1-2 table based on age and gender
 var primaryTableAgeRange = [
   0,48,52,56,60,64,68,72,76,80,84,88,92,96,102,108,114,120,126,132,138,144,150,156,162,168,180,192,204,228,264
@@ -18,22 +14,21 @@ var primaryTablePrefix = [
 // ==================================
 // Bot-Short variant main logic
 // ==================================
-function chooseBotShortTable () {
-  console.log('Started choosing BOT-short table.');
+function chooseTable (tablePrefix) {
   let index;
   for (index = 0; index < primaryTableAgeRange.length - 1; index++) {
     if (rangeShort(patient.ageConverted, primaryTableAgeRange[index], primaryTableAgeRange[index + 1])) {
-      tableBotShortName = 'botshort_' + patient.gender + primaryTablePrefix[index];
+      patient[tablePrefix + 'Table'] = tablePrefix + '_' + patient.gender + primaryTablePrefix[index];
     } else {
     };
   };
-  $('.tables-primary').html(tableBotShortName); // ToDo: bot-short вместо праймари
+  $('#bot-' + tablePrefix + '-table').html(patient[tablePrefix + 'Table']); // ToDo: bot-short вместо праймари
 };
 
 // Реагируем на ввод результатов субтеста
 function subtestBotShortGo(lastSubtest) {
   var lastSubtestResult = $('.sub-res-bs' + lastSubtest).val();
-  var lastSubtestScale = 19 + scanArray(tableBotShortName, lastSubtest, lastSubtestResult);
+  var lastSubtestScale = 19 + scanArray(patient.botshortTable, lastSubtest, lastSubtestResult);
   var lastSubtestPercentile = table_percentiles[lastSubtestScale - 19];
   var lastSubtestCategory = getBotShortCategory(lastSubtestScale);
   var lastSubtestSpread = table_bs_c3[lastSubtest][selectAgeGroup()];
@@ -87,39 +82,32 @@ function renderBotShortGraph() {
 // ==================================
 // Bot-2 main logic
 // ==================================
-function choosePrimaryTable () {
-  let index;
-  for (index = 0; index < primaryTableAgeRange.length - 1; index++) {
-    if (rangeShort(patient.ageConverted, primaryTableAgeRange[index], primaryTableAgeRange[index + 1])) {
-      patient.botPrimaryTable = 'primary_' + patient.gender + primaryTablePrefix[index];
-    } else {
-    };
-  };
-  $('#bot-primary-table').html(patient.botPrimaryTable);
-};
-
 // Chooses B4-5 table based on age and gender
 function chooseSecondaryTable () {
+  let result;
+  console.log('Started choosing secondary table.');
   if (range(patient.ageConverted, 0, 47)) {
-    tableSecondaryName = 'AgeUnrealisticallyYoung';
+    result = 'AgeUnrealisticallyYoung';
   } else if (range(patient.ageConverted, 48, 59)) {
-    tableSecondaryName = 'secondary_' + patient.gender + '_40to411';
+    result = 'secondary_' + patient.gender + '_40to411';
   } else if (range(patient.ageConverted, 60, 71)) {
-    tableSecondaryName = 'secondary_' + patient.gender + '_50to511';
+    result = 'secondary_' + patient.gender + '_50to511';
   } else if (range(patient.ageConverted, 72, 95)) {
-    tableSecondaryName = 'secondary_' + patient.gender + '_60to711';
+    result = 'secondary_' + patient.gender + '_60to711';
   } else if (range(patient.ageConverted, 96, 119)) {
-    tableSecondaryName = 'secondary_' + patient.gender + '_80to911';
+    result = 'secondary_' + patient.gender + '_80to911';
   } else if (range(patient.ageConverted, 120, 143)) {
-    tableSecondaryName = 'secondary_' + patient.gender + '_100to1111';
+    result = 'secondary_' + patient.gender + '_100to1111';
   } else if (range(patient.ageConverted, 144, 179)) {
-    tableSecondaryName = 'secondary_' + patient.gender + '_120to1411';
+    result = 'secondary_' + patient.gender + '_120to1411';
   } else if (range(patient.ageConverted, 180, 264)) {
-    tableSecondaryName = 'secondary_' + patient.gender + '_150to2111';
+    result = 'secondary_' + patient.gender + '_150to2111';
   } else {
-    tableSecondaryName = 'AgeUnrealisticallyOld';
+    result = 'AgeUnrealisticallyOld';
   }
-  $('.tables-secondary').html(tableSecondaryName);
+  patient.secondaryTable = result;
+  console.log('Finished choosing secondary table.');
+  $('#bot-table-secondary').html(patient.secondaryTable);
 };
 
 
@@ -274,9 +262,9 @@ function getSubtestsForSummary(summary) {
 
 // Обновляет данные в строчке саммари
 function updateSubtestSum(summaryNo, summarySum) {
-  var summaryScaleIndex = parseInt(scanArray(tableSecondaryName, summaryNo, summarySum));
-  var summaryScale = window[tableSecondaryName][6][summaryScaleIndex];
-  var summaryPercentile = window[tableSecondaryName][7][summaryScaleIndex];
+  var summaryScaleIndex = parseInt(scanArray(patient.secondaryTable, summaryNo, summarySum));
+  var summaryScale = window[patient.secondaryTable][6][summaryScaleIndex];
+  var summaryPercentile = window[patient.secondaryTable][7][summaryScaleIndex];
   var summaryCategory = getSummaryCategory(summaryScale);
 
   var summarySpread = table_c3[summaryNo][selectAgeGroup()];

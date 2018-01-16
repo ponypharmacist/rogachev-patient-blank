@@ -3,22 +3,10 @@ var gulp = require('gulp'),
     browserSync = require('browser-sync'),
     concat = require('gulp-concat'),
     uglify = require('gulp-uglifyjs');
+    jade = require('jade');
+    gulpJade = require('gulp-jade');
 
-/*
-Все таски есть в гугле. Ищем, добавляем.
-
-gulp.task('taskname', function() { // Вызывается через консоль: gulp taskname
-  console.log('Hello gulp.');
-  return gulp.src('source-files')
-  .pipe(plugin())
-  .pipe(gulp.dest('folder'))
-});
-
-gulp.task('taskname', function() {
-
-});
-
-*/
+// Все таски есть в гугле. Ищем, добавляем.
 
 // Собираем стили
 gulp.task('sass', function() {
@@ -27,6 +15,15 @@ gulp.task('sass', function() {
   .pipe(gulp.dest('app/css')) // Нельзя писать файл, тока папку
   .pipe(browserSync.reload({stream: true}))
 });
+
+gulp.task('jade', function () {
+  return gulp.src('app/jade/alt-index.jade')
+    .pipe(gulpJade({
+      jade: jade,
+      pretty: true
+    }))
+    .pipe(gulp.dest('app/'))
+})
 
 gulp.task('scripts', function() { // Если я хочу библиотеки левые сжать и добавить в js-папку например
   return gulp.src([
@@ -46,8 +43,9 @@ gulp.task('browser-sync', function() {
   });
 });
                   // Тут перечислены таски, выполняемые до запуска watch
-gulp.task('watch', ['browser-sync', 'sass'], function() {
+gulp.task('watch', ['browser-sync', 'sass', 'jade'], function() {
   gulp.watch('app/sass/**/*.sass', ['sass']);
+  gulp.watch('app/jade/**/*.jade', ['jade']);
   gulp.watch('app/*.html', browserSync.reload);
   gulp.watch('app/js/**/*.js', browserSync.reload);
 });

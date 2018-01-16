@@ -125,7 +125,8 @@ h5 {
   color: #666; }
 
 .patient-data {
-  line-height: 32px; }
+  padding-bottom: 8px;
+  line-height: 28px; }
 
 #patient-data-entry {
   color: #fff;
@@ -136,6 +137,20 @@ h5 {
 #patient-data-entry h5 {
   color: #fff;
   padding-bottom: 8px; }
+
+#patient-data-entry input,
+#patient-data-entry select {
+  color: #fff; }
+
+#patient-data-entry *::placeholder {
+  color: #37a9a5; }
+
+#patient-data-entry select option {
+  background-color: #00807b; }
+
+#patient-data-entry input:focus {
+  background-color: #00807b;
+  box-shadow: 0 0 0 3px rgba(55, 169, 165, 0.25); }
 
 .table-like {
   width: 100%;
@@ -195,6 +210,9 @@ select.select-control {
   padding: 0px 6px;
   vertical-align: baseline; }
 
+.patient-data select {
+  height: 24px; }
+
 input.medium-field {
   width: 120px; }
 
@@ -233,7 +251,8 @@ input:focus {
 
 .diagnosis-hint {
   font-size: 12px;
-  color: #666; }
+  color: #666;
+  padding-bottom: 8px; }
 
 .pasted-text {
   font-weight: bold; }
@@ -395,10 +414,6 @@ select.doctor-select {
 #subtest-8-select, #subtest-bs-select option {
   padding: 0; }
 
-.label-120 {
-  width: 175px;
-  text-align: right; }
-
 .subtest-group-1 .clr,
 .subtest-group-3 .clr {
   background-color: #fff; }
@@ -453,7 +468,7 @@ th .clr, .thpad {
 
 .graph-table {
   width: 100%;
-  margin: 16px 0 0; }
+  margin: 32px 0 0; }
 
 .graph-table td {
   padding: 0 10px;
@@ -569,6 +584,13 @@ th .clr, .thpad {
     border: none;
     padding: 0;
     margin: 0; }
+  .single-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column; }
+  .single-page .signature-row {
+    margin-top: auto;
+    padding-bottom: 4px; }
   .row,
   .col,
   .col-2,
@@ -583,6 +605,8 @@ th .clr, .thpad {
   .col-12 {
     padding: 0;
     margin: 0; }
+  .row.patient-data {
+    padding-bottom: 8px; }
   .header {
     display: block;
     margin: 0 0 15px;
