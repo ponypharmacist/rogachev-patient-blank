@@ -1,0 +1,665 @@
+// Made by Dmitry Glinskiy, contact me at glinskiy.net
+body
+  background-color: #f1f1f1
+  -webkit-print-color-adjust: exact
+
+.container-custom
+  width: 932px
+  min-height: 100vh
+  margin: 0 auto
+  padding: 0 15px 32px
+  background-color: #ffffff
+  border-left: 1px solid #ddd
+  border-right: 1px solid #ddd
+
+// Меню выбора раздела и печати
+.print-menu
+  position: fixed
+  width: 180px
+  float: left
+  margin-left: -196px
+  margin-top: 56px
+  border-top: 12px solid #00807b
+  border-bottom: 12px solid #00807b
+  background-color: #ffffff
+
+.print-menu-icon
+  position: absolute
+  width: 32px
+  height: 32px
+  background: transparent url('../images/printer.svg') no-repeat 50% 50% / 100%
+  top: -48px
+  left: -42px
+  opacity: 0.4
+
+.print-menu-item
+  position: relative
+  border-bottom: 1px solid #ddd
+
+.print-menu-item:nth-child(2)
+  border-top: 1px solid #ddd
+
+.print-page-button
+  position: absolute
+  width: 26px
+  height: 26px
+  left: -40px
+  top: 8px
+  background: transparent url('../images/paper.svg') no-repeat 50% 50% / 100%
+  cursor: pointer
+
+.print-page-button:hover
+  opacity: 0.5
+
+.print-page-button.selected
+  background: transparent url('../images/paper-ok.svg') no-repeat 50% 50% / 100%
+
+.print-menu-link
+  display: block
+  color: #fff
+  background-color: #00807b
+  padding: 9px 12px 8px
+  font-weight: 500
+  cursor: pointer
+
+.print-menu-link:hover
+  color: #00807b
+  background-color: #ddd
+  text-decoration: none
+
+.print-menu-item.selected .print-menu-link
+  margin-right: -1px
+  color: #00807b
+  background-color: #fff
+
+// Отображение глобальных секций
+.section-global
+  display: none
+  min-height: 100vh
+
+.visible
+  display: block
+
+.visual-page-divider
+  width: 100%
+  height: 6px
+  background-color: #00807b
+  margin: 48px 0
+
+// Шапка бланка
+.header
+  display: none
+  width: 100%
+  text-align: center
+  padding: 10px 10px 0 160px
+  border-bottom: 1px solid #00807b
+  margin: 0 15px 15px
+
+.header p
+  margin: 0
+  font-size: 15px
+  line-height: 20px
+
+.logo-rp
+  float: left
+  width: 150px
+  margin-left: -160px
+  margin-top: 15px
+
+.addresses
+  display: inline-block
+  font-size: 12px
+  line-height: 16px
+  padding: 5px 0 15px
+
+.logo-bot
+  padding: 12px 0 0
+  width: 300px
+  margin: 0 300px
+
+// Заголовки
+h5
+  color: #00807b
+  position: relative
+
+.h5-padded
+  padding-top: 16px
+
+.h5-note
+  font-size: 16px
+  color: #666
+
+// Пациент - данные
+.patient-data
+  line-height: 32px
+
+#patient-data-entry
+  color: #fff
+  background-color: #00807b
+  padding: 16px 0
+  margin-bottom: 16px
+
+#patient-data-entry h5
+  color: #fff
+  padding-bottom: 8px
+
+// Пациент - таблицы и формы
+.table-like
+  width: 100%
+  display: flex
+  flex-direction: column
+  border-bottom: 4px solid #fafafa
+
+.row-like
+  width: 100%
+  display: flex
+  flex: row nowrap
+  background-color: #fff
+
+.row-like:nth-child(odd)
+  background-color: #fff
+
+.row-like:nth-child(even)
+  background-color: #eee
+
+.row-like > div
+  padding: 6px 8px
+  line-height: 20px
+  font-size: 15px
+
+.thead-like
+  background-color: #00807b!important
+  color: #fff
+  border: none
+  font-weight: 600
+
+.thead-like > div
+  padding: 10px 8px
+
+.thead-col
+  flex-grow: 1
+
+input.form-control,
+textarea.form-control,
+select.select-control
+  display: inline-block
+  background-color: rgba(0,0,0,0.05)
+  border: none
+  height: 32px
+
+input.form-control
+  padding: 8px 6px
+  max-width: 200px
+
+textarea.form-control
+  padding: 8px 6px
+  line-height: 16px
+  position: relative
+  z-index: 10
+
+select.select-control
+  width: 120px
+  padding: 0px 6px
+  vertical-align: baseline
+
+input.medium-field
+  width: 120px
+
+input.short-field
+  max-width: 30px
+
+input.inline-mini
+  width: 90px
+  height: 20px
+
+input.name-field
+  max-width: 380px
+
+input[readonly]
+  background-color: transparent !important
+
+.row-like input.form-control
+  max-width: 100%
+
+.input-cell
+  padding: 0!important
+  display: flex
+
+.input-cell input.form-control
+  text-align: center
+  height: 32px
+  margin: auto 0
+
+textarea.input-diagnosis
+  width: 100%
+  max-width: 100%
+  overflow: hidden
+
+input:focus
+  box-shadow: 0 0 0 3px rgba(40, 69, 167, 0.25)
+
+.diagnosis-hint
+  font-size: 12px
+  color: #666
+
+.pasted-text
+  font-weight: bold
+
+// Тонкие настройки таблиц отдельных
+.table-like-1 .col-2,
+.table-like-2 .col-2
+  flex-grow: 1
+  width: auto
+  min-width: 16.66%
+  max-width: 33.32%
+
+.table-like-2 .col-4
+  flex-grow: 1
+  width: auto
+  min-width: 33.32%
+  max-width: 49.98%
+
+.table-like-4 .col-4
+  max-width: 66.65%
+
+.table-like-4 .col-2
+  max-width: 16.65%
+
+.table-like-3 .col-4-special
+  padding: 0
+  display: flex
+
+.table-like-3 .col-4-special .col-6
+  display: inline-block
+  padding: 10px 8px
+  margin: 0
+  flex-grow: 1
+  width: auto
+  min-width: 50%
+  max-width: 100%
+
+.is-hideable-table-1
+  margin-bottom: 12px
+
+.is-hideable-table-3
+  margin-bottom: 20px
+
+.is-hideable-table-4
+  margin-bottom: 20px
+
+.is-hideable-table-6 .row-like.thead-like > div
+  padding: 5px 8px
+
+.is-hideable-table-7 .row-like.thead-like > div
+  padding: 5px 8px
+
+// Прочие элементы
+.element-remover
+  position: absolute
+  right: 4px
+  top: 50%
+  margin-top: -6px
+  width: 12px
+  height: 12px
+  font-size: 10px
+  line-height: 12px
+  text-align: center
+  background-color: #eee
+  color: #999!important
+  cursor: pointer
+
+.element-remover:hover
+  background-color: #ad0000
+  color: #fff!important
+
+.diagnosis-block .element-remover,
+.h5-note .element-remover
+  position: static
+  display: inline-block
+  top: auto
+  margin-top: auto
+  right: auto
+
+.h5-padded .element-remover
+  right: auto
+  margin-left: 10px
+  top: 75%
+
+.signature-block
+  position: relative
+
+select.doctor-select
+  width: 162px
+  position: relative
+  z-index: 10
+
+.doctor-signature
+  display: inline-block
+  border-top: 1px solid #666
+  color: #666
+  padding: 0 40px
+  font-size: 13px
+  line-height: 14px
+  position: relative
+  top: 18px
+  z-index: 10
+
+#signature-doctor-a1,
+#signature-doctor-a2,
+#signature-doctor-a3,
+#signature-doctor-b1-1,
+#signature-doctor-b1-2,
+#signature-doctor-b2-1,
+#signature-doctor-b2-2
+  width: 330px
+  height: 166px
+  position: absolute
+  left: 50%
+  top: 50%
+  margin-left: -70px
+  margin-top: -98px
+  transform: scale(0.5)
+  z-index: 0
+
+.baerbach
+  background: transparent url('../images/sig-baerbach.png') no-repeat 50% 50% / cover
+
+.juk
+  background: transparent url('../images/sig-juk.png') no-repeat 50% 50% / cover
+
+.nikulin
+  background: transparent url('../images/sig-nikulin.png') no-repeat 50% 50% / cover
+
+.mineev
+  background: transparent url('../images/sig-mineev.png') no-repeat 50% 50% / cover
+
+.krotko
+  background: transparent url('../images/sig-krotko.png') no-repeat 50% 50% / cover
+
+.olejnikova
+  background: transparent url('../images/sig-olejnikova.png') no-repeat 50% 50% / cover
+
+.taldykina
+  background: transparent url('../images/sig-taldykina.png') no-repeat 50% 50% / cover
+
+.parshikov
+  background: transparent url('../images/sig-parshikov.png') no-repeat 50% 50% / cover
+
+
+// BOT styles
+// Main Table
+.table
+  margin-bottom: 0
+
+.main-table th,
+.main-table td
+  vertical-align: middle
+  border-color: #fff
+  padding: 0
+
+#subtest-8-select, #subtest-bs-select
+  width: 210px
+  padding: 0
+
+#subtest-8-select, #subtest-bs-select option
+  padding: 0
+
+.label-120
+  width: 175px
+  text-align: right
+
+.subtest-group-1 .clr,
+.subtest-group-3 .clr
+  background-color: #fff
+
+.subtest-group-2 .clr,
+.subtest-group-4 .clr
+  background-color: #eee
+
+.clr
+  display: inline-block
+  width: 100%
+  height: 40px
+  line-height: 32px
+  padding: 4px 0
+
+th .clr, .thpad
+  padding-left: 8px
+
+.th-clr
+  font-weight: 500
+  background-color: #00807b
+  color: #fff
+  line-height: 18px
+  padding-top: 8px
+  padding-bottom: 8px
+  height: 100%
+
+.unbold
+  font-weight: normal!important
+
+.main-table td .form-control,
+.scale-field,
+.summ-field
+  display: inline-block
+  width: 60px
+  text-align: center
+  padding: 5px 10px
+  line-height: 18px
+  height: 28px
+
+.scale-field
+  background-color: rgba(255,255,255,0.85)
+  border-radius: 5px
+  font-weight: bold
+
+.total-scale
+  background-color: rgba(240,240,240,0.85)
+  font-weight: bold
+
+.row-divider
+  margin: 30px 0
+
+// BOT Graphs
+.graph-table
+  width: 100%
+  margin: 16px 0 0
+
+.graph-table td
+  padding: 0 10px
+  line-height: 34px
+  min-height: 34px
+  border-top: none
+
+.cell-normality
+  float: left
+  height: 40px
+  text-align: center
+  vertical-align: middle
+  font-size: 90%
+  line-height: 14px
+  padding: 13px 4px
+
+.cell-very-subnormal
+  width: 14.285%
+  padding: 6px 4px
+  background-color: #eee
+
+.cell-subnormal,
+.cell-supnormal
+  width: 14.285%
+  background-color: #ccc
+  padding: 6px 4px
+
+.cell-normal
+  width: 28.57%
+  background-color: #aaa
+
+.cell-very-supnormal
+  width: 28.57%
+  background-color: #eee
+
+.graph-caption
+  width: 30%
+
+.graph-bar-wrap
+  position: relative
+  width: 100%
+
+.graph-bar
+  position: relative
+  width: 100%
+  height: 32px
+  background: transparent url('../images/ruler.svg') no-repeat 50% 50% / 100%
+  overflow: hidden
+
+.graph-value
+  position: absolute
+  height: 20px
+  line-height: 20px
+  top: 6px
+  background-color: rgba(133,190,255,1)
+  color: #000
+  text-align: center
+  font-size: 90%
+
+.graph-lines
+  position: absolute
+  top: -34px
+  min-width: 2.45%
+  text-align: center
+  font-weight: bold
+  color: #333
+
+.graph-20
+  left: -1.2%
+
+.graph-30
+  left: 13.08%
+
+.graph-40
+  left: 27.4%
+
+.graph-50
+  left: 41.7%
+
+.graph-60
+  left: 56.04%
+
+.graph-70
+  left: 70.42%
+
+.graph-80
+  left: 84.7%
+
+.graph-90
+  left: 98.8%
+
+// Debug stuff
+.debug-button
+  text-decoration: underline
+  cursor: pointer
+
+.debug-area textarea
+  font-family: monospace
+  line-height: 20px
+  display: inline-block
+  width: 90%
+  border: none
+  background-color: rgba(0,0,0,0.05)
+
+// Все для печати
+@media print
+  body
+    background-color: #fff
+    padding: 0
+    margin: 0
+
+  .container-custom
+    min-height: auto
+    width: 900px!important
+    max-width: 900px
+    border: none
+    padding: 0
+    margin: 0
+
+  .row,
+  .col,
+  .col-2,
+  .col-3,
+  .col-4,
+  .col-5,
+  .col-6,
+  .col-7,
+  .col-8,
+  .col-9,
+  .col-10,
+  .col-12
+    padding: 0
+    margin: 0
+
+  .header
+    display: block
+    margin: 0 0 15px
+    padding: 0 0 0 160px
+
+  .logo-rp
+    margin-top: 15px
+
+  input.form-control
+    border: none
+    background-color: transparent
+    padding: 0
+    height: 32px
+    line-height: 32px
+
+  textarea.input-diagnosis
+    border: none
+    padding: 0
+    position: relative
+    z-index: 10
+
+  input.form-control::placeholder,
+  textarea.form-control::placeholder
+    color: transparent
+
+  input.input-diagnosis
+    height: 34px
+    background-color: rgba(0,0,0,0.05)
+    padding: 12px 6px!important
+    position: relative
+    z-index: 10
+
+  select.select-control
+    background-color: transparent
+    -webkit-appearance: none
+
+  #subtest-8-select
+    background-color: transparent !important
+
+  input.short-field
+    text-align: right
+
+  .table-br
+    border-right: 12px solid #fff!important
+
+  .page-1-last-block
+    height: 410px
+
+  textarea
+    resize: none
+
+  .diagnosis-block
+    padding: 0
+    margin: 0
+
+  .pagebreak
+    page-break-before: always
+
+  .no-print,
+  .element-remover,
+  .diagnosis-hint
+    display: none!important
+
+  .printable
+    display: block!important
