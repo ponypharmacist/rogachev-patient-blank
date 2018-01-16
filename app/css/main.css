@@ -379,6 +379,9 @@ select.doctor-select {
 .table {
   margin-bottom: 0; }
 
+#main-table-bot-short {
+  margin-bottom: 24px; }
+
 .main-table th,
 .main-table td {
   vertical-align: middle;

@@ -8,10 +8,12 @@
 // Выставляем референсные значения
 //=========================================
 function fillReferenceValues() {
+  console.log('Started filling reference values.');
   fillReferenceInterval('height', ageRangeTableHeight);
   fillReferenceInterval('weight', ageRangeTableHeight);
   fillReferenceInterval('bmi', ageRangeTableBMI);
   fillReferenceWHR();
+  console.log('Finished filling reference values.');
 }
 
 function fillReferenceInterval (parameterName, ageRangeTable) {

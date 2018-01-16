@@ -1,6 +1,5 @@
 // Made by Dmitry Glinskiy, contact me at glinskiy.net
 // Variables
-var tablePrimaryName = 0;
 var tableSecondaryName = 0;
 var tableBotShortName = 0;
 
@@ -20,6 +19,7 @@ var primaryTablePrefix = [
 // Bot-Short variant main logic
 // ==================================
 function chooseBotShortTable () {
+  console.log('Started choosing BOT-short table.');
   let index;
   for (index = 0; index < primaryTableAgeRange.length - 1; index++) {
     if (rangeShort(patient.ageConverted, primaryTableAgeRange[index], primaryTableAgeRange[index + 1])) {
@@ -91,11 +91,11 @@ function choosePrimaryTable () {
   let index;
   for (index = 0; index < primaryTableAgeRange.length - 1; index++) {
     if (rangeShort(patient.ageConverted, primaryTableAgeRange[index], primaryTableAgeRange[index + 1])) {
-      tablePrimaryName = 'primary_' + patient.gender + primaryTablePrefix[index];
+      patient.botPrimaryTable = 'primary_' + patient.gender + primaryTablePrefix[index];
     } else {
     };
   };
-  $('.tables-primary').html(tablePrimaryName);
+  $('#bot-primary-table').html(patient.botPrimaryTable);
 };
 
 // Chooses B4-5 table based on age and gender
@@ -128,7 +128,7 @@ function subtestGo(a,b) {
   var lastSubtest = a;
   var summaryGroup = b;
   var lastSubtestResult = $('.sub-res-' + a).val();
-  var lastSubtestScale = scanArray(tablePrimaryName, lastSubtest, lastSubtestResult);
+  var lastSubtestScale = scanArray(patient.botPrimaryTable, lastSubtest, lastSubtestResult);
   var lastSubtestCategory = getSubtestCategory(lastSubtestScale);
   var lastSubtestSpread = table_c1[lastSubtest][selectAgeGroup()];
   var lastSubtestRange = getSubtestRange(lastSubtestScale, lastSubtestSpread);
