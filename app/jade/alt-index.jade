@@ -1,17 +1,1390 @@
 <!DOCTYPE html>
-html(lang="en")
+html(lang = "en")
   head
-    meta(charset="utf-8")
-    meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
-    link(rel="stylesheet" href="css/bootstrap.css")
-    link(rel="stylesheet" href="css/main.css")
-    title Антропометрическое обследование
+    meta(charset = "utf-8")
+    meta(name = "viewport" content = "width=device-width, initial-scale=1, shrink-to-fit=no")
+    link(rel = "stylesheet" href = "css/bootstrap.css")
+    link(rel = "stylesheet" href = "css/main.css")
+    title Бланки исследований
   
   body
     .container-custom
-      h1 Testing jade
-      
-      .row
-        include ./partials/header.jade
-        include ./partials/patient-data.jade
-        include ./partials/header.jade
+      .print-menu.no-print
+        .print-menu-icon
+        #pm-item-a1.print-menu-item.selected
+          #pp-button-a1.print-page-button.selected(rel = "a1")
+          .print-menu-link(rel = "a1") I: Антропометрия и&nbsp;соматоскопия
+        #pm-item-a2.print-menu-item
+          #pp-button-a2.print-page-button(rel = "a2")
+          .print-menu-link(rel = "a2") II: Гониометрия, физ.&nbsp;качества и&nbsp;толерантность
+        #pm-item-a3.print-menu-item
+          #pp-button-a3.print-page-button(rel = "a3")
+          .print-menu-link(rel = "a3") III: Стабилометрия и&nbsp;биоимпеданс
+        #pm-item-b1.print-menu-item
+          #pp-button-b1.print-page-button(rel = "b1")
+          .print-menu-link(rel = "b1") BOT краткая форма
+        #pm-item-b2.print-menu-item
+          #pp-button-b2.print-page-button(rel = "b2")
+          .print-menu-link(rel = "b2") BOT-2
+
+      #patient-data-entry.row.no-print
+        .col-12
+          h5 Данные пациента
+        .col-7
+          label Ф.И.О. пациента: 
+          input#fullName.form-control.name-field.copied-field.update-object(type="text" placeholder="Наташа Соколова" tabindex="1")
+        .col-5.text-right
+          label Идентификационный номер: 
+          input#idNumber.form-control.medium-field.copied-field.update-object(type="text" placeholder="00000" tabindex="2")
+        .col-3
+          label Пол: 
+          select#gender.select-control(tabindex="3")
+            option(value="null" selected) 
+            option(value="male") Мужской
+            option(value="female") Женский
+        .col-3
+          label Возраст: 
+          input#ageYears.form-control.copied-field.short-field(type="text" maxlength="2" placeholder="..." tabindex="4")
+          |  лет, 
+          input#ageMonths.form-control.copied-field.short-field(type="text" maxlength="2" value="0" tabindex="5")
+          |  мес. 
+        .col-3.text-right
+          label Категория: 
+          select#category.select-control.copied-field.medium-field.update-object(type="text" tabindex="6")
+            option(value="" selected) 
+            option(value="ОМС") ОМС
+            option(value="А") А
+        .col-3.text-right
+          label Диагноз: 
+          input#diagnosisMKB.form-control.medium-field.copied-field.update-object(type="text" placeholder="по МКБ" tabindex="7")
+      // end of patient data entry
+
+      // Раздел А1: Антропометрия и Соматоскопия
+      #section-a1.section-global.visible.printable
+        .single-page
+          .row.patient-data
+            include ./partials/header.jade
+            .col-12
+              h5 Антропометрические и соматоскопические показатели
+            include ./partials/patient-data.jade
+
+          // Таблица 1. Антропометрические показатели
+          .row
+            .col-12.is-hideable-table-1
+              .table-like.table-like-1
+                .row-like.thead-like
+                  .col-8 Антропометрические показатели 
+                    a#hideable-table-1.element-remover ✕
+                  .col-2.text-center Абсолютное значение
+                  .col-2.text-center.is-hideable-col-1-2 Референсные значения 
+                    a#hideable-col-1-2.element-remover ✕
+
+                .row-like.is-hideable-1-1
+                  .col-8.thead-col Рост стоя (см) 
+                    a#hideable-1-1.element-remover ✕
+                  .col-2.input-cell
+                    input#height.form-control(type="text" placeholder="..." maxlength="6" tabindex="7")
+                  .col-2.is-hideable-col-1-2.input-cell
+                    input#reference-height.form-control(type="text" placeholder="..." readonly)
+
+                .row-like.is-hideable-1-2
+                  .col-8.thead-col Рост сидя (см) 
+                    a#hideable-1-2.element-remover ✕
+                  .col-2.input-cell
+                    input#heightSitting.form-control.update-object(type="text" placeholder="..." maxlength="6" tabindex="8")
+                  .col-2.is-hideable-col-1-2.input-cell
+                    input.form-control(type="text" placeholder="...")
+
+                .row-like.is-hideable-1-3
+                  .col-8.thead-col Вес (кг) 
+                    a#hideable-1-3.element-remover ✕
+                  .col-2.input-cell
+                    input#weight.form-control(type="text" placeholder="..." maxlength="5" tabindex="9")
+                  .col-2.is-hideable-col-1-2.input-cell
+                    input#reference-weight.form-control(type="text" placeholder="..." readonly)
+
+                .row-like.is-hideable-1-4
+                  .col-8.thead-col Индекс массы тела (BMI) 
+                    a#hideable-1-4.element-remover ✕
+                  .col-2.input-cell
+                    input#bmi.form-control(type="text" placeholder="..." readonly)
+                  .col-2.is-hideable-col-1-2.input-cell
+                    input#reference-bmi.form-control(type="text" placeholder="..." readonly)
+
+                .row-like.is-hideable-1-5
+                  .col-8.thead-col Индекс талия-окружность бедер (WHR) 
+                    input#waistLength.form-control.inline-mini.no-print(type="text" placeholder="Талия (см)" tabindex="11")
+                    input#hipLength.form-control.inline-mini.no-print(type="text" placeholder="Бедра (см)" tabindex="12")
+                    a#hideable-1-5.element-remover ✕
+                  .col-2.input-cell
+                    input#whr.form-control(type="text" placeholder="...")
+                  .col-2.is-hideable-col-1-2.input-cell
+                    input#reference-whr.form-control(type="text" placeholder="..." readonly)
+
+                .row-like.is-hideable-1-6
+                  .col-8.thead-col Экскурсия грудной клетки (см) 
+                    a#hideable-1-6.element-remover ✕
+                  .col-2.input-cell
+                    input#chestExcursion.form-control.update-object(type="text" placeholder="..." maxlength="4" tabindex="14")
+                  .col-2.is-hideable-col-1-2.input-cell
+                    input.form-control(type="text" value="3 - 4 см" readonly)
+
+                .row-like.is-hideable-1-7
+                  .col-8.thead-col Разница в относительной длине ног (см) 
+                    a#hideable-1-7.element-remover ✕
+                  .col-2.input-cell
+                    input#legLengthDifferenceRelative.form-control.update-object(type="text" placeholder="..." tabindex="15")
+                  .col-2.is-hideable-col-1-2.input-cell
+                    input.form-control(type="text" value="до 2 см" readonly)
+
+                .row-like.is-hideable-1-8
+                  .col-8.thead-col Разница в абсолютной длине ног (см) 
+                    a#hideable-1-8.element-remover ✕
+                  .col-2.input-cell
+                    input#legLengthDifferenceAbsolute.form-control.update-object(type="text" placeholder="..." tabindex="16")
+                  .col-2.is-hideable-col-1-2.input-cell
+                    input.form-control(type="text" value="до 2 см" readonly)
+
+            // Таблица 2а. Соматоскопические показатели
+            .col-6.table-br.is-hideable-table-2
+              .table-like
+                .row-like.thead-like
+                  .col-9 Соматоскопические показатели 
+                    a#hideable-table-2.element-remover ✕
+                  .col-3
+
+                .row-like.is-hideable-2-1
+                  .col-9.thead-col Деформации грудной клетки 
+                    a#hideable-2-1.element-remover ✕
+                  .col-3.input-cell
+                    input#chestDeformation.form-control.update-object(type="text" placeholder="..." tabindex="17")
+    
+                .row-like.is-hideable-2-2
+                  .col-9.thead-col(style="font-size:90%;") Сагиттальные отклонения оси позвоночника 
+                    a#hideable-2-2.element-remover ✕
+                  .col-3.input-cell
+                    input#spineAxisSaggitalDeviation.form-control.update-object(type="text" placeholder="..." tabindex="18")
+
+                .row-like.is-hideable-2-3
+                  .col-9.thead-col Перекос таза 
+                    a#hideable-2-3.element-remover ✕
+                  .col-3.input-cell
+                    input#pelvicTilt.form-control.update-object(type="text" placeholder="..." tabindex="19")
+
+                .row-like.is-hideable-2-4
+                  .col-9.thead-col Тип дыхания 
+                    a#hideable-2-4.element-remover ✕
+                  .col-3.input-cell
+                    input#breathingType.form-control.update-object(type="text" placeholder="..." tabindex="20")
+    
+                .row-like.is-hideable-2-9
+                  .col-9.thead-col Деформация стоп 
+                    a#hideable-2-9.element-remover ✕
+                  .col-3.input-cell
+                    input#footDeformation.form-control.update-object(type="text" placeholder="..." tabindex="21")
+
+            // Таблица 2b: Соматоскопические показатели
+            .col-6.is-hideable-table-2
+              .table-like.is-hideable-table-2-2
+                .row-like.thead-like
+                  .col-9 &nbsp;
+                  .col-3
+                    a#hideable-table-2-2.element-remover ✕
+
+                .row-like.is-hideable-2-5
+                  .col-9.thead-col Шейный лордоз 
+                    a#hideable-2-5.element-remover ✕
+                  .col-3.input-cell
+                    input#neckLordosis.form-control.update-object(type="text" placeholder="..." tabindex="22")
+
+                .row-like.is-hideable-2-6
+                  .col-9.thead-col Грудной кифоз 
+                    a#hideable-2-6.element-remover ✕
+                  .col-3.input-cell
+                    input#chestKyphosi.form-control.update-object( type="text" placeholder="..." tabindex="23")
+
+                .row-like.is-hideable-2-7
+                  .col-9.thead-col Поясничный лордоз 
+                    a#hideable-2-7.element-remover ✕
+                  .col-3.input-cell
+                    input#waistLordosi.form-control.update-object( type="text" placeholder="..." tabindex="24")
+
+                .row-like.is-hideable-2-8
+                  .col-9.thead-col Выпрямленная спина 
+                    a#hideable-2-8.element-remover ✕
+                  .col-3.input-cell
+                    input#straightBack.form-control.update-object(type="text" placeholder="..." tabindex="25")
+
+            // Заключения, блок 1
+            .col-12
+              h5.h5-padded.is-hideable-h1 Заключение 
+                a#hideable-h1.element-remover ✕
+              .diagnosis-block.is-hideable-d-1-1
+                b Физическое развитие 
+                a#hideable-d-1-1.element-remover ✕
+                textarea#conclusionAPhysicalDevelopment.form-control.input-diagnosis.update-object(placeholder="..." rows="1" tabindex="26")
+                .diagnosis-hint (резко снижено, снижено, в пределах поло-возрастной нормы, повышено, значительно повышено, гармонично, дисгармонично)
+
+              .diagnosis-block.is-hideable-d-1-2
+                b Признаки висцерального ожирения 
+                a#hideable-d-1-2.element-remover ✕
+                textarea#conclusionAVisceralObesitySigns.form-control.input-diagnosis.update-object(placeholder="..." rows="1" tabindex="28")
+                .diagnosis-hint (отсутствуют, выражены незначительно, выражены значительно)
+
+              .diagnosis-block.is-hideable-d-1-3
+                b Пропорции тела 
+                a#hideable-d-1-3.element-remover ✕
+                textarea#conclusionABodyProportions.form-control.input-diagnosis.update-object(placeholder="..." rows="1" tabindex="29")
+                .diagnosis-hint (нарушены за счет отставания нижних конечностей, отставания туловища, не нарушены)
+
+              .diagnosis-block.is-hideable-d-1-4
+                b Тип дыхания 
+                a#hideable-d-1-4.element-remover ✕
+                textarea#conclusionABreathType.form-control.input-diagnosis.update-object(placeholder="..." rows="1" tabindex="30")
+                .diagnosis-hint (грудной, брюшной, смешанный)
+
+              .diagnosis-block.is-hideable-d-1-5
+                b Деформации опорно-двигательного аппарата 
+                a#hideable-d-1-5.element-remover ✕
+                textarea#conclusionASkeletalDeformations.form-control.input-diagnosis.update-object(placeholder="..." rows="1" tabindex="31")
+                .diagnosis-hint (не выявлены, выявлены (какие))
+
+          .row.signature-row
+            .col-7.signature-block
+              label Исследователь: 
+              select#doctor-a1.select-control.doctor-select.update-object(tabindex="32")
+                include ./partials/doctor-signatures.jade
+              |  
+              span.doctor-signature (подпись)
+              #signature-doctor-a1
+            .col-5
+              label Дата исследования: 
+              input#date-a1.form-control.update-object(type="text" placeholder="..." tabindex="33")
+      // Конец раздела А1
+
+      // Раздел А2: Гониометрия, физ. качества и толерантность
+      #section-a2.section-global
+        .single-page
+          .row.patient-data
+            include ./partials/header.jade
+            .col-12
+              h5 Гониометрия, физические качества и толерантность
+            include ./partials/patient-data.jade
+
+          .row
+            // Таблица 3. Гониометрические показатели
+            .col-12.is-hideable-table-3
+              .table-like.table-like-2
+                .row-like.thead-like
+                  .col-6 Гониометрические показатели 
+                    a#hideable-table-3.element-remover ✕
+                  .col-2.text-center Абсолютное значение слева
+                  .col-2.text-center Абсолютное значение справа
+                  .col-2.text-center.is-hideable-col-3-3 Референсные значения 
+                    a#hideable-col-3-3.element-remover ✕
+
+                .row-like.is-hideable-3-1
+                  .col-6.thead-col Отведение плеча с лопаткой (град.) 
+                    a#hideable-3-1.element-remover ✕
+                  .col-2.input-cell
+                    input#angleShoulderMovementLeft.form-control.update-object(type="text" placeholder="..." maxlength="3" tabindex="40")
+                  .col-2.input-cell
+                    input#angleShoulderMovementRight.form-control.update-object(type="text" placeholder="..." maxlength="3" tabindex="41")
+                  .col-2.is-hideable-col-3-3.input-cell
+                    input.form-control(type="text" value="180 ± 20")
+
+                .row-like.is-hideable-3-2
+                  .col-6.thead-col Сгибание в локтевом суставе (град.) 
+                    a#hideable-3-2.element-remover ✕
+                  .col-2.input-cell
+                    input#angleElbowBendLeft.form-control.update-object(type="text" placeholder="..." maxlength="3" tabindex="42")
+                  .col-2.input-cell
+                    input#angleElbowBendRight.form-control.update-object(type="text" placeholder="..." maxlength="3" tabindex="43")
+                  .col-2.is-hideable-col-3-3.input-cell
+                    input.form-control(type="text" value="150 ± 10")
+
+                .row-like.is-hideable-3-3
+                  .col-6.thead-col Разгибание предплечья (град.) 
+                    a#hideable-3-3.element-remover ✕
+                  .col-2.input-cell
+                    input#angleForearmBendLeft.form-control.update-object(type="text" placeholder="..." maxlength="3" tabindex="44")
+                  .col-2.input-cell
+                    input#angleForearmBendRight.form-control.update-object(type="text" placeholder="..." maxlength="3" tabindex="45")
+                  .col-2.input-cell.is-hideable-col-3-3
+                    input.form-control(type="text" value="-20 ± 20")
+
+                .row-like.is-hideable-3-4
+                  .col-6.thead-col Сгибание в тазобедренном суставе (град.) 
+                    a#hideable-3-4.element-remover ✕
+                  .col-2.input-cell
+                    input#anglePelvisJointBendLeft.form-control.update-object(type="text" placeholder="..." maxlength="3" tabindex="46")
+                  .col-2.input-cell
+                    input#anglePelvisJointBendRight.form-control.update-object(type="text" placeholder="..." maxlength="3" tabindex="47")
+                  .col-2.input-cell.is-hideable-col-3-3
+                    input.form-control(type="text" value="120 ± 10")
+
+                .row-like.is-hideable-3-5
+                  .col-6.thead-col Сгибание в коленном суставе (град.) 
+                    a#hideable-3-5.element-remover ✕
+                  .col-2.input-cell
+                    input#angleKneeJointBendLeft.form-control.update-object(type="text" placeholder="..." maxlength="3" tabindex="48")
+                  .col-2.input-cell
+                    input#angleKneeJointBendRight.form-control.update-object(type="text" placeholder="..." maxlength="3" tabindex="49")
+                  .col-2.input-cell.is-hideable-col-3-3
+                    input.form-control(type="text" value="140 ± 10")
+
+                .row-like.is-hideable-3-6
+                  .col-6.thead-col Сгибание в голеностопном суставе (град.) 
+                    a#hideable-3-6.element-remover ✕
+                  .col-2.input-cell
+                    input#angleAnkleJointBendLeft.form-control.update-object(type="text" placeholder="..." maxlength="3" tabindex="50")
+                  .col-2.input-cell
+                    input#angleAnkleJointBendRight.form-control.update-object(type="text" placeholder="..." maxlength="3" tabindex="51")
+                  .col-2.is-hideable-col-3-3.input-cell
+                    input.form-control(type="text" value="20 ± 10")
+
+            // Таблица 4. Физические качества
+            .col-12.is-hideable-table-4
+              .table-like.table-like-2.table-like-4
+                .row-like.thead-like
+                  .col-4 Физические качества 
+                    a#hideable-table-4.element-remover ✕
+                  .col-2.text-center.is-hideable-4-col-2a Абсолютное значение слева 
+                    a#hideable-4-col-2a.element-remover ✕
+                  .col-2.text-center.is-hideable-4-col-3a Половозрастная процентиль 
+                    a#hideable-4-col-3a.element-remover ✕
+                  .col-2.text-center.is-hideable-4-col-4a Абсолютное значение справа 
+                    a#hideable-4-col-4a.element-remover ✕
+                  .col-2.text-center.is-hideable-4-col-5a Половозрастная процентиль 
+                    a#hideable-4-col-5a.element-remover ✕
+
+                .row-like.is-hideable-4-2
+                  .col-4.thead-col Мышцы рук (сек) 
+                    a#hideable-4-2.element-remover ✕
+                  .col-2.input-cell.is-hideable-4-col-2a
+                    input#handStrengthLeft.form-control.update-object(type="text" placeholder="..." onchange="fillPercentile('handStrengthLeft','PhysicalAttributes');" maxlength="5" tabindex="52")
+                  .col-2.input-cell.is-hideable-4-col-3a
+                    input#percentile-handStrengthLeft.form-control(type="text" placeholder="...")
+                  .col-2.input-cell.is-hideable-4-col-4a
+                    input#handStrengthRight.form-control.update-object(type="text" placeholder="..." onchange="fillPercentile('handStrengthRight','PhysicalAttributes');" maxlength="5" tabindex="53")
+                  .col-2.input-cell.is-hideable-4-col-5a
+                    input#percentile-handStrengthRight.form-control(type="text" placeholder="...")
+
+                .row-like.is-hideable-4-3
+                  .col-4.thead-col Мышцы ног (сек) 
+                    a#hideable-4-3.element-remover ✕
+                  .col-2.input-cell.is-hideable-4-col-2a
+                    input#legStrengthLeft.form-control.update-object(type="text" placeholder="..." onchange="fillPercentile('legStrengthLeft','PhysicalAttributes');" maxlength="5" tabindex="54")
+                  .col-2.input-cell.is-hideable-4-col-3a
+                    input#percentile-legStrengthLeft.form-control(type="text" placeholder="...")
+                  .col-2.input-cell.is-hideable-4-col-4a
+                    input#legStrengthRight.form-control.update-object(type="text" placeholder="..." onchange="fillPercentile('legStrengthRight','PhysicalAttributes');" maxlength="5" tabindex="55")
+                  .col-2.input-cell.is-hideable-4-col-5a
+                    input#percentile-legStrengthRight.form-control(type="text" placeholder="...")
+
+                .row-like.is-hideable-4-6
+                  .col-4.thead-col Сила кисти (кг) 
+                    a#hideable-4-6.element-remover ✕
+                  .col-2.input-cell.is-hideable-4-col-2a
+                    input#palmStrengthLeft.form-control.update-object(type="text" placeholder="..." maxlength="5" tabindex="56")
+                  .col-2.input-cell.is-hideable-4-col-3a
+                    input.form-control(type="text" placeholder="...")
+                  .col-2.input-cell.is-hideable-4-col-4a
+                    input#palmStrengthRight.form-control.update-object(type="text" placeholder="..." maxlength="5" tabindex="57")
+                  .col-2.input-cell.is-hideable-4-col-5a
+                    input.form-control(type="text" placeholder="...")
+
+                .row-like.thead-like.is-hideable-table-4-subheader
+                  .col-8
+                    a#hideable-table-4-subheader.element-remover ✕
+                  .col-2.text-center Абсолютное значение
+                  .col-2.text-center.is-hideable-4-col-3b Половозрастная процентиль 
+                    a#hideable-4-col-3b.element-remover ✕
+
+                .row-like.is-hideable-4-1
+                  .col-8.thead-col Мышцы спины (сек) 
+                    a#hideable-4-1.element-remover ✕
+                  .col-2.input-cell
+                    input#backStrength.form-control.update-object(type="text" placeholder="..." onchange="fillPercentile('backStrength','PhysicalAttributes');" tabindex="58")
+                  .col-2.input-cell.is-hideable-4-col-3b
+                    input#percentile-backStrength.form-control(type="text" placeholder="...")
+
+                .row-like.is-hideable-4-4
+                  .col-8.thead-col Мышцы брюшного пресса (сек) 
+                    a#hideable-4-4.element-remover ✕
+                  .col-2.input-cell
+                    input#abdominalPress.form-control.update-object(type="text" placeholder="..." onchange="fillPercentile('abdominalPress','PhysicalAttributes');" tabindex="59")
+                  .col-2.input-cell.is-hideable-4-col-3b
+                    input#percentile-abdominalPress.form-control(type="text" placeholder="...")
+
+                .row-like.is-hideable-4-5
+                  .col-8.thead-col Становая сила (кг) 
+                    a#hideable-4-5.element-remover ✕
+                  .col-2.input-cell
+                    input#deadlift.form-control.update-object(type="text" placeholder="..." tabindex="60")
+                  .col-2.input-cell.is-hideable-4-col-3b
+                    input#percentile-deadlift.form-control(type="text" placeholder="...")
+
+                .row-like.is-hideable-4-7
+                  .col-8.thead-col Гибкость позвоночника (см) 
+                    a#hideable-4-7.element-remover ✕
+                  .col-2.input-cell
+                    input#spineFlexibility.form-control.update-object(type="text" placeholder="..." onchange="fillPercentile('spineFlexibility','PhysicalAttributes');" tabindex="61")
+                  .col-2.input-cell.is-hideable-4-col-3b
+                    input#percentile-spineFlexibility.form-control(type="text" placeholder="...")
+
+            // Таблица 5. Толерантность к физическим нагрузкам 
+            .col-12.is-hideable-table-5
+              .table-like.table-like-2
+                .row-like.thead-like
+                  .col-8 Толерантность к физическим нагрузкам 
+                    a#hideable-table-5.element-remover ✕
+                  .col-2.text-center Абсолютное значение
+                  .col-2.text-center.is-hideable-col-5-2 Референсные значения 
+                    a#hideable-col-5-2.element-remover ✕
+
+                .row-like.is-hideable-5-1
+                  .col-8.thead-col Пройденное расстояние (м) 
+                    a#hideable-5-1.element-remover ✕
+                  .col-2.input-cell
+                    input#walkDistance.form-control.update-object(type="text" placeholder="..." tabindex="62")
+                  .col-2.input-cell.is-hideable-col-5-2
+                    input.form-control(type="text" placeholder="...")
+
+                .row-like.is-hideable-5-2
+                  .col-8.thead-col Время восстановления кардиореспираторных показателей (мин) 
+                    a#hideable-5-2.element-remover ✕
+                  .col-2.input-cell
+                    input#cardiorespiratoryRestorationTime.form-control.update-object(type="text" placeholder="..." tabindex="63")
+                  .col-2.input-cell.is-hideable-col-5-2
+                    input.form-control(type="text" placeholder="...")
+            
+            // Заключения, блок 2 
+            .col-12
+              h5.h5-padded.is-hideable-h2 Заключение 
+                a#hideable-h2.element-remover ✕
+
+              .diagnosis-block.is-hideable-d-2-1
+                b Объем движений изменен в суставах:
+                a#hideable-d-2-1.element-remover ✕
+                textarea#conclsionBMovementLimitedInJoints.form-control.input-diagnosis.update-object(placeholder="..." rows="1" tabindex="64")
+                .diagnosis-hint (повышен/понижен, в каких суставах)
+
+              .diagnosis-block.is-hideable-d-2-2
+                b Силовая выносливость
+                a#hideable-d-2-2.element-remover ✕
+                textarea#conclsionBStrengthEndurance.form-control.input-diagnosis.update-object(placeholder="..." rows="1" tabindex="65")
+                .diagnosis-hint (высокая, средняя, снижена в группах мышц)
+
+              .diagnosis-block.is-hideable-d-2-3
+                b Переносимость физических нагрузок
+                a#hideable-d-2-3.element-remover ✕
+                textarea#conclsionBPhysicalLoadEndurance.form-control.input-diagnosis.update-object(placeholder="..." rows="1" tabindex="66")
+                .diagnosis-hint (снижена, в пределах нормы, повышена)
+
+          .row.signature-row
+            .col-7.signature-block
+              label Исследователь: 
+              select#doctor-a2.select-control.doctor-select.update-object(tabindex="67")
+                include ./partials/doctor-signatures.jade
+              |  
+              span.doctor-signature (подпись)
+              #signature-doctor-a2
+            .col-5
+              label Дата исследования: 
+              input#date-a2.form-control.update-object(type="text" placeholder="..." tabindex="68")
+      // Конец раздела А2
+
+      // Раздел А3: Стабилометрия, биоимпеданс
+      #section-a3.section-global
+        .row.patient-data
+          include ./partials/header.jade
+          .col-12
+            h5 Стабилометрические показатели и биоимпеданс
+          include ./partials/patient-data.jade
+
+        .row
+          // Таблица 6. Стабилометрические показатели
+          .col-12.is-hideable-table-6
+            .table-like.table-like-2.table-like-3
+              .row-like.thead-like
+                .col-4 Стабилометрические показатели 
+                  a#hideable-table-6.element-remover ✕
+                .col-4.text-center Глаза открыты
+                .col-4.text-center.is-hideable-col-6-2 Глаза закрыты 
+                  a#hideable-col-6-2.element-remover ✕
+
+              .row-like.thead-like
+                .col-4
+                .col-4.col-4-special
+                  .col-6.text-center Абсол.
+                  .col-6.text-center.is-hideable-col-6-1-2 Реф. значения 
+                    a#hideable-col-6-1-2.element-remover ✕
+                .col-4.col-4-special.is-hideable-col-6-2
+                  .col-6.text-center Абсол.
+                  .col-6.text-center.is-hideable-col-6-2-2 Реф. значения 
+                    a#hideable-col-6-2-2.element-remover ✕
+
+              .row-like.is-hideable-6-1
+                .col-4.thead-col Смещение по фронтали (мм) 
+                  a#hideable-6-1.element-remover ✕
+                .col-4.col-4-special
+                  .col-6.input-cell
+                    input#shiftFrontalEyesOpen.form-control.update-object(type="text" placeholder="..." tabindex="80")
+                  .col-6.is-hideable-col-6-1-2.input-cell
+                    input.form-control(type="text" value="0 ± 2.5 мм")
+                .col-4.col-4-special.is-hideable-col-6-2
+                  .col-6.input-cell
+                    input#shiftFrontalEyesClosed.form-control.update-object(type="text" placeholder="..." tabindex="81")
+                  .col-6.is-hideable-col-6-2-2.input-cell
+                    input.form-control(type="text" value="0 ± 3.1 мм")
+
+              .row-like.is-hideable-6-2
+                .col-4.thead-col Смещение по сагиттали (мм) 
+                  a#hideable-6-2.element-remover ✕
+                .col-4.col-4-special
+                  .col-6.input-cell
+                    input#shiftSaggitalEyesOpen.form-control.update-object(type="text" placeholder="..." tabindex="82")
+                  .col-6.is-hideable-col-6-1-2.input-cell
+                    input.form-control(type="text" value="-40 ± 15 мм")
+                .col-4.col-4-special.is-hideable-col-6-2
+                  .col-6.input-cell
+                    input#shiftSaggitalEyesClosed.form-control.update-object(type="text" placeholder="..." tabindex="83")
+                  .col-6.is-hideable-col-6-2-2.input-cell
+                    input.form-control(type="text" value="-42 ± 17 мм")
+
+              .row-like.is-hideable-6-3
+                .col-4.thead-col
+                  | Площадь эллипса (мм
+                  sup 2
+                  | ) 
+                  a#hideable-6-3.element-remover ✕
+                .col-4.col-4-special
+                  .col-6.input-cell
+                    input#ellipseSquareEyesOpen.form-control.update-object(type="text" placeholder="..." tabindex="84")
+                  .col-6.is-hideable-col-6-1-2.input-cell
+                    input.form-control(type="text" value="132")
+                .col-4.col-4-special.is-hideable-col-6-2
+                  .col-6.input-cell
+                    input#ellipseSquareEyesClosed.form-control.update-object(type="text" placeholder="..." tabindex="85")
+                  .col-6.is-hideable-col-6-2-2.input-cell
+                    input.form-control(type="text" value="164")
+
+              .row-like.is-hideable-6-4
+                .col-4.thead-col(style="font-size:85%;")
+                  | Средняя скорость центра давления (мм
+                  sup 2
+                  | ) 
+                  a#hideable-6-4.element-remover ✕
+                .col-4.col-4-special
+                  .col-6.input-cell
+                    input#pressurePointSpeedEyesOpen.form-control.update-object(type="text" placeholder="..." tabindex="86")
+                  .col-6.is-hideable-col-6-1-2.input-cell
+                    input.form-control(type="text" value="10.4")
+                .col-4.col-4-special.is-hideable-col-6-2
+                  .col-6.input-cell
+                    input#pressurePointSpeedEyesClosed.form-control.update-object(type="text" placeholder="..." tabindex="87")
+                  .col-6.is-hideable-col-6-2-2.input-cell
+                    input.form-control(type="text" value="13.6")
+
+          // Заключения, блок 3
+          .col-12
+            h5.h5-padded.is-hideable-h3 Заключение по постуральному контролю 
+              a#hideable-h3.element-remover ✕
+
+            .diagnosis-block.is-hideable-d-3-1
+              b Положение центра давления
+              a#hideable-d-3-1.element-remover ✕
+              textarea#conclusionCPressureCenterPosition.form-control.input-diagnosis.update-object(placeholder="..." rows="1" tabindex="88")
+              .diagnosis-hint (правильное, смещение по сагиттали, фронтали)
+
+            .diagnosis-block.is-hideable-d-3-2
+              b Стабильность баланса
+              a#hideable-d-3-2.element-remover ✕
+              textarea#conclusionCBalanceStability.form-control.input-diagnosis.update-object(placeholder="..." rows="1" tabindex="89")
+              .diagnosis-hint (высокая, средняя, низкая)
+
+            .diagnosis-block.is-hideable-d-3-3
+              b Приоритетная сенсорная система
+              a#hideable-d-3-3.element-remover ✕
+              textarea#conclusionCPrimarySensoricSystem.form-control.input-diagnosis.update-object(placeholder="..." rows="1" tabindex="90")
+              .diagnosis-hint (зрение, проприорецепция)
+
+          // Таблица 7. Биоимпеданс
+          .col-12.is-hideable-table-7
+            .table-like.table-like-2
+              .row-like.thead-like
+                .col-6 Биоимпеданс 
+                  a#hideable-table-7.element-remover ✕
+                .col-2.text-center Абсолютное значение
+                .col-2.text-center.is-hideable-col-7-2 % к массе тела 
+                  a#hideable-col-7-2.element-remover ✕
+                .col-2.text-center.is-hideable-col-7-3 Половозрастная процентиль 
+                  a#hideable-col-7-3.element-remover ✕
+
+              .row-like.is-hideable-7-1
+                .col-6.thead-col Жировая масса (кг) 
+                  a#hideable-7-1.element-remover ✕
+                .col-2.input-cell
+                  input#massFat.form-control.calculate-percentage.update-object(type="text" placeholder="..." tabindex="91")
+                .col-2.is-hideable-col-7-2.input-cell
+                  input#percentage-massFat.form-control(type="text" placeholder="...")
+                .col-2.is-hideable-col-7-3.input-cell
+                  input.form-control(type="text" placeholder="...")
+
+              .row-like.is-hideable-7-2
+                .col-6.thead-col Тощая масса (кг) 
+                  a#hideable-7-2.element-remover ✕
+                .col-2.input-cell
+                  input#massLean.form-control.calculate-percentage.update-object(type="text" placeholder="..." tabindex="92")
+                .col-2.is-hideable-col-7-2.input-cell
+                  input#percentage-massLean.form-control(type="text" placeholder="...")
+                .col-2.is-hideable-col-7-3.input-cell
+                  input.form-control(type="text" placeholder="...")
+
+              .row-like.is-hideable-7-3
+                .col-6.thead-col Скелетно-мышечная масса 
+                  a#hideable-7-3.element-remover ✕
+                .col-2.input-cell
+                  input#massSkeletalMuscle.form-control.calculate-percentage.update-object(type="text" placeholder="..." tabindex="93")
+                .col-2.is-hideable-col-7-2.input-cell
+                  input#percentage-massSkeletalMuscle.form-control(type="text" placeholder="...")
+                .col-2.is-hideable-col-7-3.input-cell
+                  input.form-control(type="text" placeholder="...")
+
+              .row-like.is-hideable-7-4
+                .col-6.thead-col Активная клеточная масса (кг) 
+                  a#hideable-7-4.element-remover ✕
+                .col-2.input-cell
+                  input#massActiveCellular.form-control.calculate-percentage.update-object(type="text" placeholder="..." tabindex="94")
+                .col-2.is-hideable-col-7-2.input-cell
+                  input#percentage-massActiveCellular.form-control(type="text" placeholder="...")
+                .col-2.is-hideable-col-7-3.input-cell
+                  input.form-control(type="text" placeholder="...")
+
+              .row-like.is-hideable-7-5
+                .col-6.thead-col Фазовый угол (градусы) 
+                  a#hideable-7-5.element-remover ✕
+                .col-2.input-cell
+                  input#phasicAngle.form-control.update-object(type="text" placeholder="..." maxlength="5" tabindex="95")
+                .col-2.is-hideable-col-7-2.input-cell &nbsp;
+                .col-2.is-hideable-col-7-3.input-cell
+                  input.form-control(type="text" placeholder="...")
+
+          // Заключения, блок 4
+          .col-12.page-3-last-block
+            h5.h5-padded.is-hideable-h4 Заключение 
+              a#hideable-h4.element-remover ✕
+            .diagnosis-block.is-hideable-d-4-1
+              b Уровень готовности к физическим нагрузкам
+              a#hideable-d-4-1.element-remover ✕
+              textarea#conclusionDPhysicalLoadReadinessLevel.form-control.input-diagnosis.update-object(placeholder="..." rows="1" tabindex="96")
+              .diagnosis-hint (высокая, средняя, низкая)
+
+            .diagnosis-block.is-hideable-d-4-2
+              b Уровень двигательной активности
+              a#hideable-d-4-2.element-remover ✕
+              textarea#conclusionDPhysicalActivityLevel.form-control.input-diagnosis.update-object(placeholder="..." rows="1" tabindex="97")
+              .diagnosis-hint (снижен, адекватен, повышен)
+
+            .diagnosis-block.is-hideable-d-4-3
+              b Риск развития метаболического синдрома
+              a#hideable-d-4-3.element-remover ✕
+              textarea#conclusionDMetabolicSyndromDevelopmentRisk.form-control.input-diagnosis.update-object(placeholder="..." rows="1" tabindex="98")
+              .diagnosis-hint (есть, нет)
+
+        .row.signature-row
+          .col-7.signature-block
+            label Исследователь: 
+            select#doctor-a3.select-control.doctor-select.update-object(tabindex="99")
+              include ./partials/doctor-signatures.jade
+            |  
+            span.doctor-signature (подпись)
+            #signature-doctor-a3
+          .col-5
+            label Дата исследования: 
+            input#date-a3.form-control.update-object(type="text" placeholder="..." tabindex="100")
+      // Конец раздела А3
+
+      // Раздел В1: ВОТ короткая форма
+      #section-b1.section-global
+        // Лист 1 теста BOT-short
+        .single-page
+          .row.patient-data
+            .bot-header
+              img.logo-bot(src="images/bot2.png" alt="Логотип теста" title="Оценка двигательного статуса Брунинкс-Озерецкого")
+            .col-12
+              h5 Скрининговая оценка двигательного статуса
+            include ./partials/patient-data.jade
+            .col-12
+              span Ведущая рука (письмо): 
+              select#primary-hand-writing-b1.select-control.update-object
+                option(value="right" selected) Правая
+                option(value="left") Левая
+              br
+              span Ведущая рука (бросок): 
+              select#primary-hand-throwing-b1.select-control.update-object
+                option(value="right" selected) Правая
+                option(value="left") Левая
+              br
+              span Ведущая ступня/нога:
+              select#primary-leg-b1.select-control.update-object
+                option(value="right" selected) Правая
+                option(value="left") Левая
+
+          // Дебаг и таблица значений
+          .row
+            .col
+              p.debug-output.no-print
+                | Debug:
+                span#age-converted -
+                |  / 
+                span#selected-gender -,
+                span#bot-botshort-table -,
+                span#bot-primary-table -,
+                span#bot-table-secondary -,
+                span.last-subtest -
+
+          .row
+            .col.maintable-col
+              table#main-table-bot-short.table.main-table
+                thead
+                  tr
+                    th
+                      .thpad.th-clr
+                        | &nbsp;
+                        br 
+                        | &nbsp;
+                    th
+                      .th-clr
+                        | Общий
+                        br
+                        |  балл
+                    th
+                      .th-clr
+                        | Стандартный
+                        br
+                        |  балл
+                    th
+                      .th-clr
+                        | &nbsp;
+                        br
+                        | Разброс
+                    th
+                      .th-clr
+                        | &nbsp;
+                        br
+                        | Интервал
+                    th
+                      .th-clr
+                        | &nbsp;
+                        br
+                        | &nbsp;%&nbsp;
+                    th
+                      .th-clr
+                        | &nbsp;
+                        br
+                        | Категория
+
+                tbody
+                  tr.subtest-group-4
+                    th.unbold(scope="row")
+                      .clr
+                        select#subtest-bs-select.select-control.mb-2.mr-sm-2.mb-sm-0
+                          option(value="1" selected) A. Отжимания с колен
+                          option(value="2") B. Полные отжимания
+                    td
+                      .clr
+                        input.form-control.sub-res-bs1.sub-res-bs2(type="text" maxlength="2" onchange="subtestBotShortGo(1);")
+                    td
+                      .clr
+                        span.subtest-bs1-scale.subtest-bs2-scale.scale-field -
+                    td
+                      .clr
+                        span.subtest-bs1-spread.subtest-bs2-spread -
+                    td
+                      .clr
+                        span.subtest-bs1-range.subtest-bs2-range -
+                    td
+                      .clr
+                        span.subtest-bs1-percentile.subtest-bs2-percentile -
+                    td
+                      .clr
+                        span.subtest-bs1-category.subtest-bs2-category.category-field -
+
+          .row.signature-row
+            .col-7.signature-block
+                label Исследователь: 
+                select#doctor-b1-1.select-control.doctor-select.update-object(tabindex="")
+                  include ./partials/doctor-signatures.jade
+                |  
+                span.doctor-signature (подпись)
+                #signature-doctor-b1-1
+            .col-5
+              label Дата исследования: 
+              input#date-b1.form-control.update-object.copied-field(type="text" placeholder="..." tabindex="100")
+
+        // Лист 2 теста BOT-short
+        .visual-page-divider.no-print
+          .single-page
+            .row.patient-data
+              include ./partials/header.jade
+              .col-12
+                h5 Скрининговая оценка двигательного статуса
+              include ./partials/patient-data.jade
+
+            table.table.graph-table
+              tr
+                td
+                td
+                  .graph-bar-wrap
+                    .graph-lines.graph-20 20
+                    .graph-lines.graph-30 30
+                    .graph-lines.graph-40 40
+                    .graph-lines.graph-50 50
+                    .graph-lines.graph-60 60
+                    .graph-lines.graph-70 70
+                    .graph-lines.graph-80 80
+                    .graph-lines.graph-90 90
+
+                  .cell-normality.cell-very-subnormal Знач. ниже нормы
+                  .cell-normality.cell-subnormal Ниже нормы
+                  .cell-normality.cell-normal Норма
+                  .cell-normality.cell-supnormal Выше нормы
+                  .cell-normality.cell-very-supnormal Знач. выше нормы
+              tr
+                td.graph-caption-bs1.graph-caption А. Отжимания с колен
+                td
+                  .graph-bar
+                    .graph-value.graph-subtest-bs1-value ◆
+
+            .row
+              .col-12
+                b Заключение: 
+                textarea.form-control(rows="4")
+
+            .row.signature-row
+              .col-7.signature-block
+                  label Исследователь: 
+                  select#doctor-b1-2.select-control.doctor-select.update-object(tabindex="")
+                    include ./partials/doctor-signatures.jade
+                  |  
+                  span.doctor-signature (подпись)
+                  #signature-doctor-b1-2
+              .col-5
+                label Дата исследования: 
+                span.date-b1-copy.form-control
+      // Конец раздела В1
+
+      // Раздел В2: Оценка двигательного статуса Брунинкс-Озерецкого
+      #section-b2.section-global
+        // Лист 1 теста BOT-2
+        .single-page
+          .row.patient-data
+            .bot-header
+              img.logo-bot(src="images/bot2.png" alt="Логотип теста" title="Оценка двигательного статуса Брунинкс-Озерецкого")
+            .col-12
+              h5 Оценка двигательного статуса Брунинкс-Озерецкого
+            include ./partials/patient-data.jade
+            .col-12
+              span Ведущая рука (письмо): 
+              select#primary-hand-writing-b2.select-control.update-object
+                option(value="right" selected) Правая
+                option(value="left") Левая
+              br
+              span Ведущая рука (бросок): 
+              select#primary-hand-throwing-b2.select-control.update-object
+                option(value="right" selected) Правая
+                option(value="left") Левая
+              br
+              span Ведущая ступня/нога:
+              select#primary-leg-b2.select-control.update-object
+                option(value="right" selected) Правая
+                option(value="left") Левая
+
+          .row
+            .table-like
+              .row-like.thead-like
+                .cell-b2-1 Оценка двигательного статуса Брунинкс-Озерецкого
+                .cell-b2-2 Общий балл
+                .cell-b2-3 Шкала оценки
+                .cell-b2-4 Стандарты
+                .cell-b2-5 Разброс
+                .cell-b2-6 Интервал
+                .cell-b2-7 %
+                .cell-b2-8 Категория
+
+              // Subtest 1
+              .row-like.subtest-group-1
+                .cell-b2-1 1. Точность мелкой моторики
+                .cell-b2-2
+                  input.form-control.subtest-score.sub-res-1(type="text" maxlength="2" onchange="subtestGo(1,1);")
+                .cell-b2-3
+                  span.subtest-1-scale.scale-field -
+                .cell-b2-4  
+                .cell-b2-5
+                  span.subtest-1-spread -
+                .cell-b2-6
+                  span.subtest-1-range -
+                .cell-b2-7  
+                .cell-b2-8
+                  span.subtest-1-category.category-field -
+
+              // Subtest 2
+              .row-like.subtest-group-1
+                .cell-b2-1 2. Интеграция мелкой моторики
+                .cell-b2-2
+                  input.form-control.subtest-score.sub-res-2(type="text" maxlength="2" onchange="subtestGo(2,1);")
+                .cell-b2-3
+                  span.subtest-2-scale.scale-field -
+                .cell-b2-4  
+                .cell-b2-5
+                  span.subtest-2-spread -
+                .cell-b2-6
+                  span.subtest-2-range -
+                .cell-b2-7  
+                .cell-b2-8
+                  span.subtest-2-category.category-field -
+                
+              // Intermediate result 1
+              .row-like.subtest-group-1
+                .cell-b2-1 Мелкая моторика
+                .cell-b2-2.text-right Сумма:
+                .cell-b2-3
+                  span.summary-1-summ.summ-field -
+                .cell-b2-4
+                  span.summary-1-scale.scale-field -
+                .cell-b2-5
+                  span.summary-1-spread -
+                .cell-b2-6
+                  span.summary-1-range -
+                .cell-b2-7
+                  span.summary-1-percentile -
+                .cell-b2-8
+                  span.summary-1-category.category-field -
+                
+            .col.maintable-col
+              table.table.main-table
+                tbody
+
+                  // Subtest 3
+                  tr.subtest-group-2
+                    th.unbold(scope="row")
+                      .clr 3. Ловкость рук
+                    td
+                      .clr
+                        input.form-control.sub-res-3(type="text" maxlength="2" onchange="subtestGo(3,2);")
+                    td
+                      .clr
+                        span.subtest-3-scale.scale-field -
+                    td
+                      .clr &nbsp;
+                    td
+                      .clr
+                        span.subtest-3-spread -
+                    td
+                      .clr
+                        span.subtest-3-range -
+                    td
+                      .clr &nbsp;
+                    td
+                      .clr
+                        span.subtest-3-category.category-field -
+
+                  // Subtest 7
+                  tr.subtest-group-2
+                    th.unbold(scope="row")
+                      .clr 7. Координация верх. конечн.
+                    td
+                      .clr
+                        input.form-control.sub-res-7(type="text" maxlength="2" onchange="subtestGo(7,2);")
+                    td
+                      .clr
+                        span.subtest-7-scale.scale-field -
+                    td
+                      .clr &nbsp;
+                    td
+                      .clr
+                        span.subtest-7-spread -
+                    td
+                      .clr
+                        span.subtest-7-range -
+                    td
+                      .clr &nbsp;
+                    td
+                      .clr
+                        span.subtest-7-category.category-field -
+
+                  // Intermediate result 2
+                  tr.subtest-group-2
+                    th(scope="row")
+                      .clr Крупная моторика
+                    td.text-right
+                      .clr Сумма:
+                    td
+                      .clr
+                        span.summary-2-summ.summ-field -
+                    td
+                      .clr
+                        span.summary-2-scale.scale-field -
+                    td
+                      .clr
+                        span.summary-2-spread -
+                    td
+                      .clr
+                        span.summary-2-range -
+                    td
+                      .clr
+                        span.summary-2-percentile -
+                    td
+                      .clr
+                        span.summary-2-category.category-field -
+
+                  // Subtest 4
+                  tr.subtest-group-3
+                    th.unbold(scope="row")
+                      .clr 4. Билатеральные навыки
+                    td
+                      .clr
+                        input.form-control.sub-res-4(type="text" maxlength="2" onchange="subtestGo(4,3);")
+                    td
+                      .clr
+                        span.subtest-4-scale.scale-field -
+                    td
+                      .clr &nbsp;
+                    td
+                      .clr
+                        span.subtest-4-spread -
+                    td
+                      .clr
+                        span.subtest-4-range -
+                    td
+                      .clr &nbsp;
+                    td
+                      .clr
+                        span.subtest-4-category.category-field -
+
+                  // Subtest 5
+                  tr.subtest-group-3
+                    th.unbold(scope="row")
+                      .clr 5. Баланс
+                    td
+                      .clr
+                        input.form-control.sub-res-5(type="text" maxlength="2" onchange="subtestGo(5,3);")
+                    td
+                      .clr
+                        span.subtest-5-scale.scale-field -
+                    td
+                      .clr &nbsp;
+                    td
+                      .clr
+                        span.subtest-5-spread -
+                    td
+                      .clr
+                        span.subtest-5-range -
+                    td
+                      .clr &nbsp;
+                    td
+                      .clr
+                        span.subtest-5-category.category-field -
+
+                  // Intermediate result 3
+                  tr.subtest-group-3
+                    th(scope="row")
+                      .clr Координация
+                    td.text-right
+                      .clr Сумма:
+                    td
+                      .clr
+                        span.summary-3-summ.summ-field -
+                    td
+                      .clr
+                        span.summary-3-scale.scale-field -
+                    td
+                      .clr
+                        span.summary-3-spread -
+                    td
+                      .clr
+                        span.summary-3-range -
+                    td
+                      .clr
+                        span.summary-3-percentile -
+                    td
+                      .clr
+                        span.summary-3-category.category-field -
+                  
+                  // Subtest 6
+                  tr.subtest-group-4
+                    th(scope="row" class="unbold")
+                      .clr 6. Скорость бега и ловкость
+                    td
+                      .clr
+                        input.form-control.sub-res-6(type="text" maxlength="2" onchange="subtestGo(6,4);")
+                    td
+                      .clr
+                        span.subtest-6-scale.scale-field -
+                    td
+                      .clr &nbsp;
+                    td
+                      .clr
+                        span.subtest-6-spread -
+                    td
+                      .clr
+                        span.subtest-6-range -
+                    td
+                      .clr &nbsp;
+                    td
+                      .clr
+                        span.subtest-6-category.category-field -
+                  
+                  // Subtest 8
+                  tr.subtest-group-4
+                    th#subtest-8-select.unbold(scope="row")
+                      .clr
+                        select.select-control.mb-2.mr-sm-2.b-sm-0
+                          option(value="8" selected) 8a. Отжимания с колен
+                          option(value="9") 8b. Полные отжимания
+                    td
+                      .clr
+                        input.form-control.sub-res-8.sub-res-9(type="text" maxlength="2" onchange="subtestGo(8,4);")
+                    td
+                      .clr
+                        span.subtest-8-scale.subtest-9-scale.scale-field -
+                    td
+                      .clr &nbsp;
+                    td
+                      .clr
+                        span.subtest-8-spread.subtest-9-spread -
+                    td
+                      .clr
+                        span.subtest-8-range.subtest-9-range -
+                    td
+                      .clr &nbsp;
+                    td
+                      .clr
+                        span.subtest-8-category.subtest-9-category.category-field -
+
+                  // Intermediate result 4
+                  tr.subtest-group-4
+                    th(scope="row")
+                      .clr Сила и ловкость
+                    td.text-right
+                      .clr Сумма:
+                    td
+                      .clr
+                        span.summary-4-summ.summary-5-summ.summ-field -
+                    td
+                      .clr
+                        span.summary-4-scale.summary-5-scale.scale-field -
+                    td
+                      .clr
+                        span.summary-4-spread.summary-5-spread -
+                    td
+                      .clr
+                        span.summary-4-range.summary-5-range -
+                    td
+                      .clr
+                        span.summary-4-percentile.summary-5-percentile -
+                    td
+                      .clr
+                        span.summary-4-category.summary-5-category.category-field -
+                  
+                  // Totals
+                  tr.totals-row-1
+                    td
+                      .clr
+                    td
+                      .clr
+                    td.text-right
+                      .clr Сумма: 
+                    td
+                      .clr
+                        span.summ-field.total-score -
+                    td
+                      .clr
+                    td
+                      .clr
+                    td
+                      .clr
+                    td
+                      .clr
+
+                  tr.totals-row-2
+                    td.text-right(colspan="3")
+                      .clr
+                        b Общий двигательный балл: 
+                    td
+                      .clr
+                        span.summ-field.total-scale -
+                    td
+                      .clr
+                        span.total-spread -
+                    td
+                      .clr
+                        span.total-range -
+                    td
+                      .clr
+                        span.total-percentile -
+                    td
+                      .clr
+                        span.total-category -
+
+
+          .row.signature-row
+            .col-7.signature-block
+                label Исследователь: 
+                select#doctor-b2-1.select-control.doctor-select.update-object(tabindex="")
+                  include ./partials/doctor-signatures.jade
+                |  
+                span.doctor-signature (подпись)
+                #signature-doctor-b2-1
+            .col-5
+              label Дата исследования: 
+              input#date-b2.form-control.update-object.copied-field(type="text" placeholder="..." tabindex="")
+
+        // Лист 2 теста BOT-2
+        .visual-page-divider.no-print
+        .single-page
+          .row patient-data
+            include ./partials/header.jade
+            .col-12
+              h5 Оценка двигательного статуса Брунинкс-Озерецкого
+            include ./partials/patient-data.jade
+
+          table.table.graph-table
+            tr
+              td
+              td
+                .graph-bar-wrap
+                  .graph-lines.graph-20 20
+                  .graph-lines.graph-30 30
+                  .graph-lines.graph-40 40
+                  .graph-lines.graph-50 50
+                  .graph-lines.graph-60 60
+                  .graph-lines.graph-70 70
+                  .graph-lines.graph-80 80
+                  .graph-lines.graph-90 90
+
+                .cell-normality.cell-very-subnormal Знач. ниже нормы
+                .cell-normality.cell-subnormal Ниже нормы
+                .cell-normality.cell-normal Норма
+                .cell-normality.cell-supnormal Выше нормы
+                .cell-normality.cell-very-supnormal Знач. выше нормы
+            tr
+              td.graph-caption Общий двигательный балл
+              td.graph-ruler
+                .graph-bar
+                  .graph-value.graph-total-value ◆
+            tr
+              td.graph-caption A. Мелкая моторика
+              td
+                .graph-bar
+                  .graph-value.graph-summary-1-value ◆
+            tr
+              td.graph-caption B. Крупная моторика
+              td
+                .graph-bar
+                  .graph-value.graph-summary-2-value ◆
+            tr
+              td.graph-caption C. Координация
+              td
+                .graph-bar
+                  .graph-value.graph-summary-3-value ◆
+            tr
+              td.graph-caption D. Сила и ловкость
+              td
+                .graph-bar
+                  .graph-value.graph-summary-4-value ◆
+
+          table.table.graph-table
+            tr
+              td
+                b Профиль субтестов
+              td
+            tr
+              td.graph-caption 1. Точность мелкой моторики
+              td.graph-ruler
+                .graph-bar-wrap
+                  .graph-lines.graph-20 0
+                  .graph-lines.graph-30 5
+                  .graph-lines.graph-40 10
+                  .graph-lines.graph-50 15
+                  .graph-lines.graph-60 20
+                  .graph-lines.graph-70 25
+                  .graph-lines.graph-80 30
+                  .graph-lines.graph-90 35
+                  
+                  .graph-bar
+                    .graph-value.graph-subtest-1-value ◆
+            tr
+              td.graph-caption 2. Интеграция мелкой моторики
+              td
+                .graph-bar
+                  .graph-value.graph-subtest-2-value ◆
+            tr
+              td.graph-caption 3. Ловкость рук
+              td
+                .graph-bar
+                  .graph-value.graph-subtest-3-value ◆
+            tr
+              td.graph-caption 4. Билатеральные навыки
+              td
+                .graph-bar
+                  .graph-value.graph-subtest-4-value ◆
+            tr
+              td.graph-caption 5. Баланс
+              td
+                .graph-bar
+                  .graph-value.graph-subtest-5-value ◆
+            tr
+              td.graph-caption 6. Скорость бега и ловкость
+              td
+                .graph-bar
+                  .graph-value.graph-subtest-6-value ◆
+            tr
+              td.graph-caption 7. Координация верх. конечн.
+              td
+                .graph-bar
+                  .graph-value.graph-subtest-7-value ◆
+            tr
+              td.graph-caption-8.graph-caption 8a. Отжимания с колен
+              td
+                .graph-bar
+                  .graph-value.graph-subtest-8-value ◆
+
+          .row
+            .col-12
+              b Заключение: 
+              textarea.form-control(rows="4")
+
+          .row.signature-row
+            .col-7.signature-block
+                label Исследователь: 
+                select#doctor-b2-2.select-control.doctor-select.update-object(tabindex="")
+                  include ./partials/doctor-signatures.jade
+                |  
+                span.doctor-signature (подпись)
+                #signature-doctor-b2-2
+            .col-5
+              label Дата исследования: 
+              span.date-b2-copy.form-control
+
+        // Debug area
+        .row.debug-area.no-print
+          .col-12
+            br
+            br
+            | Временные штуки для проверки на ошибки. Не обращайте внимания. Они не печатаются.
+            br
+            span#show-patient-stringify.debug-button Экспорт JSON
+            span#remember-patient.debug-button Импорт JSON
+            br
+            textarea#debug-textarea(rows="12")
+
+
+    script(src = "js/jquery-3.2.1.js")
+    script(src = "js/app-tables.js")
+    script(src = "js/app-interface.js")
+    script(src = "js/app-antropo.js")
+    script(src = "js/app-bot.js")
+    script(src = "js/app-import-patient.js")

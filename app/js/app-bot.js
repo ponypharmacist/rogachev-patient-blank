@@ -22,7 +22,7 @@ function chooseTable (tablePrefix) {
     } else {
     };
   };
-  $('#bot-' + tablePrefix + '-table').html(patient[tablePrefix + 'Table']); // ToDo: bot-short вместо праймари
+  $('#bot-' + tablePrefix + '-table').html(patient[tablePrefix + 'Table']);
 };
 
 // Реагируем на ввод результатов субтеста
@@ -48,7 +48,6 @@ function subtestBotShortGo(lastSubtest) {
 // Gets category name for results
 function getBotShortCategory(scaleToPut) {
   var categoryName = 0;
-
   if (range(scaleToPut,0,30)) {
     categoryName = 'Знач. ниже нормы';
   } else if (range(scaleToPut,31,40)) {
@@ -62,18 +61,16 @@ function getBotShortCategory(scaleToPut) {
   } else {
     categoryName = 'ошибка';
   }
-
   return categoryName;
 };
 
 
 // Рендерим графики
 function renderBotShortGraph() {
-  var percentModifier = 1.4285;
   var graphSubtestScale = parseInt($('.subtest-bs1-scale').html());
   var graphSubtestSpread = parseInt($('.subtest-bs1-spread').html());
-  var graphWidth = graphSubtestSpread * 2 * percentModifier;
-  var graphPosition = (graphSubtestScale - 20 - graphSubtestSpread) * percentModifier;
+  var graphWidth = graphSubtestSpread * 2 * 1.4285;
+  var graphPosition = (graphSubtestScale - 20 - graphSubtestSpread) * 1.4285;
   $('.graph-subtest-bs1-value').css({'width':graphWidth + '%', 'left':graphPosition + '%'});
   $('.graph-subtest-bs1-value').html(graphSubtestScale + '±' + graphSubtestSpread);
 };
@@ -112,11 +109,9 @@ function chooseSecondaryTable () {
 
 
 // Реагируем на ввод результатов субтеста
-function subtestGo(a,b) {
-  var lastSubtest = a;
-  var summaryGroup = b;
-  var lastSubtestResult = $('.sub-res-' + a).val();
-  var lastSubtestScale = scanArray(patient.botPrimaryTable, lastSubtest, lastSubtestResult);
+function subtestGo(lastSubtest, summaryGroup) {
+  var lastSubtestResult = $('.sub-res-' + lastSubtest).val();
+  var lastSubtestScale = scanArray(patient.primaryTable, lastSubtest, lastSubtestResult);
   var lastSubtestCategory = getSubtestCategory(lastSubtestScale);
   var lastSubtestSpread = table_c1[lastSubtest][selectAgeGroup()];
   var lastSubtestRange = getSubtestRange(lastSubtestScale, lastSubtestSpread);
@@ -278,8 +273,7 @@ function updateSubtestSum(summaryNo, summarySum) {
   $('.summary-' + summaryNo + '-percentile').html(summaryPercentile);
   $('.summary-' + summaryNo + '-category').html(summaryCategory);
 
-  var areSumsReady = checkSumsReady();
-  areSumsReady && updateTotals();
+  checkSumsReady() && updateTotals();
 };
 
 
@@ -299,6 +293,7 @@ function checkSumsReady () {
 
 // Update grand totals, yes!
 function updateTotals () {
+  console.log('Started updating totals.');
   var table_total_scale = 'table_total_scale';
   var totalScore = parseInt($('.summary-1-scale').html()) + parseInt($('.summary-2-scale').html()) + parseInt($('.summary-3-scale').html()) + parseInt($('.summary-4-scale').html());
 
@@ -398,65 +393,25 @@ function readSummarySpread(summaryNumber) {
 };
 
 
-
 $(document).ready(function(){
-// Непонятно, как обрабатывать 9 и 9a
+// Выбор подтипа отжиманий
   $('#subtest-8-select').on('change', function() {
-    var strVal = this.value;
-    var strVal2 = strVal - 4;
-    $('.sub-res-8').attr('onchange','subtestGo(' + strVal + ',' + strVal2 + ');');
-
-    if (strVal == 9) {
+    $('.sub-res-8').attr('onchange','subtestGo(' + this.value + ',' + this.value - 4 + ');');
+    if (this.value == 9) {
       $('.graph-caption-8').html('8b. Полные отжимания');
     } else {
       $('.graph-caption-8').html('8a. Отжимания с колен');
     }
   });
 
-// Тип отжиманий BotShort обрабатываем
+// Выбор подтипа отжиманий BotShort
   $('#subtest-bs-select').on('change', function() {
     $('.sub-res-bs1').attr('onchange','subtestBotShortGo(' + this.value + ');');
-
     if (this.value == 1) {
       $('.graph-caption-bs1').html('A. Отжимания с колен');
     } else {
       $('.graph-caption-bs1').html('B. Полные отжимания');
     }
-  });
-
-// Реагируем на ввод возраста, имени и даты исследования, дублирем их на второй лист
-  $('#test-date').on('change', function() {
-   $('#test-date-copy').val(this.value);
-  });
-
-  $('#patient-name').on('change', function() {
-   $('#patient-name-copy').val(this.value);
-  });
-
-  $('#doctor-name').on('change', function() {
-   $('#doctor-name-copy').val(this.value);
-  });
-
-  $('#diagnosisMKB').on('change', function() {
-   $('#diagnosisMKB-copy').val(this.value);
-  });
-
-  $('#gender').on('change', function() {
-   $('#gender-copy').val(this.value);
-  });
-
-  $('#patient-id').on('change', function() {
-   $('#patient-id-copy').val(this.value);
-  });
-  $('#category').on('change', function() {
-   $('#category-copy').val(this.value);
-  });
-
-  // Ставим подписи специалистов
-  $('.doctor-select').on('change', function() {
-    let selectedDoctor = $(this).val();
-    let targetSignature = $(this).attr('id');
-    $("#signature-" + targetSignature).attr('class',selectedDoctor);
   });
 
 });
