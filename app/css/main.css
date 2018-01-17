@@ -398,6 +398,36 @@ select.doctor-select {
 .table {
   margin-bottom: 0; }
 
+.cell-b2-1 {
+  width: 250px; }
+
+.cell-b2-2 {
+  width: 80px; }
+
+.cell-b2-3 {
+  width: 80px; }
+
+.cell-b2-4 {
+  width: 100px; }
+
+.cell-b2-5 {
+  width: 80px; }
+
+.cell-b2-6 {
+  width: 90px; }
+
+.cell-b2-7 {
+  width: 40px; }
+
+.cell-b2-8 {
+  width: 180px; }
+
+.cell-b2-2.has-input {
+  padding: 0 8px; }
+
+.has-input input {
+  margin: 4px 0; }
+
 #main-table-bot-short {
   margin-bottom: 24px; }
 
@@ -440,9 +470,6 @@ th .clr, .thpad {
   padding-top: 8px;
   padding-bottom: 8px;
   height: 100%; }
-
-.unbold {
-  font-weight: normal !important; }
 
 .main-table td .form-control,
 .scale-field,
