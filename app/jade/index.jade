@@ -746,7 +746,7 @@ html(lang = "en")
                 span.last-subtest -
 
           .row
-            .col.maintable-col
+            .col
               table#main-table-bot-short.table.main-table
                 thead
                   tr
@@ -873,7 +873,8 @@ html(lang = "en")
                   #signature-doctor-b1-2
               .col-5
                 label Дата исследования: 
-                span.date-b1-copy.form-control
+                |  
+                span.date-b1-copy
       // Конец раздела В1
 
       // Раздел В2: Оценка двигательного статуса Брунинкс-Озерецкого
@@ -979,7 +980,7 @@ html(lang = "en")
                 .cell-b2-7  
                 .cell-b2-8.subtest-7-category -
                 
-              // Intermediate result 1
+              // Intermediate result 2
               .row-like.subtest-group-2
                 .cell-b2-1 Крупная моторика
                 .cell-b2-2.text-right Сумма:
@@ -993,8 +994,8 @@ html(lang = "en")
                 .cell-b2-8.summary-2-category -
 
               // Subtest 4
-              .row-like.subtest-group-2
-                .cell-b2-1 3. Ловкость рук
+              .row-like.subtest-group-3
+                .cell-b2-1 4. Билатеральные навыки
                 .cell-b2-2.has-input
                   input.form-control.subtest-score.sub-res-4(type="text" maxlength="2" onchange="subtestGo(4,3);")
                 .cell-b2-3
@@ -1006,8 +1007,8 @@ html(lang = "en")
                 .cell-b2-8.subtest-4-category -
 
               // Subtest 5
-              .row-like.subtest-group-2
-                .cell-b2-1 1. Точность мелкой моторики
+              .row-like.subtest-group-3
+                .cell-b2-1 5. Баланс
                 .cell-b2-2.has-input
                   input.form-control.subtest-score.sub-res-5(type="text" maxlength="2" onchange="subtestGo(5,3);")
                 .cell-b2-3
@@ -1018,213 +1019,85 @@ html(lang = "en")
                 .cell-b2-7  
                 .cell-b2-8.subtest-5-category -
                 
-              // Intermediate result 1
-              .row-like.subtest-group-2
-                .cell-b2-1 Крупная моторика
+              // Intermediate result 3
+              .row-like.subtest-group-3
+                .cell-b2-1 Координация
                 .cell-b2-2.text-right Сумма:
                 .cell-b2-3
-                  span.summary-2-summ.summ-field -
+                  span.summary-3-summ.summ-field -
                 .cell-b2-4
-                  span.summary-2-scale.scale-field -
-                .cell-b2-5.summary-2-spread -
-                .cell-b2-6.summary-2-range -
-                .cell-b2-7.summary-2-percentile -
-                .cell-b2-8.summary-2-category -
+                  span.summary-3-scale.scale-field -
+                .cell-b2-5.summary-3-spread -
+                .cell-b2-6.summary-3-range -
+                .cell-b2-7.summary-3-percentile -
+                .cell-b2-8.summary-3-category -
 
-                
-            .col.maintable-col
-              table.table.main-table
-                tbody
-              
-                  // Subtest 4
-                  tr.subtest-group-3
-                    th(scope="row")
-                      .clr 4. Билатеральные навыки
-                    td
-                      .clr
-                        input.form-control.sub-res-4(type="text" maxlength="2" onchange="subtestGo(4,3);")
-                    td
-                      .clr
-                        span.subtest-4-scale.scale-field -
-                    td
-                      .clr &nbsp;
-                    td
-                      .clr
-                        span.subtest-4-spread -
-                    td
-                      .clr
-                        span.subtest-4-range -
-                    td
-                      .clr &nbsp;
-                    td
-                      .clr
-                        span.subtest-4-category -
+              // Subtest 6
+              .row-like.subtest-group-4
+                .cell-b2-1 6. Скорость бега и ловкость
+                .cell-b2-2.has-input
+                  input.form-control.subtest-score.sub-res-6(type="text" maxlength="2" onchange="subtestGo(6,4);")
+                .cell-b2-3
+                  span.subtest-6-scale.scale-field -
+                .cell-b2-4  
+                .cell-b2-5.subtest-6-spread -
+                .cell-b2-6.subtest-6-range -
+                .cell-b2-7  
+                .cell-b2-8.subtest-6-category -
 
-                  // Subtest 5
-                  tr.subtest-group-3
-                    th(scope="row")
-                      .clr 5. Баланс
-                    td
-                      .clr
-                        input.form-control.sub-res-5(type="text" maxlength="2" onchange="subtestGo(5,3);")
-                    td
-                      .clr
-                        span.subtest-5-scale.scale-field -
-                    td
-                      .clr &nbsp;
-                    td
-                      .clr
-                        span.subtest-5-spread -
-                    td
-                      .clr
-                        span.subtest-5-range -
-                    td
-                      .clr &nbsp;
-                    td
-                      .clr
-                        span.subtest-5-category -
+              // Subtest 8
+              .row-like.subtest-group-4
+                .cell-b2-1
+                  select#subtest-8-select.select-control
+                    option(value="8" selected) 8a. Отжимания с колен
+                    option(value="9") 8b. Полные отжимания
+                .cell-b2-2.has-input
+                  input.form-control.subtest-score.sub-res-8.sub-res-9(type="text" maxlength="2" onchange="subtestGo(8,4);")
+                .cell-b2-3
+                  span.subtest-8-scale.subtest-9-scale.scale-field -
+                .cell-b2-4  
+                .cell-b2-5.subtest-8-spread.subtest-9-spread -
+                .cell-b2-6.subtest-8-range.subtest-9-range -
+                .cell-b2-7  
+                .cell-b2-8.subtest-8-category.subtest-9-category -
 
-                  // Intermediate result 3
-                  tr.subtest-group-3
-                    th(scope="row")
-                      .clr Координация
-                    td.text-right
-                      .clr Сумма:
-                    td
-                      .clr
-                        span.summary-3-summ.summ-field -
-                    td
-                      .clr
-                        span.summary-3-scale.scale-field -
-                    td
-                      .clr
-                        span.summary-3-spread -
-                    td
-                      .clr
-                        span.summary-3-range -
-                    td
-                      .clr
-                        span.summary-3-percentile -
-                    td
-                      .clr
-                        span.summary-3-category -
-                  
-                  // Subtest 6
-                  tr.subtest-group-4
-                    th(scope="row")
-                      .clr 6. Скорость бега и ловкость
-                    td
-                      .clr
-                        input.form-control.sub-res-6(type="text" maxlength="2" onchange="subtestGo(6,4);")
-                    td
-                      .clr
-                        span.subtest-6-scale.scale-field -
-                    td
-                      .clr &nbsp;
-                    td
-                      .clr
-                        span.subtest-6-spread -
-                    td
-                      .clr
-                        span.subtest-6-range -
-                    td
-                      .clr &nbsp;
-                    td
-                      .clr
-                        span.subtest-6-category -
-                  
-                  // Subtest 8
-                  tr.subtest-group-4
-                    th#subtest-8-select(scope="row")
-                      .clr
-                        select.select-control.mb-2.mr-sm-2.b-sm-0
-                          option(value="8" selected) 8a. Отжимания с колен
-                          option(value="9") 8b. Полные отжимания
-                    td
-                      .clr
-                        input.form-control.sub-res-8.sub-res-9(type="text" maxlength="2" onchange="subtestGo(8,4);")
-                    td
-                      .clr
-                        span.subtest-8-scale.subtest-9-scale.scale-field -
-                    td
-                      .clr &nbsp;
-                    td
-                      .clr
-                        span.subtest-8-spread.subtest-9-spread -
-                    td
-                      .clr
-                        span.subtest-8-range.subtest-9-range -
-                    td
-                      .clr &nbsp;
-                    td
-                      .clr
-                        span.subtest-8-category.subtest-9-category -
+              // Intermediate result 4
+              .row-like.subtest-group-4
+                .cell-b2-1 Сила и ловкость
+                .cell-b2-2.text-right Сумма:
+                .cell-b2-3
+                  span.summary-4-summ.summary-5-summ.summ-field -
+                .cell-b2-4
+                  span.summary-4-scale.summary-5-scale.scale-field -
+                .cell-b2-5.summary-4-spread.summary-5-spread -
+                .cell-b2-6.summary-4-range.summary-5-range -
+                .cell-b2-7.summary-4-percentile.summary-5-percentile -
+                .cell-b2-8.summary-4-category.summary-5-category -
 
-                  // Intermediate result 4
-                  tr.subtest-group-4
-                    th(scope="row")
-                      .clr Сила и ловкость
-                    td.text-right
-                      .clr Сумма:
-                    td
-                      .clr
-                        span.summary-4-summ.summary-5-summ.summ-field -
-                    td
-                      .clr
-                        span.summary-4-scale.summary-5-scale.scale-field -
-                    td
-                      .clr
-                        span.summary-4-spread.summary-5-spread -
-                    td
-                      .clr
-                        span.summary-4-range.summary-5-range -
-                    td
-                      .clr
-                        span.summary-4-percentile.summary-5-percentile -
-                    td
-                      .clr
-                        span.summary-4-category.summary-5-category -
-                  
-                  // Totals
-                  tr.totals-row-1
-                    td
-                      .clr
-                    td
-                      .clr
-                    td.text-right
-                      .clr Сумма: 
-                    td
-                      .clr
-                        span.summ-field.total-score -
-                    td
-                      .clr
-                    td
-                      .clr
-                    td
-                      .clr
-                    td
-                      .clr
+              // Totals
+              .row-like
+                .cell-b2-1
+                .cell-b2-2
+                .cell-b2-3.text-right Сумма: 
+                .cell-b2-4
+                  span.summ-field.total-score - 
+                .cell-b2-5
+                .cell-b2-6
+                .cell-b2-7
+                .cell-b2-8
 
-                  tr.totals-row-2
-                    td.text-right(colspan="3")
-                      .clr
-                        b Общий двигательный балл: 
-                    td
-                      .clr
-                        span.summ-field.total-scale -
-                    td
-                      .clr
-                        span.total-spread -
-                    td
-                      .clr
-                        span.total-range -
-                    td
-                      .clr
-                        span.total-percentile -
-                    td
-                      .clr
-                        span.total-category -
-
+              .row-like
+                .cell-b2-1-wide Общий двигательный балл: 
+                .cell-b2-4
+                  span.summ-field.total-scale -
+                .cell-b2-5
+                  span.total-spread -
+                .cell-b2-6
+                  span.total-range -
+                .cell-b2-7
+                  span.total-percentile -
+                .cell-b2-8
+                  span.total-category -
 
           .row.signature-row
             .col-7.signature-block
@@ -1241,7 +1114,7 @@ html(lang = "en")
         // Лист 2 теста BOT-2
         .visual-page-divider.no-print
         .single-page
-          .row patient-data
+          .row.patient-data
             include ./partials/header.jade
             .col-12
               h5 Оценка двигательного статуса Брунинкс-Озерецкого
@@ -1363,7 +1236,8 @@ html(lang = "en")
                 #signature-doctor-b2-2
             .col-5
               label Дата исследования: 
-              span.date-b2-copy.form-control
+              |  
+              span.date-b2-copy
 
         // Debug area
         .row.debug-area.no-print

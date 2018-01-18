@@ -17,7 +17,7 @@ gulp.task('sass', function() {
 });
 
 gulp.task('jade', function () {
-  return gulp.src('app/jade/alt-index.jade')
+  return gulp.src('app/jade/*.jade')
     .pipe(gulpJade({
       jade: jade,
       pretty: true
