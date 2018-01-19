@@ -497,213 +497,214 @@ html(lang = "en")
 
       // Раздел А3: Стабилометрия, биоимпеданс
       #section-a3.section-global
-        .row.patient-data
-          include ./partials/header.jade
-          .col-12
-            h5 Стабилометрические показатели и биоимпеданс
-          include ./partials/patient-data.jade
+        .single-page
+          .row.patient-data
+            include ./partials/header.jade
+            .col-12
+              h5 Стабилометрические показатели и биоимпеданс
+            include ./partials/patient-data.jade
 
-        .row
-          // Таблица 6. Стабилометрические показатели
-          .col-12.is-hideable-table-6
-            .table-like.table-like-2.table-like-3
-              .row-like.thead-like
-                .col-4 Стабилометрические показатели 
-                  a#hideable-table-6.element-remover ✕
-                .col-4.text-center Глаза открыты
-                .col-4.text-center.is-hideable-col-6-2 Глаза закрыты 
-                  a#hideable-col-6-2.element-remover ✕
+          .row
+            // Таблица 6. Стабилометрические показатели
+            .col-12.is-hideable-table-6
+              .table-like.table-like-2.table-like-3
+                .row-like.thead-like
+                  .col-4 Стабилометрические показатели 
+                    a#hideable-table-6.element-remover ✕
+                  .col-4.text-center Глаза открыты
+                  .col-4.text-center.is-hideable-col-6-2 Глаза закрыты 
+                    a#hideable-col-6-2.element-remover ✕
 
-              .row-like.thead-like
-                .col-4
-                .col-4.col-4-special
-                  .col-6.text-center Абсол.
-                  .col-6.text-center.is-hideable-col-6-1-2 Реф. значения 
-                    a#hideable-col-6-1-2.element-remover ✕
-                .col-4.col-4-special.is-hideable-col-6-2
-                  .col-6.text-center Абсол.
-                  .col-6.text-center.is-hideable-col-6-2-2 Реф. значения 
-                    a#hideable-col-6-2-2.element-remover ✕
+                .row-like.thead-like
+                  .col-4
+                  .col-4.col-4-special
+                    .col-6.text-center Абсол.
+                    .col-6.text-center.is-hideable-col-6-1-2 Реф. значения 
+                      a#hideable-col-6-1-2.element-remover ✕
+                  .col-4.col-4-special.is-hideable-col-6-2
+                    .col-6.text-center Абсол.
+                    .col-6.text-center.is-hideable-col-6-2-2 Реф. значения 
+                      a#hideable-col-6-2-2.element-remover ✕
 
-              .row-like.is-hideable-6-1
-                .col-4.thead-col Смещение по фронтали (мм) 
-                  a#hideable-6-1.element-remover ✕
-                .col-4.col-4-special
-                  .col-6.input-cell
-                    input#shiftFrontalEyesOpen.form-control.update-object(type="text" placeholder="..." tabindex="80")
-                  .col-6.is-hideable-col-6-1-2.input-cell
-                    input.form-control(type="text" value="0 ± 2.5 мм")
-                .col-4.col-4-special.is-hideable-col-6-2
-                  .col-6.input-cell
-                    input#shiftFrontalEyesClosed.form-control.update-object(type="text" placeholder="..." tabindex="81")
-                  .col-6.is-hideable-col-6-2-2.input-cell
-                    input.form-control(type="text" value="0 ± 3.1 мм")
+                .row-like.is-hideable-6-1
+                  .col-4.thead-col Смещение по фронтали (мм) 
+                    a#hideable-6-1.element-remover ✕
+                  .col-4.col-4-special
+                    .col-6.input-cell
+                      input#shiftFrontalEyesOpen.form-control.update-object(type="text" placeholder="..." tabindex="80")
+                    .col-6.is-hideable-col-6-1-2.input-cell
+                      input.form-control(type="text" value="0 ± 2.5 мм")
+                  .col-4.col-4-special.is-hideable-col-6-2
+                    .col-6.input-cell
+                      input#shiftFrontalEyesClosed.form-control.update-object(type="text" placeholder="..." tabindex="81")
+                    .col-6.is-hideable-col-6-2-2.input-cell
+                      input.form-control(type="text" value="0 ± 3.1 мм")
 
-              .row-like.is-hideable-6-2
-                .col-4.thead-col Смещение по сагиттали (мм) 
-                  a#hideable-6-2.element-remover ✕
-                .col-4.col-4-special
-                  .col-6.input-cell
-                    input#shiftSaggitalEyesOpen.form-control.update-object(type="text" placeholder="..." tabindex="82")
-                  .col-6.is-hideable-col-6-1-2.input-cell
-                    input.form-control(type="text" value="-40 ± 15 мм")
-                .col-4.col-4-special.is-hideable-col-6-2
-                  .col-6.input-cell
-                    input#shiftSaggitalEyesClosed.form-control.update-object(type="text" placeholder="..." tabindex="83")
-                  .col-6.is-hideable-col-6-2-2.input-cell
-                    input.form-control(type="text" value="-42 ± 17 мм")
+                .row-like.is-hideable-6-2
+                  .col-4.thead-col Смещение по сагиттали (мм) 
+                    a#hideable-6-2.element-remover ✕
+                  .col-4.col-4-special
+                    .col-6.input-cell
+                      input#shiftSaggitalEyesOpen.form-control.update-object(type="text" placeholder="..." tabindex="82")
+                    .col-6.is-hideable-col-6-1-2.input-cell
+                      input.form-control(type="text" value="-40 ± 15 мм")
+                  .col-4.col-4-special.is-hideable-col-6-2
+                    .col-6.input-cell
+                      input#shiftSaggitalEyesClosed.form-control.update-object(type="text" placeholder="..." tabindex="83")
+                    .col-6.is-hideable-col-6-2-2.input-cell
+                      input.form-control(type="text" value="-42 ± 17 мм")
 
-              .row-like.is-hideable-6-3
-                .col-4.thead-col
-                  | Площадь эллипса (мм
-                  sup 2
-                  | ) 
-                  a#hideable-6-3.element-remover ✕
-                .col-4.col-4-special
-                  .col-6.input-cell
-                    input#ellipseSquareEyesOpen.form-control.update-object(type="text" placeholder="..." tabindex="84")
-                  .col-6.is-hideable-col-6-1-2.input-cell
-                    input.form-control(type="text" value="132")
-                .col-4.col-4-special.is-hideable-col-6-2
-                  .col-6.input-cell
-                    input#ellipseSquareEyesClosed.form-control.update-object(type="text" placeholder="..." tabindex="85")
-                  .col-6.is-hideable-col-6-2-2.input-cell
-                    input.form-control(type="text" value="164")
+                .row-like.is-hideable-6-3
+                  .col-4.thead-col
+                    | Площадь эллипса (мм
+                    sup 2
+                    | ) 
+                    a#hideable-6-3.element-remover ✕
+                  .col-4.col-4-special
+                    .col-6.input-cell
+                      input#ellipseSquareEyesOpen.form-control.update-object(type="text" placeholder="..." tabindex="84")
+                    .col-6.is-hideable-col-6-1-2.input-cell
+                      input.form-control(type="text" value="132")
+                  .col-4.col-4-special.is-hideable-col-6-2
+                    .col-6.input-cell
+                      input#ellipseSquareEyesClosed.form-control.update-object(type="text" placeholder="..." tabindex="85")
+                    .col-6.is-hideable-col-6-2-2.input-cell
+                      input.form-control(type="text" value="164")
 
-              .row-like.is-hideable-6-4
-                .col-4.thead-col(style="font-size:85%;")
-                  | Средняя скорость центра давления (мм
-                  sup 2
-                  | ) 
-                  a#hideable-6-4.element-remover ✕
-                .col-4.col-4-special
-                  .col-6.input-cell
-                    input#pressurePointSpeedEyesOpen.form-control.update-object(type="text" placeholder="..." tabindex="86")
-                  .col-6.is-hideable-col-6-1-2.input-cell
-                    input.form-control(type="text" value="10.4")
-                .col-4.col-4-special.is-hideable-col-6-2
-                  .col-6.input-cell
-                    input#pressurePointSpeedEyesClosed.form-control.update-object(type="text" placeholder="..." tabindex="87")
-                  .col-6.is-hideable-col-6-2-2.input-cell
-                    input.form-control(type="text" value="13.6")
+                .row-like.is-hideable-6-4
+                  .col-4.thead-col(style="font-size:85%;")
+                    | Средняя скорость центра давления (мм
+                    sup 2
+                    | ) 
+                    a#hideable-6-4.element-remover ✕
+                  .col-4.col-4-special
+                    .col-6.input-cell
+                      input#pressurePointSpeedEyesOpen.form-control.update-object(type="text" placeholder="..." tabindex="86")
+                    .col-6.is-hideable-col-6-1-2.input-cell
+                      input.form-control(type="text" value="10.4")
+                  .col-4.col-4-special.is-hideable-col-6-2
+                    .col-6.input-cell
+                      input#pressurePointSpeedEyesClosed.form-control.update-object(type="text" placeholder="..." tabindex="87")
+                    .col-6.is-hideable-col-6-2-2.input-cell
+                      input.form-control(type="text" value="13.6")
 
-          // Заключения, блок 3
-          .col-12
-            h5.h5-padded.is-hideable-h3 Заключение по постуральному контролю 
-              a#hideable-h3.element-remover ✕
+            // Заключения, блок 3
+            .col-12
+              h5.h5-padded.is-hideable-h3 Заключение по постуральному контролю 
+                a#hideable-h3.element-remover ✕
 
-            .diagnosis-block.is-hideable-d-3-1
-              b Положение центра давления
-              a#hideable-d-3-1.element-remover ✕
-              textarea#conclusionCPressureCenterPosition.form-control.input-diagnosis.update-object(placeholder="..." rows="1" tabindex="88")
-              .diagnosis-hint (правильное, смещение по сагиттали, фронтали)
+              .diagnosis-block.is-hideable-d-3-1
+                b Положение центра давления
+                a#hideable-d-3-1.element-remover ✕
+                textarea#conclusionCPressureCenterPosition.form-control.input-diagnosis.update-object(placeholder="..." rows="1" tabindex="88")
+                .diagnosis-hint (правильное, смещение по сагиттали, фронтали)
 
-            .diagnosis-block.is-hideable-d-3-2
-              b Стабильность баланса
-              a#hideable-d-3-2.element-remover ✕
-              textarea#conclusionCBalanceStability.form-control.input-diagnosis.update-object(placeholder="..." rows="1" tabindex="89")
-              .diagnosis-hint (высокая, средняя, низкая)
+              .diagnosis-block.is-hideable-d-3-2
+                b Стабильность баланса
+                a#hideable-d-3-2.element-remover ✕
+                textarea#conclusionCBalanceStability.form-control.input-diagnosis.update-object(placeholder="..." rows="1" tabindex="89")
+                .diagnosis-hint (высокая, средняя, низкая)
 
-            .diagnosis-block.is-hideable-d-3-3
-              b Приоритетная сенсорная система
-              a#hideable-d-3-3.element-remover ✕
-              textarea#conclusionCPrimarySensoricSystem.form-control.input-diagnosis.update-object(placeholder="..." rows="1" tabindex="90")
-              .diagnosis-hint (зрение, проприорецепция)
+              .diagnosis-block.is-hideable-d-3-3
+                b Приоритетная сенсорная система
+                a#hideable-d-3-3.element-remover ✕
+                textarea#conclusionCPrimarySensoricSystem.form-control.input-diagnosis.update-object(placeholder="..." rows="1" tabindex="90")
+                .diagnosis-hint (зрение, проприорецепция)
 
-          // Таблица 7. Биоимпеданс
-          .col-12.is-hideable-table-7
-            .table-like.table-like-2
-              .row-like.thead-like
-                .col-6 Биоимпеданс 
-                  a#hideable-table-7.element-remover ✕
-                .col-2.text-center Абсолютное значение
-                .col-2.text-center.is-hideable-col-7-2 % к массе тела 
-                  a#hideable-col-7-2.element-remover ✕
-                .col-2.text-center.is-hideable-col-7-3 Половозрастная процентиль 
-                  a#hideable-col-7-3.element-remover ✕
+            // Таблица 7. Биоимпеданс
+            .col-12.is-hideable-table-7
+              .table-like.table-like-2
+                .row-like.thead-like
+                  .col-6 Биоимпеданс 
+                    a#hideable-table-7.element-remover ✕
+                  .col-2.text-center Абсолютное значение
+                  .col-2.text-center.is-hideable-col-7-2 % к массе тела 
+                    a#hideable-col-7-2.element-remover ✕
+                  .col-2.text-center.is-hideable-col-7-3 Половозрастная процентиль 
+                    a#hideable-col-7-3.element-remover ✕
 
-              .row-like.is-hideable-7-1
-                .col-6.thead-col Жировая масса (кг) 
-                  a#hideable-7-1.element-remover ✕
-                .col-2.input-cell
-                  input#massFat.form-control.calculate-percentage.update-object(type="text" placeholder="..." tabindex="91")
-                .col-2.is-hideable-col-7-2.input-cell
-                  input#percentage-massFat.form-control(type="text" placeholder="...")
-                .col-2.is-hideable-col-7-3.input-cell
-                  input.form-control(type="text" placeholder="...")
+                .row-like.is-hideable-7-1
+                  .col-6.thead-col Жировая масса (кг) 
+                    a#hideable-7-1.element-remover ✕
+                  .col-2.input-cell
+                    input#massFat.form-control.calculate-percentage.update-object(type="text" placeholder="..." tabindex="91")
+                  .col-2.is-hideable-col-7-2.input-cell
+                    input#percentage-massFat.form-control(type="text" placeholder="...")
+                  .col-2.is-hideable-col-7-3.input-cell
+                    input.form-control(type="text" placeholder="...")
 
-              .row-like.is-hideable-7-2
-                .col-6.thead-col Тощая масса (кг) 
-                  a#hideable-7-2.element-remover ✕
-                .col-2.input-cell
-                  input#massLean.form-control.calculate-percentage.update-object(type="text" placeholder="..." tabindex="92")
-                .col-2.is-hideable-col-7-2.input-cell
-                  input#percentage-massLean.form-control(type="text" placeholder="...")
-                .col-2.is-hideable-col-7-3.input-cell
-                  input.form-control(type="text" placeholder="...")
+                .row-like.is-hideable-7-2
+                  .col-6.thead-col Тощая масса (кг) 
+                    a#hideable-7-2.element-remover ✕
+                  .col-2.input-cell
+                    input#massLean.form-control.calculate-percentage.update-object(type="text" placeholder="..." tabindex="92")
+                  .col-2.is-hideable-col-7-2.input-cell
+                    input#percentage-massLean.form-control(type="text" placeholder="...")
+                  .col-2.is-hideable-col-7-3.input-cell
+                    input.form-control(type="text" placeholder="...")
 
-              .row-like.is-hideable-7-3
-                .col-6.thead-col Скелетно-мышечная масса 
-                  a#hideable-7-3.element-remover ✕
-                .col-2.input-cell
-                  input#massSkeletalMuscle.form-control.calculate-percentage.update-object(type="text" placeholder="..." tabindex="93")
-                .col-2.is-hideable-col-7-2.input-cell
-                  input#percentage-massSkeletalMuscle.form-control(type="text" placeholder="...")
-                .col-2.is-hideable-col-7-3.input-cell
-                  input.form-control(type="text" placeholder="...")
+                .row-like.is-hideable-7-3
+                  .col-6.thead-col Скелетно-мышечная масса 
+                    a#hideable-7-3.element-remover ✕
+                  .col-2.input-cell
+                    input#massSkeletalMuscle.form-control.calculate-percentage.update-object(type="text" placeholder="..." tabindex="93")
+                  .col-2.is-hideable-col-7-2.input-cell
+                    input#percentage-massSkeletalMuscle.form-control(type="text" placeholder="...")
+                  .col-2.is-hideable-col-7-3.input-cell
+                    input.form-control(type="text" placeholder="...")
 
-              .row-like.is-hideable-7-4
-                .col-6.thead-col Активная клеточная масса (кг) 
-                  a#hideable-7-4.element-remover ✕
-                .col-2.input-cell
-                  input#massActiveCellular.form-control.calculate-percentage.update-object(type="text" placeholder="..." tabindex="94")
-                .col-2.is-hideable-col-7-2.input-cell
-                  input#percentage-massActiveCellular.form-control(type="text" placeholder="...")
-                .col-2.is-hideable-col-7-3.input-cell
-                  input.form-control(type="text" placeholder="...")
+                .row-like.is-hideable-7-4
+                  .col-6.thead-col Активная клеточная масса (кг) 
+                    a#hideable-7-4.element-remover ✕
+                  .col-2.input-cell
+                    input#massActiveCellular.form-control.calculate-percentage.update-object(type="text" placeholder="..." tabindex="94")
+                  .col-2.is-hideable-col-7-2.input-cell
+                    input#percentage-massActiveCellular.form-control(type="text" placeholder="...")
+                  .col-2.is-hideable-col-7-3.input-cell
+                    input.form-control(type="text" placeholder="...")
 
-              .row-like.is-hideable-7-5
-                .col-6.thead-col Фазовый угол (градусы) 
-                  a#hideable-7-5.element-remover ✕
-                .col-2.input-cell
-                  input#phasicAngle.form-control.update-object(type="text" placeholder="..." maxlength="5" tabindex="95")
-                .col-2.is-hideable-col-7-2.input-cell &nbsp;
-                .col-2.is-hideable-col-7-3.input-cell
-                  input.form-control(type="text" placeholder="...")
+                .row-like.is-hideable-7-5
+                  .col-6.thead-col Фазовый угол (градусы) 
+                    a#hideable-7-5.element-remover ✕
+                  .col-2.input-cell
+                    input#phasicAngle.form-control.update-object(type="text" placeholder="..." maxlength="5" tabindex="95")
+                  .col-2.is-hideable-col-7-2.input-cell &nbsp;
+                  .col-2.is-hideable-col-7-3.input-cell
+                    input.form-control(type="text" placeholder="...")
 
-          // Заключения, блок 4
-          .col-12.page-3-last-block
-            h5.h5-padded.is-hideable-h4 Заключение 
-              a#hideable-h4.element-remover ✕
-            .diagnosis-block.is-hideable-d-4-1
-              b Уровень готовности к физическим нагрузкам
-              a#hideable-d-4-1.element-remover ✕
-              textarea#conclusionDPhysicalLoadReadinessLevel.form-control.input-diagnosis.update-object(placeholder="..." rows="1" tabindex="96")
-              .diagnosis-hint (высокая, средняя, низкая)
+            // Заключения, блок 4
+            .col-12.page-3-last-block
+              h5.h5-padded.is-hideable-h4 Заключение 
+                a#hideable-h4.element-remover ✕
+              .diagnosis-block.is-hideable-d-4-1
+                b Уровень готовности к физическим нагрузкам
+                a#hideable-d-4-1.element-remover ✕
+                textarea#conclusionDPhysicalLoadReadinessLevel.form-control.input-diagnosis.update-object(placeholder="..." rows="1" tabindex="96")
+                .diagnosis-hint (высокая, средняя, низкая)
 
-            .diagnosis-block.is-hideable-d-4-2
-              b Уровень двигательной активности
-              a#hideable-d-4-2.element-remover ✕
-              textarea#conclusionDPhysicalActivityLevel.form-control.input-diagnosis.update-object(placeholder="..." rows="1" tabindex="97")
-              .diagnosis-hint (снижен, адекватен, повышен)
+              .diagnosis-block.is-hideable-d-4-2
+                b Уровень двигательной активности
+                a#hideable-d-4-2.element-remover ✕
+                textarea#conclusionDPhysicalActivityLevel.form-control.input-diagnosis.update-object(placeholder="..." rows="1" tabindex="97")
+                .diagnosis-hint (снижен, адекватен, повышен)
 
-            .diagnosis-block.is-hideable-d-4-3
-              b Риск развития метаболического синдрома
-              a#hideable-d-4-3.element-remover ✕
-              textarea#conclusionDMetabolicSyndromDevelopmentRisk.form-control.input-diagnosis.update-object(placeholder="..." rows="1" tabindex="98")
-              .diagnosis-hint (есть, нет)
+              .diagnosis-block.is-hideable-d-4-3
+                b Риск развития метаболического синдрома
+                a#hideable-d-4-3.element-remover ✕
+                textarea#conclusionDMetabolicSyndromDevelopmentRisk.form-control.input-diagnosis.update-object(placeholder="..." rows="1" tabindex="98")
+                .diagnosis-hint (есть, нет)
 
-        .row.signature-row
-          .col-7.signature-block
-            label Исследователь: 
-            select#doctor-a3.select-control.doctor-select.update-object(tabindex="99")
-              include ./partials/doctor-signatures.jade
-            |  
-            span.doctor-signature (подпись)
-            #signature-doctor-a3
-          .col-5
-            label Дата исследования: 
-            input#date-a3.form-control.update-object(type="text" placeholder="..." tabindex="100")
+          .row.signature-row
+            .col-7.signature-block
+              label Исследователь: 
+              select#doctor-a3.select-control.doctor-select.update-object(tabindex="99")
+                include ./partials/doctor-signatures.jade
+              |  
+              span.doctor-signature (подпись)
+              #signature-doctor-a3
+            .col-5
+              label Дата исследования: 
+              input#date-a3.form-control.update-object(type="text" placeholder="..." tabindex="100")
       // Конец раздела А3
 
       // Раздел В1: ВОТ короткая форма
@@ -826,55 +827,55 @@ html(lang = "en")
 
         // Лист 2 теста BOT-short
         .visual-page-divider.no-print
-          .single-page
-            .row.patient-data
-              include ./partials/header.jade
-              .col-12
-                h5 Скрининговая оценка двигательного статуса
-              include ./partials/patient-data.jade
+        .single-page
+          .row.patient-data
+            include ./partials/header.jade
+            .col-12
+              h5 Скрининговая оценка двигательного статуса
+            include ./partials/patient-data.jade
 
-            table.table.graph-table
-              tr
-                td
-                td
-                  .graph-bar-wrap
-                    .graph-lines.graph-20 20
-                    .graph-lines.graph-30 30
-                    .graph-lines.graph-40 40
-                    .graph-lines.graph-50 50
-                    .graph-lines.graph-60 60
-                    .graph-lines.graph-70 70
-                    .graph-lines.graph-80 80
-                    .graph-lines.graph-90 90
+          table.table.graph-table
+            tr
+              td
+              td
+                .graph-bar-wrap
+                  .graph-lines.graph-20 20
+                  .graph-lines.graph-30 30
+                  .graph-lines.graph-40 40
+                  .graph-lines.graph-50 50
+                  .graph-lines.graph-60 60
+                  .graph-lines.graph-70 70
+                  .graph-lines.graph-80 80
+                  .graph-lines.graph-90 90
 
-                  .cell-normality.cell-very-subnormal Знач. ниже нормы
-                  .cell-normality.cell-subnormal Ниже нормы
-                  .cell-normality.cell-normal Норма
-                  .cell-normality.cell-supnormal Выше нормы
-                  .cell-normality.cell-very-supnormal Знач. выше нормы
-              tr
-                td.graph-caption-bs1.graph-caption А. Отжимания с колен
-                td
-                  .graph-bar
-                    .graph-value.graph-subtest-bs1-value ◆
+                .cell-normality.cell-very-subnormal Знач. ниже нормы
+                .cell-normality.cell-subnormal Ниже нормы
+                .cell-normality.cell-normal Норма
+                .cell-normality.cell-supnormal Выше нормы
+                .cell-normality.cell-very-supnormal Знач. выше нормы
+            tr
+              td.graph-caption-bs1.graph-caption А. Отжимания с колен
+              td
+                .graph-bar
+                  .graph-value.graph-subtest-bs1-value ◆
 
-            .row
-              .col-12
-                b Заключение: 
-                textarea.form-control(rows="4")
+          .row
+            .col-12
+              b Заключение: 
+              textarea.form-control(rows="4")
 
-            .row.signature-row
-              .col-7.signature-block
-                  label Исследователь: 
-                  select#doctor-b1-2.select-control.doctor-select.update-object(tabindex="")
-                    include ./partials/doctor-signatures.jade
-                  |  
-                  span.doctor-signature (подпись)
-                  #signature-doctor-b1-2
-              .col-5
-                label Дата исследования: 
+          .row.signature-row
+            .col-7.signature-block
+                label Исследователь: 
+                select#doctor-b1-2.select-control.doctor-select.update-object(tabindex="")
+                  include ./partials/doctor-signatures.jade
                 |  
-                span.date-b1-copy
+                span.doctor-signature (подпись)
+                #signature-doctor-b1-2
+            .col-5
+              label Дата исследования: 
+              |  
+              span.date-b1-copy
       // Конец раздела В1
 
       // Раздел В2: Оценка двигательного статуса Брунинкс-Озерецкого
@@ -904,7 +905,7 @@ html(lang = "en")
                 option(value="left") Левая
 
           .row
-            .col-12.table-like
+            .col-12.table-like.bot2-table
               .row-like.thead-like
                 .cell-b2-1 Оценка двигательного статуса <br/> Брунинкс-Озерецкого
                 .cell-b2-2 Общий балл
@@ -943,7 +944,7 @@ html(lang = "en")
                 
               // Intermediate result 1
               .row-like.subtest-group-1
-                .cell-b2-1 Мелкая моторика
+                .cell-b2-1.text-bold Мелкая моторика
                 .cell-b2-2.text-right Сумма:
                 .cell-b2-3
                   span.summary-1-summ.summ-field -
@@ -982,7 +983,7 @@ html(lang = "en")
                 
               // Intermediate result 2
               .row-like.subtest-group-2
-                .cell-b2-1 Крупная моторика
+                .cell-b2-1.text-bold Крупная моторика
                 .cell-b2-2.text-right Сумма:
                 .cell-b2-3
                   span.summary-2-summ.summ-field -
@@ -1021,7 +1022,7 @@ html(lang = "en")
                 
               // Intermediate result 3
               .row-like.subtest-group-3
-                .cell-b2-1 Координация
+                .cell-b2-1.text-bold Координация
                 .cell-b2-2.text-right Сумма:
                 .cell-b2-3
                   span.summary-3-summ.summ-field -
@@ -1063,7 +1064,7 @@ html(lang = "en")
 
               // Intermediate result 4
               .row-like.subtest-group-4
-                .cell-b2-1 Сила и ловкость
+                .cell-b2-1.text-bold Сила и ловкость
                 .cell-b2-2.text-right Сумма:
                 .cell-b2-3
                   span.summary-4-summ.summary-5-summ.summ-field -
@@ -1075,7 +1076,7 @@ html(lang = "en")
                 .cell-b2-8.summary-4-category.summary-5-category -
 
               // Totals
-              .row-like
+              .row-like.row-totals
                 .cell-b2-1
                 .cell-b2-2
                 .cell-b2-3.text-right Сумма: 
@@ -1086,8 +1087,8 @@ html(lang = "en")
                 .cell-b2-7
                 .cell-b2-8
 
-              .row-like
-                .cell-b2-1-wide Общий двигательный балл: 
+              .row-like.row-totals
+                .cell-b2-1-wide.text-right.text-bold Общий двигательный балл: 
                 .cell-b2-4
                   span.summ-field.total-scale -
                 .cell-b2-5

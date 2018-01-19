@@ -167,6 +167,10 @@ h5
   flex-direction: column
   border-bottom: 4px solid #fafafa
 
+.bot2-table
+  border-bottom: none
+  margin-bottom: 36px
+
 .row-like
   width: 100%
   display: flex
@@ -178,6 +182,16 @@ h5
 
 .row-like:nth-child(even)
   background-color: #eee
+
+.bot2-table .row-like
+  &.subtest-group-1,
+  &.subtest-group-3,
+  &.row-totals
+    background-color: #fff
+
+  &.subtest-group-2,
+  &.subtest-group-4
+    background-color: #eee
 
 .row-like > div
   padding: 6px 8px
@@ -263,7 +277,8 @@ input:focus
   color: #666
   padding-bottom: 8px
 
-.pasted-text
+.pasted-text,
+.text-bold
   font-weight: bold
 
 // Тонкие настройки таблиц отдельных
@@ -429,12 +444,15 @@ select.doctor-select
 
 .cell-b2-5
   width: 80px
+  text-align: center
 
 .cell-b2-6
   width: 90px
+  text-align: center
 
 .cell-b2-7
   width: 40px
+  text-align: center
 
 .cell-b2-8
   width: 180px
@@ -445,8 +463,11 @@ select.doctor-select
 .has-input input
   margin: 4px 0
 
+.subtest-score
+  text-align: center
+
 #main-table-bot-short
-  margin-bottom: 24px
+  margin-bottom: 48px
 
 .main-table th,
 .main-table td
@@ -461,13 +482,8 @@ select.doctor-select
 #subtest-8-select, #subtest-bs-select option
   padding: 0
 
-.subtest-group-1,
-.subtest-group-3
-  background-color: #fff
-
-.subtest-group-2,
-.subtest-group-4
-  background-color: #eee
+.bot2-table .row-like > div
+  line-height: 28px
 
 .clr
   display: inline-block
@@ -680,20 +696,14 @@ th .clr, .thpad
 
   textarea.input-diagnosis
     border: none
-    padding: 0
+    padding: 6px 0 0
     position: relative
     z-index: 10
+    background-color: transparent
 
   input.form-control::placeholder,
   textarea.form-control::placeholder
     color: transparent
-
-  input.input-diagnosis
-    height: 34px
-    background-color: rgba(0,0,0,0.05)
-    padding: 12px 6px!important
-    position: relative
-    z-index: 10
 
   select.select-control
     background-color: transparent
@@ -707,6 +717,10 @@ th .clr, .thpad
 
   .table-br
     border-right: 12px solid #fff!important
+
+  .is-hideable-table-1,
+  .bot2-table
+    margin-bottom: 12px
 
   textarea
     resize: none
