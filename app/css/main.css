@@ -508,6 +508,10 @@ th .clr, .thpad {
 .row-divider {
   margin: 30px 0; }
 
+.row.bot-short-conclusion {
+  margin-top: 16px;
+  margin-bottom: 16px; }
+
 .graph-table {
   width: 100%;
   margin: 32px 0 0; }
@@ -552,6 +556,9 @@ th .clr, .thpad {
 .graph-bar-wrap {
   position: relative;
   width: 100%; }
+
+.gbw-bot2 {
+  padding-bottom: 10px; }
 
 .graph-bar {
   position: relative;
@@ -635,7 +642,7 @@ th .clr, .thpad {
     flex-direction: column; }
   .single-page .signature-row {
     margin-top: auto;
-    padding-bottom: 4px; }
+    padding-bottom: 8px; }
   .row,
   .col,
   .col-2,
@@ -664,7 +671,8 @@ th .clr, .thpad {
     padding: 0;
     height: 32px;
     line-height: 32px; }
-  textarea.input-diagnosis {
+  textarea.input-diagnosis,
+  textarea.form-control {
     border: none;
     padding: 6px 0 0;
     position: relative;
