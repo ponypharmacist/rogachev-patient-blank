@@ -231,7 +231,8 @@ input.short-field {
 
 input.inline-mini {
   width: 90px;
-  height: 20px; }
+  height: 20px;
+  padding: 0 6px; }
 
 input.name-field {
   max-width: 380px; }
@@ -613,8 +614,28 @@ th .clr, .thpad {
   font-weight: bold; }
 
 .debug-button {
-  text-decoration: underline;
-  cursor: pointer; }
+  display: inline-block;
+  cursor: pointer;
+  background-color: #f2f2f2;
+  background-image: linear-gradient(center top, #f5f5f5, #f1f1f1);
+  border: 1px solid #f2f2f2;
+  border-radius: 2px;
+  color: #757575;
+  font-size: 13px;
+  font-weight: bold;
+  margin: 6px 4px 6px 0;
+  min-width: 54px;
+  padding: 5px 18px;
+  text-align: center;
+  height: 36px;
+  line-height: 26px; }
+
+.debug-button:hover {
+  color: #222;
+  border: 1px solid #c6c6c6;
+  background-color: #f8f8f8;
+  background-image: linear-gradient(center top, #f8f8f8, #f1f1f1);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1); }
 
 .debug-area textarea {
   font-family: monospace;
@@ -623,6 +644,17 @@ th .clr, .thpad {
   width: 90%;
   border: none;
   background-color: rgba(0, 0, 0, 0.05); }
+
+.export-table tr:nth-child(odd) td {
+  background-color: #efefef; }
+
+.export-table tr td:nth-child(1) {
+  text-align: right;
+  width: 300px;
+  padding-right: 8px; }
+
+.export-table tr td:nth-child(2) {
+  width: 600px; }
 
 @media print {
   body {

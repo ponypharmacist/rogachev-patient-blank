@@ -26,6 +26,8 @@ html(lang = "en")
         #pm-item-b2.print-menu-item
           #pp-button-b2.print-page-button(rel = "b2")
           .print-menu-link(rel = "b2") BOT-2
+        #pm-item-export.print-menu-item
+          .print-menu-link(rel = "export") Экспорт данных
 
       #patient-data-entry.row.no-print
         .col-12
@@ -1239,7 +1241,8 @@ html(lang = "en")
               label Дата исследования: 
               |  
               span.date-b2-copy
-
+                
+      #section-export.section-global
         // Debug area
         .row.debug-area.no-print
           .col-12
@@ -1248,10 +1251,14 @@ html(lang = "en")
             | Временные штуки для проверки на ошибки. Не обращайте внимания. Они не печатаются.
             br
             span#show-patient-stringify.debug-button Экспорт JSON
+            |  
             span#remember-patient.debug-button Импорт JSON
+            |  
+            span#make-table.debug-button Сделать таблицу
             br
             textarea#debug-textarea(rows="12")
-
+          
+          include ./partials/export-table.jade
 
     script(src = "js/jquery-3.2.1.js")
     script(src = "js/app-tables.js")

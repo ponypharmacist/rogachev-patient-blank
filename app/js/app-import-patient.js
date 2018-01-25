@@ -21,6 +21,12 @@ $(document).ready(function(){
     refillSignatures();
     refillPercentiles();
   });
+
+  $('#make-table').click(function(){
+    for (const prop in patient) {
+      $('#export-' + prop).html(patient[prop]);
+    };
+  });
 });
 
 //=========================================
