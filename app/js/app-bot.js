@@ -396,7 +396,10 @@ function readSummarySpread(summaryNumber) {
 $(document).ready(function(){
 // Выбор подтипа отжиманий
   $('#subtest-8-select').on('change', function() {
-    $('.sub-res-8').attr('onchange','subtestGo(' + this.value + ',' + this.value - 4 + ');');
+    var selVal = parseInt(this.value) - 4;
+    var selStr = 'subtestGo(' + this.value + ',' + selVal + ');'
+    console.log(selStr);
+    $('.sub-res-8').attr('onchange',selStr);
     if (this.value == 9) {
       $('.graph-caption-8').html('8b. Полные отжимания');
     } else {
