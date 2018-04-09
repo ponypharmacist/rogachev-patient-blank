@@ -1255,10 +1255,12 @@ html(lang = "en")
             span#remember-patient.debug-button Импорт JSON
             |  
             span#make-table.debug-button Сделать таблицу
+            |  
+            span#make-file.debug-button Сделать файл
+            |  
+            a#download-file.debug-button(download="patient-info.txt") Скачать файл
             br
             textarea#debug-textarea(rows="12")
-          
-          include ./partials/export-table.jade
 
     script(src = "js/jquery-3.2.1.js")
     script(src = "js/app-tables.js")

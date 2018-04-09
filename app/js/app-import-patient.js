@@ -22,12 +22,26 @@ $(document).ready(function(){
     refillPercentiles();
   });
 
-  $('#make-table').click(function(){
-    for (const prop in patient) {
-      $('#export-' + prop).html(patient[prop]);
-    };
+  $('#make-file').click(function(){
+    var incomingText = $('#debug-textarea').val();
+    console.log('Incoming Text: ' + incomingText);
+    $('#download-file').attr("href", makeTextFile(incomingText));
   });
 });
+
+var textFile = null;
+
+function makeTextFile (text) {
+  var textFiledata = new Blob([text], {
+    type: 'text/plain'
+  });
+  if (textFile !== null) {
+    window.URL.revokeObjectURL(textFile);
+  }
+  textFile = window.URL.createObjectURL(textFiledata);
+  return textFile;
+};
+
 
 //=========================================
 // Вспоминаем рассчеты при импорте пациента
@@ -90,3 +104,43 @@ function refillPercentiles() {
     }
   });
 };
+
+//=========================================
+// Генерируем текст с данными пациента
+//=========================================
+$(document).ready(function(){
+  $('#make-table').click(function(){
+    var txtTableText = 'ID номер	' + patient.idNumber +
+    '\nИмя	' + patient.fullName +
+    '\nПол	' + patient.gender +
+    '\nВозраст (мес.)	' + patient.ageConverted +
+    '\nКатегория	' + patient.category +
+    '\nДиагноз МКБ	' + patient.diagnosisMKB +
+    '\nРост	' + patient.height +
+    '\nРост сидя	' + patient.heightSitting +
+    '\nВес	' + patient.weight +
+    '\nИндекс массы тела	' + patient.bmi +
+    '\nОхват талии	' + patient.waistLength +
+    '\nОхват бедер	' + patient.hipLength +
+    '\nОтношение талия-бедра	' + patient.whr +
+    '\nЭкскурсия грудной клетки (см)	' + patient.chestExcursion +
+    '\nРазница в относительной длине ног (см)	' + patient.legLengthDifferenceRelative +
+    '\nРазница в абсолютной длине ног (см)	' + patient.legLengthDifferenceAbsolute +
+    '\nДеформации грудной клетки	' + patient.chestDeformation +
+    '\nСагиттальные отклонения оси позвоночника	' + patient.spineAxisSaggitalDeviation +
+    '\nПерекос таза	' + patient.pelvicTilt +
+    '\nТип дыхания	' + patient.breathingType +
+    '\nДеформация стоп	' + patient.footDeformation +
+    '\nШейный лордоз	' + patient.neckLordosis + 
+    '\nГрудной кифоз	' + patient.chestKyphosi + 
+    '\nПоясничный лордоз	' + patient.waistLordosi +
+    '\nВыпрямленная спина	' + patient.straightBack +
+    '\nФизическое развитие	' + patient.conclusionAPhysicalDevelopment +
+    '\nПризнаки висцерального ожирения	' + patient.conclusionAVisceralObesitySigns +
+    '\nПропорции тела	' + patient.conclusionABodyProportions +
+    '\nТип дыхания	' + patient.conclusionABreathType +
+    '\nДеформации опорно-двигательного аппарата	' + patient.conclusionASkeletalDeformations;
+
+    $('#debug-textarea').val(txtTableText);
+  });
+});
