@@ -156,16 +156,16 @@ html(lang = "en")
                   .col-3
 
                 .row-like.is-hideable-2-1
-                  .col-9.thead-col Деформации грудной клетки 
+                  .col-9.thead-col Калиперометрия 
                     a#hideable-2-1.element-remover ✕
                   .col-3.input-cell
-                    input#chestDeformation.form-control.update-object(type="text" placeholder="..." tabindex="17")
+                    input#caliperometry.form-control.update-object(type="text" placeholder="..." tabindex="17")
     
                 .row-like.is-hideable-2-2
-                  .col-9.thead-col(style="font-size:90%;") Сагиттальные отклонения оси позвоночника 
+                  .col-9.thead-col(style="font-size:90%;") Фронтальные отклонения оси позвоночника 
                     a#hideable-2-2.element-remover ✕
                   .col-3.input-cell
-                    input#spineAxisSaggitalDeviation.form-control.update-object(type="text" placeholder="..." tabindex="18")
+                    input#spineAxisFrontalDeviation.form-control.update-object(type="text" placeholder="..." tabindex="18")
 
                 .row-like.is-hideable-2-3
                   .col-9.thead-col Перекос таза 
@@ -449,9 +449,9 @@ html(lang = "en")
                   .col-8.thead-col Пройденное расстояние (м) 
                     a#hideable-5-1.element-remover ✕
                   .col-2.input-cell
-                    input#walkDistance.form-control.update-object(type="text" placeholder="..." tabindex="62")
+                    input#walkDistance.form-control.update-object(type="text" placeholder="..." onchange="fillPercentile('walkDistance','PhysicalLoad');" tabindex="62")
                   .col-2.input-cell.is-hideable-col-5-2
-                    input.form-control(type="text" placeholder="...")
+                    input#percentile-walkDistance.form-control(type="text" placeholder="...")
 
                 .row-like.is-hideable-5-2
                   .col-8.thead-col Время восстановления кардиореспираторных показателей (мин) 
@@ -1254,13 +1254,11 @@ html(lang = "en")
             |  
             span#remember-patient.debug-button Импорт JSON
             |  
-            span#make-table.debug-button Сделать таблицу
-            |  
             span#make-file.debug-button Сделать файл
             |  
             a#download-file.debug-button(download="patient-info.txt") Скачать файл
             br
-            textarea#debug-textarea(rows="12")
+            textarea#debug-textarea(rows="18")
 
     script(src = "js/jquery-3.2.1.js")
     script(src = "js/app-tables.js")

@@ -181,15 +181,15 @@
                   <div class="col-3"></div>
                 </div>
                 <div class="row-like is-hideable-2-1">
-                  <div class="col-9 thead-col">Деформации грудной клетки <a id="hideable-2-1" class="element-remover">✕</a></div>
+                  <div class="col-9 thead-col">Калиперометрия <a id="hideable-2-1" class="element-remover">✕</a></div>
                   <div class="col-3 input-cell">
-                    <input id="chestDeformation" type="text" placeholder="..." tabindex="17" class="form-control update-object"/>
+                    <input id="caliperometry" type="text" placeholder="..." tabindex="17" class="form-control update-object"/>
                   </div>
                 </div>
                 <div class="row-like is-hideable-2-2">
-                  <div style="font-size:90%;" class="col-9 thead-col">Сагиттальные отклонения оси позвоночника <a id="hideable-2-2" class="element-remover">✕</a></div>
+                  <div style="font-size:90%;" class="col-9 thead-col">Фронтальные отклонения оси позвоночника <a id="hideable-2-2" class="element-remover">✕</a></div>
                   <div class="col-3 input-cell">
-                    <input id="spineAxisSaggitalDeviation" type="text" placeholder="..." tabindex="18" class="form-control update-object"/>
+                    <input id="spineAxisFrontalDeviation" type="text" placeholder="..." tabindex="18" class="form-control update-object"/>
                   </div>
                 </div>
                 <div class="row-like is-hideable-2-3">
@@ -283,6 +283,7 @@
                 <option value="olejnikova">Олейникова М.И.</option>
                 <option value="taldykina">Талдыкина Н.В.</option>
                 <option value="parshikov">Паршиков А.С.</option>
+                <option value="lurie">Лурье Г.В.</option>
               </select> <span class="doctor-signature">(подпись)</span>
               <div id="signature-doctor-a1"></div>
             </div>
@@ -500,10 +501,10 @@
                 <div class="row-like is-hideable-5-1">
                   <div class="col-8 thead-col">Пройденное расстояние (м) <a id="hideable-5-1" class="element-remover">✕</a></div>
                   <div class="col-2 input-cell">
-                    <input id="walkDistance" type="text" placeholder="..." tabindex="62" class="form-control update-object"/>
+                    <input id="walkDistance" type="text" placeholder="..." onchange="fillPercentile('walkDistance','PhysicalLoad');" tabindex="62" class="form-control update-object"/>
                   </div>
                   <div class="col-2 input-cell is-hideable-col-5-2">
-                    <input type="text" placeholder="..." class="form-control"/>
+                    <input id="percentile-walkDistance" type="text" placeholder="..." class="form-control"/>
                   </div>
                 </div>
                 <div class="row-like is-hideable-5-2">
@@ -547,6 +548,7 @@
                 <option value="olejnikova">Олейникова М.И.</option>
                 <option value="taldykina">Талдыкина Н.В.</option>
                 <option value="parshikov">Паршиков А.С.</option>
+                <option value="lurie">Лурье Г.В.</option>
               </select> <span class="doctor-signature">(подпись)</span>
               <div id="signature-doctor-a2"></div>
             </div>
@@ -784,6 +786,7 @@
                 <option value="olejnikova">Олейникова М.И.</option>
                 <option value="taldykina">Талдыкина Н.В.</option>
                 <option value="parshikov">Паршиков А.С.</option>
+                <option value="lurie">Лурье Г.В.</option>
               </select> <span class="doctor-signature">(подпись)</span>
               <div id="signature-doctor-a3"></div>
             </div>
@@ -903,6 +906,7 @@
                 <option value="olejnikova">Олейникова М.И.</option>
                 <option value="taldykina">Талдыкина Н.В.</option>
                 <option value="parshikov">Паршиков А.С.</option>
+                <option value="lurie">Лурье Г.В.</option>
               </select> <span class="doctor-signature">(подпись)</span>
               <div id="signature-doctor-b1-1"></div>
             </div>
@@ -973,6 +977,7 @@
                 <option value="olejnikova">Олейникова М.И.</option>
                 <option value="taldykina">Талдыкина Н.В.</option>
                 <option value="parshikov">Паршиков А.С.</option>
+                <option value="lurie">Лурье Г.В.</option>
               </select> <span class="doctor-signature">(подпись)</span>
               <div id="signature-doctor-b1-2"></div>
             </div>
@@ -1208,6 +1213,7 @@
                 <option value="olejnikova">Олейникова М.И.</option>
                 <option value="taldykina">Талдыкина Н.В.</option>
                 <option value="parshikov">Паршиков А.С.</option>
+                <option value="lurie">Лурье Г.В.</option>
               </select> <span class="doctor-signature">(подпись)</span>
               <div id="signature-doctor-b2-1"></div>
             </div>
@@ -1390,6 +1396,7 @@
                 <option value="olejnikova">Олейникова М.И.</option>
                 <option value="taldykina">Талдыкина Н.В.</option>
                 <option value="parshikov">Паршиков А.С.</option>
+                <option value="lurie">Лурье Г.В.</option>
               </select> <span class="doctor-signature">(подпись)</span>
               <div id="signature-doctor-b2-2"></div>
             </div>
@@ -1402,8 +1409,8 @@
       <div id="section-export" class="section-global">
         <!-- Debug area-->
         <div class="row debug-area no-print">
-          <div class="col-12"><br/><br/>Временные штуки для проверки на ошибки. Не обращайте внимания. Они не печатаются.<br/><span id="show-patient-stringify" class="debug-button">Экспорт JSON</span> <span id="remember-patient" class="debug-button">Импорт JSON</span> <span id="make-table" class="debug-button">Сделать таблицу</span> <span id="make-file" class="debug-button">Сделать файл</span> <a id="download-file" download="patient-info.txt" class="debug-button">Скачать файл</a><br/>
-            <textarea id="debug-textarea" rows="12"></textarea>
+          <div class="col-12"><br/><br/>Временные штуки для проверки на ошибки. Не обращайте внимания. Они не печатаются.<br/><span id="show-patient-stringify" class="debug-button">Экспорт JSON</span> <span id="remember-patient" class="debug-button">Импорт JSON</span> <span id="make-file" class="debug-button">Сделать файл</span> <a id="download-file" download="patient-info.txt" class="debug-button">Скачать файл</a><br/>
+            <textarea id="debug-textarea" rows="18"></textarea>
           </div>
         </div>
       </div>
