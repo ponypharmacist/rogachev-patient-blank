@@ -659,6 +659,18 @@ th .clr, .thpad {
 .export-table tr td:nth-child(2) {
   width: 600px; }
 
+@media screen and (max-width: 1440px) {
+  .container-custom {
+    margin: 0 20px 0 auto; } }
+
+@media screen and (max-width: 1200px) {
+  .print-menu {
+    position: relative;
+    float: none;
+    margin: 0 0 0 -15px;
+    border-width: 0;
+    width: 930px; } }
+
 @media print {
   body {
     background-color: #fff;

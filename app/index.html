@@ -811,15 +811,18 @@
             <div class="col-5">Идентификационный номер: <span class="pasted-text idNumber-copy"></span><br/>Диагноз: <span class="pasted-text diagnosisMKB-copy"></span><br/>Категория: <span class="pasted-text category-copy"></span></div>
             <div class="col-12"><span>Ведущая рука (письмо): </span>
               <select id="primary-hand-writing-b1" class="select-control update-object">
-                <option value="right" selected="selected">Правая</option>
+                <option selected="selected"></option>
+                <option value="right">Правая</option>
                 <option value="left">Левая</option>
               </select><br/><span>Ведущая рука (бросок): </span>
               <select id="primary-hand-throwing-b1" class="select-control update-object">
-                <option value="right" selected="selected">Правая</option>
+                <option selected="selected"></option>
+                <option value="right">Правая</option>
                 <option value="left">Левая</option>
               </select><br/><span>Ведущая ступня/нога:</span>
               <select id="primary-leg-b1" class="select-control update-object">
-                <option value="right" selected="selected">Правая</option>
+                <option selected="selected"></option>
+                <option value="right">Правая</option>
                 <option value="left">Левая</option>
               </select>
             </div>
@@ -870,7 +873,7 @@
                     </th>
                     <td>
                       <div class="clr">
-                        <input type="text" maxlength="2" onchange="subtestBotShortGo(1);" class="form-control sub-res-bs1 sub-res-bs2"/>
+                        <input id="subtest-bs-score" type="text" maxlength="2" onchange="subtestBotShortGo(1);" class="form-control sub-res-bs1 sub-res-bs2 update-object"/>
                       </div>
                     </td>
                     <td>
@@ -1001,15 +1004,18 @@
             <div class="col-5">Идентификационный номер: <span class="pasted-text idNumber-copy"></span><br/>Диагноз: <span class="pasted-text diagnosisMKB-copy"></span><br/>Категория: <span class="pasted-text category-copy"></span></div>
             <div class="col-12"><span>Ведущая рука (письмо): </span>
               <select id="primary-hand-writing-b2" class="select-control update-object">
-                <option value="right" selected="selected">Правая</option>
+                <option selected="selected"></option>
+                <option value="right">Правая</option>
                 <option value="left">Левая</option>
               </select><br/><span>Ведущая рука (бросок): </span>
               <select id="primary-hand-throwing-b2" class="select-control update-object">
-                <option value="right" selected="selected">Правая</option>
+                <option selected="selected"></option>
+                <option value="right">Правая</option>
                 <option value="left">Левая</option>
               </select><br/><span>Ведущая ступня/нога:</span>
               <select id="primary-leg-b2" class="select-control update-object">
-                <option value="right" selected="selected">Правая</option>
+                <option selected="selected"></option>
+                <option value="right">Правая</option>
                 <option value="left">Левая</option>
               </select>
             </div>
@@ -1030,7 +1036,7 @@
               <div class="row-like subtest-group-1">
                 <div class="cell-b2-1">1. Точность мелкой моторики</div>
                 <div class="cell-b2-2 has-input">
-                  <input type="text" maxlength="2" onchange="subtestGo(1,1);" class="form-control subtest-score sub-res-1"/>
+                  <input id="bot2-score-1" type="text" maxlength="2" onchange="subtestGo(1,1);" class="form-control subtest-score sub-res-1"/>
                 </div>
                 <div class="cell-b2-3"><span class="subtest-1-scale scale-field">-</span></div>
                 <div class="cell-b2-4"> </div>
@@ -1043,7 +1049,7 @@
               <div class="row-like subtest-group-1">
                 <div class="cell-b2-1">2. Интеграция мелкой моторики</div>
                 <div class="cell-b2-2 has-input">
-                  <input type="text" maxlength="2" onchange="subtestGo(2,1);" class="form-control subtest-score sub-res-2"/>
+                  <input id="bot2-score-2" type="text" maxlength="2" onchange="subtestGo(2,1);" class="form-control subtest-score sub-res-2"/>
                 </div>
                 <div class="cell-b2-3"><span class="subtest-2-scale scale-field">-</span></div>
                 <div class="cell-b2-4"> </div>
@@ -1067,7 +1073,7 @@
               <div class="row-like subtest-group-2">
                 <div class="cell-b2-1">3. Ловкость рук</div>
                 <div class="cell-b2-2 has-input">
-                  <input type="text" maxlength="2" onchange="subtestGo(3,2);" class="form-control subtest-score sub-res-3"/>
+                  <input id="bot2-score-3" type="text" maxlength="2" onchange="subtestGo(3,2);" class="form-control subtest-score sub-res-3"/>
                 </div>
                 <div class="cell-b2-3"><span class="subtest-3-scale scale-field">-</span></div>
                 <div class="cell-b2-4"> </div>
@@ -1080,7 +1086,7 @@
               <div class="row-like subtest-group-2">
                 <div class="cell-b2-1">7. Координация верх. конечн.</div>
                 <div class="cell-b2-2 has-input">
-                  <input type="text" maxlength="2" onchange="subtestGo(7,2);" class="form-control subtest-score sub-res-7"/>
+                  <input id="bot2-score-4" type="text" maxlength="2" onchange="subtestGo(7,2);" class="form-control subtest-score sub-res-7"/>
                 </div>
                 <div class="cell-b2-3"><span class="subtest-7-scale scale-field">-</span></div>
                 <div class="cell-b2-4"> </div>
@@ -1104,7 +1110,7 @@
               <div class="row-like subtest-group-3">
                 <div class="cell-b2-1">4. Билатеральные навыки</div>
                 <div class="cell-b2-2 has-input">
-                  <input type="text" maxlength="2" onchange="subtestGo(4,3);" class="form-control subtest-score sub-res-4"/>
+                  <input id="bot2-score-5" type="text" maxlength="2" onchange="subtestGo(4,3);" class="form-control subtest-score sub-res-4"/>
                 </div>
                 <div class="cell-b2-3"><span class="subtest-4-scale scale-field">-</span></div>
                 <div class="cell-b2-4"> </div>
@@ -1117,7 +1123,7 @@
               <div class="row-like subtest-group-3">
                 <div class="cell-b2-1">5. Баланс</div>
                 <div class="cell-b2-2 has-input">
-                  <input type="text" maxlength="2" onchange="subtestGo(5,3);" class="form-control subtest-score sub-res-5"/>
+                  <input id="bot2-score-6" type="text" maxlength="2" onchange="subtestGo(5,3);" class="form-control subtest-score sub-res-5"/>
                 </div>
                 <div class="cell-b2-3"><span class="subtest-5-scale scale-field">-</span></div>
                 <div class="cell-b2-4"> </div>
@@ -1141,7 +1147,7 @@
               <div class="row-like subtest-group-4">
                 <div class="cell-b2-1">6. Скорость бега и ловкость</div>
                 <div class="cell-b2-2 has-input">
-                  <input type="text" maxlength="2" onchange="subtestGo(6,4);" class="form-control subtest-score sub-res-6"/>
+                  <input id="bot2-score-7" type="text" maxlength="2" onchange="subtestGo(6,4);" class="form-control subtest-score sub-res-6"/>
                 </div>
                 <div class="cell-b2-3"><span class="subtest-6-scale scale-field">-</span></div>
                 <div class="cell-b2-4"> </div>
@@ -1159,7 +1165,7 @@
                   </select>
                 </div>
                 <div class="cell-b2-2 has-input">
-                  <input type="text" maxlength="2" onchange="subtestGo(8,4);" class="form-control subtest-score sub-res-8 sub-res-9"/>
+                  <input id="bot2-score-8" type="text" maxlength="2" onchange="subtestGo(8,4);" class="form-control subtest-score sub-res-8 sub-res-9"/>
                 </div>
                 <div class="cell-b2-3"><span class="subtest-8-scale subtest-9-scale scale-field">-</span></div>
                 <div class="cell-b2-4"> </div>
@@ -1421,5 +1427,6 @@
     <script src="js/app-antropo.js"></script>
     <script src="js/app-bot.js"></script>
     <script src="js/app-import-patient.js"></script>
+    <script src="js/app-import-txt.js"></script>
   </body>
 </html>
