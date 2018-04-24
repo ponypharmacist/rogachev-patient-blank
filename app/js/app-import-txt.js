@@ -54,6 +54,15 @@ function makeTable() {
   '\nПоясничный лордоз	' + txtGen('waistLordosi') +
   '\nВыпрямленная спина	' + txtGen('straightBack') +
 
+  '\nОкружность плеча (см, левое)	' + txtGen('circumShoulderLeft') +
+  '\nОкружность плеча (см, правое)	' + txtGen('circumShoulderRight') +
+  '\nОкружность бедра (см, левое)	' + txtGen('circumThighLeft') +
+  '\nОкружность бедра (см, правое)	' + txtGen('circumThighRight') +
+  '\nОкружность голени (см, левое)	' + txtGen('circumShinLeft') +
+  '\nОкружность голени (см, правое)	' + txtGen('circumShinRight') +
+  '\nОкружность грудной клетки на вдохе (см)	' + txtGen('circumChestInsp') +
+  '\nОкружность грудной клетки на выдохе (см)	' + txtGen('circumChestExp') +
+
   '\nФизическое развитие	' + txtGen('conclusionAPhysicalDevelopment') +
   '\nПризнаки висцерального ожирения	' + txtGen('conclusionAVisceralObesitySigns') +
   '\nПропорции тела	' + txtGen('conclusionABodyProportions') +
@@ -97,6 +106,31 @@ function makeTable() {
 
   '\nПройденное расстояние (м)	' + txtGen('walkDistance') +
   '\nВремя восстановления кардиореспираторных показателей (мин)	' + txtGen('cardiorespiratoryRestorationTime') +
+
+  '\nЧСС (уд/мин), исходно	' + txtGen('walkA1') +
+  '\nЧСС (уд/мин), сразу после теста	' + txtGen('walkA2') +
+  '\nЧСС (уд/мин), через 3 минуты	' + txtGen('walkA3') +
+  '\nЧСС (уд/мин), через 5 минут	' + txtGen('walkA4') +
+
+  '\nЧД (в мин), исходно	' + txtGen('walkB1') +
+  '\nЧД (в мин), сразу после теста	' + txtGen('walkB2') +
+  '\nЧД (в мин), через 3 минуты	' + txtGen('walkB3') +
+  '\nЧД (в мин), через 5 минут	' + txtGen('walkB4') +
+
+  '\nАДС (мм.рт.ст.), исходно	' + txtGen('walkC1') +
+  '\nАДС (мм.рт.ст.), сразу после теста	' + txtGen('walkC2') +
+  '\nАДС (мм.рт.ст.), через 3 минуты	' + txtGen('walkC3') +
+  '\nАДС (мм.рт.ст.), через 5 минут	' + txtGen('walkC4') +
+
+  '\nАДД (мм.рт.ст.), исходно	' + txtGen('walkD1') +
+  '\nАДД (мм.рт.ст.), сразу после теста	' + txtGen('walkD2') +
+  '\nАДД (мм.рт.ст.), через 3 минуты	' + txtGen('walkD3') +
+  '\nАДД (мм.рт.ст.), через 5 минут	' + txtGen('walkD4') +
+
+  '\nСатурация О2 (%), исходно	' + txtGen('walkE1') +
+  '\nСатурация О2 (%), сразу после теста	' + txtGen('walkE2') +
+  '\nСатурация О2 (%), через 3 минуты	' + txtGen('walkE3') +
+  '\nСатурация О2 (%), через 5 минут	' + txtGen('walkE4') +
 
   '\nОбъем движений изменен в суставах	' + txtGen('conclsionBMovementLimitedInJoints') +
   '\nСиловая выносливость	' + txtGen('conclsionBStrengthEndurance') +

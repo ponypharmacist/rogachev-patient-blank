@@ -172,6 +172,50 @@
                   </div>
                 </div>
               </div>
+              <!-- Непечатная таблица измерений-->
+              <div class="table-like table-like-1 no-print">
+                <div class="row-like is-hideable-1-1">
+                  <div class="col-8 thead-col">Окружность плеча (см)</div>
+                  <div class="col-2 input-cell">
+                    <input id="circumShoulderLeft" type="text" placeholder="левое" class="form-control update-object"/>
+                  </div>
+                  <div class="col-2 is-hideable-col-1-2 input-cell">
+                    <input id="circumShoulderRight" type="text" placeholder="правое" class="form-control update-object"/>
+                  </div>
+                </div>
+                <div class="row-like is-hideable-1-1">
+                  <div class="col-8 thead-col">Окружность бедра (см)</div>
+                  <div class="col-2 input-cell">
+                    <input id="circumThighLeft" type="text" placeholder="левое" class="form-control update-object"/>
+                  </div>
+                  <div class="col-2 is-hideable-col-1-2 input-cell">
+                    <input id="circumThighRight" type="text" placeholder="правое" class="form-control update-object"/>
+                  </div>
+                </div>
+                <div class="row-like is-hideable-1-1">
+                  <div class="col-8 thead-col">Окружность голени (см)</div>
+                  <div class="col-2 input-cell">
+                    <input id="circumShinLeft" type="text" placeholder="левое" class="form-control update-object"/>
+                  </div>
+                  <div class="col-2 is-hideable-col-1-2 input-cell">
+                    <input id="circumShinRight" type="text" placeholder="правое" class="form-control update-object"/>
+                  </div>
+                </div>
+                <div class="row-like is-hideable-1-1">
+                  <div class="col-8 thead-col">Окружность грудной клетки на вдохе (см)</div>
+                  <div class="col-2 input-cell">
+                    <input id="circumChestInsp" type="text" placeholder="..." class="form-control update-object"/>
+                  </div>
+                  <div class="col-2 is-hideable-col-1-2 input-cell"></div>
+                </div>
+                <div class="row-like is-hideable-1-1">
+                  <div class="col-8 thead-col">Окружность грудной клетки на выдохе (см)</div>
+                  <div class="col-2 input-cell">
+                    <input id="circumChestExp" type="text" placeholder="..." class="form-control update-object"/>
+                  </div>
+                  <div class="col-2 is-hideable-col-1-2 input-cell"></div>
+                </div>
+              </div>
             </div>
             <!-- Таблица 2а. Соматоскопические показатели-->
             <div class="col-6 table-br is-hideable-table-2">
@@ -514,6 +558,93 @@
                   </div>
                   <div class="col-2 input-cell is-hideable-col-5-2">
                     <input type="text" placeholder="..." class="form-control"/>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Таблица Непечатная. К ходьбе-->
+            <div class="col-12 no-print">
+              <div class="table-like table-like-2">
+                <div class="row-like thead-like">
+                  <div class="col-4">Показатель </div>
+                  <div class="col-2 text-center">Исходно</div>
+                  <div class="col-2 text-center">После теста</div>
+                  <div class="col-2 text-center">Через 3 мин.</div>
+                  <div class="col-2 text-center">Через 5 мин.</div>
+                </div>
+                <div class="row-like">
+                  <div class="col-4 thead-col">ЧСС (уд/мин) </div>
+                  <div class="col-2 input-cell">
+                    <input id="walkA1" type="text" placeholder="..." class="form-control update-object"/>
+                  </div>
+                  <div class="col-2 input-cell">
+                    <input id="walkA2" type="text" placeholder="..." class="form-control update-object"/>
+                  </div>
+                  <div class="col-2 input-cell">
+                    <input id="walkA3" type="text" placeholder="..." class="form-control update-object"/>
+                  </div>
+                  <div class="col-2 input-cell">
+                    <input id="walkA4" type="text" placeholder="..." class="form-control update-object"/>
+                  </div>
+                </div>
+                <div class="row-like">
+                  <div class="col-4 thead-col">ЧД (в мин) </div>
+                  <div class="col-2 input-cell">
+                    <input id="walkB1" type="text" placeholder="..." class="form-control update-object"/>
+                  </div>
+                  <div class="col-2 input-cell">
+                    <input id="walkB2" type="text" placeholder="..." class="form-control update-object"/>
+                  </div>
+                  <div class="col-2 input-cell">
+                    <input id="walkB3" type="text" placeholder="..." class="form-control update-object"/>
+                  </div>
+                  <div class="col-2 input-cell">
+                    <input id="walkB4" type="text" placeholder="..." class="form-control update-object"/>
+                  </div>
+                </div>
+                <div class="row-like">
+                  <div class="col-4 thead-col">АДС (мм.рт.ст.) </div>
+                  <div class="col-2 input-cell">
+                    <input id="walkC1" type="text" placeholder="..." class="form-control update-object"/>
+                  </div>
+                  <div class="col-2 input-cell">
+                    <input id="walkC2" type="text" placeholder="..." class="form-control update-object"/>
+                  </div>
+                  <div class="col-2 input-cell">
+                    <input id="walkC3" type="text" placeholder="..." class="form-control update-object"/>
+                  </div>
+                  <div class="col-2 input-cell">
+                    <input id="walkC4" type="text" placeholder="..." class="form-control update-object"/>
+                  </div>
+                </div>
+                <div class="row-like">
+                  <div class="col-4 thead-col">АДД (мм.рт.ст.) </div>
+                  <div class="col-2 input-cell">
+                    <input id="walkD1" type="text" placeholder="..." class="form-control update-object"/>
+                  </div>
+                  <div class="col-2 input-cell">
+                    <input id="walkD2" type="text" placeholder="..." class="form-control update-object"/>
+                  </div>
+                  <div class="col-2 input-cell">
+                    <input id="walkD3" type="text" placeholder="..." class="form-control update-object"/>
+                  </div>
+                  <div class="col-2 input-cell">
+                    <input id="walkD4" type="text" placeholder="..." class="form-control update-object"/>
+                  </div>
+                </div>
+                <div class="row-like">
+                  <div class="col-4 thead-col">Сатурация О2 (%) </div>
+                  <div class="col-2 input-cell">
+                    <input id="walkE1" type="text" placeholder="..." class="form-control update-object"/>
+                  </div>
+                  <div class="col-2 input-cell">
+                    <input id="walkE2" type="text" placeholder="..." class="form-control update-object"/>
+                  </div>
+                  <div class="col-2 input-cell">
+                    <input id="walkE3" type="text" placeholder="..." class="form-control update-object"/>
+                  </div>
+                  <div class="col-2 input-cell">
+                    <input id="walkE4" type="text" placeholder="..." class="form-control update-object"/>
                   </div>
                 </div>
               </div>

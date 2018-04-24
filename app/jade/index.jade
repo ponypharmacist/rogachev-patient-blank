@@ -147,6 +147,41 @@ html(lang = "en")
                   .col-2.is-hideable-col-1-2.input-cell
                     input.form-control(type="text" value="до 2 см" readonly)
 
+              // Непечатная таблица измерений
+              .table-like.table-like-1.no-print
+                .row-like.is-hideable-1-1
+                  .col-8.thead-col Окружность плеча (см)
+                  .col-2.input-cell
+                    input#circumShoulderLeft.form-control.update-object(type="text" placeholder="левое")
+                  .col-2.is-hideable-col-1-2.input-cell
+                    input#circumShoulderRight.form-control.update-object(type="text" placeholder="правое")
+                
+                .row-like.is-hideable-1-1
+                  .col-8.thead-col Окружность бедра (см)
+                  .col-2.input-cell
+                    input#circumThighLeft.form-control.update-object(type="text" placeholder="левое")
+                  .col-2.is-hideable-col-1-2.input-cell
+                    input#circumThighRight.form-control.update-object(type="text" placeholder="правое")
+                
+                .row-like.is-hideable-1-1
+                  .col-8.thead-col Окружность голени (см)
+                  .col-2.input-cell
+                    input#circumShinLeft.form-control.update-object(type="text" placeholder="левое")
+                  .col-2.is-hideable-col-1-2.input-cell
+                    input#circumShinRight.form-control.update-object(type="text" placeholder="правое")
+                
+                .row-like.is-hideable-1-1
+                  .col-8.thead-col Окружность грудной клетки на вдохе (см)
+                  .col-2.input-cell
+                    input#circumChestInsp.form-control.update-object(type="text" placeholder="...")
+                  .col-2.is-hideable-col-1-2.input-cell
+                
+                .row-like.is-hideable-1-1
+                  .col-8.thead-col Окружность грудной клетки на выдохе (см)
+                  .col-2.input-cell
+                    input#circumChestExp.form-control.update-object(type="text" placeholder="...")
+                  .col-2.is-hideable-col-1-2.input-cell
+
             // Таблица 2а. Соматоскопические показатели
             .col-6.table-br.is-hideable-table-2
               .table-like
@@ -460,7 +495,72 @@ html(lang = "en")
                     input#cardiorespiratoryRestorationTime.form-control.update-object(type="text" placeholder="..." tabindex="63")
                   .col-2.input-cell.is-hideable-col-5-2
                     input.form-control(type="text" placeholder="...")
-            
+
+            // Таблица Непечатная. К ходьбе
+            .col-12.no-print
+              .table-like.table-like-2
+                .row-like.thead-like
+                  .col-4 Показатель 
+                  .col-2.text-center Исходно
+                  .col-2.text-center После теста
+                  .col-2.text-center Через 3 мин.
+                  .col-2.text-center Через 5 мин.
+
+                .row-like
+                  .col-4.thead-col ЧСС (уд/мин) 
+                  .col-2.input-cell
+                    input#walkA1.form-control.update-object(type="text" placeholder="...")
+                  .col-2.input-cell
+                    input#walkA2.form-control.update-object(type="text" placeholder="...")
+                  .col-2.input-cell
+                    input#walkA3.form-control.update-object(type="text" placeholder="...")
+                  .col-2.input-cell
+                    input#walkA4.form-control.update-object(type="text" placeholder="...")
+
+                .row-like
+                  .col-4.thead-col ЧД (в мин) 
+                  .col-2.input-cell
+                    input#walkB1.form-control.update-object(type="text" placeholder="...")
+                  .col-2.input-cell
+                    input#walkB2.form-control.update-object(type="text" placeholder="...")
+                  .col-2.input-cell
+                    input#walkB3.form-control.update-object(type="text" placeholder="...")
+                  .col-2.input-cell
+                    input#walkB4.form-control.update-object(type="text" placeholder="...")
+
+                .row-like
+                  .col-4.thead-col АДС (мм.рт.ст.) 
+                  .col-2.input-cell
+                    input#walkC1.form-control.update-object(type="text" placeholder="...")
+                  .col-2.input-cell
+                    input#walkC2.form-control.update-object(type="text" placeholder="...")
+                  .col-2.input-cell
+                    input#walkC3.form-control.update-object(type="text" placeholder="...")
+                  .col-2.input-cell
+                    input#walkC4.form-control.update-object(type="text" placeholder="...")
+
+                .row-like
+                  .col-4.thead-col АДД (мм.рт.ст.) 
+                  .col-2.input-cell
+                    input#walkD1.form-control.update-object(type="text" placeholder="...")
+                  .col-2.input-cell
+                    input#walkD2.form-control.update-object(type="text" placeholder="...")
+                  .col-2.input-cell
+                    input#walkD3.form-control.update-object(type="text" placeholder="...")
+                  .col-2.input-cell
+                    input#walkD4.form-control.update-object(type="text" placeholder="...")
+
+                .row-like
+                  .col-4.thead-col Сатурация О2 (%) 
+                  .col-2.input-cell
+                    input#walkE1.form-control.update-object(type="text" placeholder="...")
+                  .col-2.input-cell
+                    input#walkE2.form-control.update-object(type="text" placeholder="...")
+                  .col-2.input-cell
+                    input#walkE3.form-control.update-object(type="text" placeholder="...")
+                  .col-2.input-cell
+                    input#walkE4.form-control.update-object(type="text" placeholder="...")
+
             // Заключения, блок 2 
             .col-12
               h5.h5-padded.is-hideable-h2 Заключение 
