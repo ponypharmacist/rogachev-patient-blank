@@ -7,6 +7,10 @@ $(document).ready(function(){
     var incomingText = $('#debug-textarea').val();
     console.log('Incoming Text: ' + incomingText);
     $('#download-file').attr("href", makeTextFile(incomingText));
+
+    let now = new Date();
+    let fileDate = now.getDate() + '.' + (now.getMonth() + 1) + '.' + now.getFullYear();
+    $('#download-file').attr("download", (patient.idNumber ? patient.idNumber + ' - ' : '') + (patient.fullName ? patient.fullName + ' ' : '') + fileDate + '.txt');
   });
 });
 
