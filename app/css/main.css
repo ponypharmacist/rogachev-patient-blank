@@ -663,6 +663,9 @@ th .clr, .thpad {
   border: 3px dashed #8bb0a9;
   margin: 4px 0; }
 
+.pagebreak {
+  page-break-before: always; }
+
 @media screen and (max-width: 1440px) {
   .container-custom {
     margin: 0 20px 0 auto; } }
@@ -690,7 +693,8 @@ th .clr, .thpad {
   .single-page {
     min-height: 100vh;
     display: flex;
-    flex-direction: column; }
+    flex-direction: column;
+    page-break-after: always; }
   .single-page .signature-row {
     margin-top: auto;
     padding-bottom: 8px; }
@@ -749,11 +753,11 @@ th .clr, .thpad {
   .diagnosis-block {
     padding: 0;
     margin: 0; }
-  .pagebreak {
-    page-break-before: always; }
   .no-print,
   .element-remover,
   .diagnosis-hint {
     display: none !important; }
+  .visible {
+    display: none; }
   .printable {
     display: block !important; } }

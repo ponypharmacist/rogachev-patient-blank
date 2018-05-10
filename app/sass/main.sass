@@ -685,6 +685,9 @@ th .clr, .thpad
   border: 3px dashed #8bb0a9
   margin: 4px 0
 
+.pagebreak
+  page-break-before: always
+
 // Чтобы 1280 - 1024 норм было
 @media screen and (max-width: 1440px)
   .container-custom
@@ -717,6 +720,7 @@ th .clr, .thpad
     min-height: 100vh
     display: flex
     flex-direction: column
+    page-break-after: always
 
   .single-page .signature-row
     margin-top: auto
@@ -791,13 +795,13 @@ th .clr, .thpad
     padding: 0
     margin: 0
 
-  .pagebreak
-    page-break-before: always
-
   .no-print,
   .element-remover,
   .diagnosis-hint
     display: none!important
+
+  .visible
+    display: none
 
   .printable
     display: block!important
