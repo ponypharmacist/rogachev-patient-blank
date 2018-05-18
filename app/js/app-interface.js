@@ -61,7 +61,11 @@ $(document).ready(function(){
   $('.range-check').on('change', function() {
     let pName = $(this).attr('id');
     let pValue = parseInt($(this).val());
-    validateRange(pName, pValue) ? $('#ir-' + pName).remove() : $('#' + pName).after('<span id="ir-'+ pName +'" class="invalid-range">Вне реф. значений</span>');
+    if (validation[pName]) {
+      validateRange(pName, pValue) ? $('#ir-' + pName).remove() : $('#' + pName).after('<span id="ir-'+ pName +'" class="invalid-range">Вне реф. значений</span>');
+    } else {
+      console.log('Нечего валидировать!');
+    }
   });
 
   // Копирование полей пациента на другие страницы
