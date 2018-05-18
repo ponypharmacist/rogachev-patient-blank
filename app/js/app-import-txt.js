@@ -34,6 +34,7 @@ function makeTable() {
   var txtTableText = 'ID номер	' + txtGen('idNumber') +
   '\nИмя	' + txtGen('fullName') +
   '\nПол	' + txtGen('gender') +
+  '\nДата рождения	' + txtGen('birthday') +
   '\nВозраст (мес.)	' + txtGen('ageConverted') +
   '\nКатегория	' + txtGen('category') +
   '\nДиагноз МКБ	' + txtGen('diagnosisMKB') +
