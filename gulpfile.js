@@ -2,6 +2,7 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
     browserSync = require('browser-sync'),
     concat = require('gulp-concat'),
+    rename = require('gulp-rename'),
     uglify = require('gulp-uglifyjs'),
     jade = require('jade'),
     gulpJade = require('gulp-jade'),
@@ -29,11 +30,12 @@ gulp.task('jade', function () {
 
 gulp.task('scripts', function() { // Если я хочу библиотеки левые сжать и добавить в js-папку например
   return gulp.src([
-    'app/js/jquery-3.2.1.js'
+    'app/js/jquery-3.3.1.min.js', 'app/js/tables-bot.js', 'app/js/tables-antropo.js',
+    'app/js/app-interface.js', 'app/js/app-antropo.js', 'app/js/app-bot.js',
+    'app/js/app-import-patient.js', 'app/js/app-import-txt.js'
   ])
-  .pipe(concat('libs.min.js'))
-  .pipe(uglify())
-  .pipe(gulp.dest('app/js'));
+  .pipe(concat('concat.js'))
+  .pipe(gulp.dest('build/js'));
 });
 
 gulp.task('browser-sync', function() {
@@ -48,7 +50,7 @@ gulp.task('browser-sync', function() {
 gulp.task('watch', ['browser-sync', 'sass', 'jade'], function() {
   gulp.watch('app/sass/**/*.sass', ['sass']);
   gulp.watch('app/jade/**/*.jade', ['jade']);
-  gulp.watch('app/*.html', browserSync.reload);
+  gulp.watch('build/*.html', browserSync.reload);
   gulp.watch('app/js/**/*.js', browserSync.reload);
 });
 

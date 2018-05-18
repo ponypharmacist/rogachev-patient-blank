@@ -4,17 +4,9 @@
 //=========================================
 // Helper functions
 //=========================================
-function getSumm(a,b) {
-  return a + b;
-};
-
-function range(x, min, max) {
-  return x >= min && x <= max;
-};
-
-function rangeShort(x, min, max) {
-  return x >= min && x < max;
-};
+var getSumm = (a,b) => a + b,
+    range = (x, min, max) => x >= min && x <= max,
+    rangeShort = (x, min, max) => x >= min && x < max;
 
 //=========================================
 // Калькуляторы параметров пациента
@@ -68,3 +60,71 @@ $(document).ready(function(){
   });
 
 });
+
+//==================================================================================
+// Функции, выбирающие и вставляющие значение на основании названия параметра
+// и имени таблицы возрастных диапазонов
+//==================================================================================
+// Выставляем референсные значения
+//=========================================
+function fillReferenceValues() {
+  console.log('Started filling reference values.');
+  fillReferenceInterval('height', 'ageRange_height', ' см');
+  fillReferenceInterval('weight', 'ageRange_height', ' кг');
+  fillReferenceInterval('bmi', 'ageRange_bmi', '');
+  fillReferenceWHR();
+  console.log('Finished filling reference values.');
+}
+
+function fillReferenceInterval (parameterName, ageRangeTable, unit) {
+  let referenceTable = 'table_' + parameterName + '_' + patient.gender;
+  let referenceTableIndex = getAgeGroup(ageRangeTable);
+  let referenceInterval = references[referenceTable][referenceTableIndex];
+  $('#reference-' + parameterName).val(referenceInterval[0] + ' - ' + referenceInterval[1] + unit);
+  validation[parameterName] = [referenceInterval[0],referenceInterval[1]];
+};
+
+function getAgeGroup (ageRangeTable) {
+  for (let index = 0; index < references[ageRangeTable].length - 1; index++) {
+    if (rangeShort(patient.ageConverted, references[ageRangeTable][index], references[ageRangeTable][index + 1])) {
+      return index;
+    } else {
+    };
+  };
+};
+
+//=========================================
+// Выставляем процентили
+//=========================================
+function fillPercentile (parameterName, categoryName) {
+  let patientParameterValue = $('#' + parameterName).val();
+  let parametersTable = 'table_' + parameterName + '_' + patient.gender;
+  let ageRangeForCategory = 'ageRangeTable' + categoryName;
+  let parametersTableIndex = getAgeGroup(ageRangeForCategory);
+  let parameterValuesArray = references[parametersTable][parametersTableIndex];
+  let percentileInterval = getPercentile(patientParameterValue, parameterValuesArray, categoryName);
+  $('#percentile-' + parameterName).val(percentileInterval);
+};
+
+// Сканер массива параметров
+function getPercentile (patientParameterValue, parameterValuesArray, categoryName) {
+  let index;
+  let percentilesTableName = ('percentiles' + categoryName);
+  for (index = 0; index < parameterValuesArray.length - 1; index++) {
+    if (rangeShort(patientParameterValue, parameterValuesArray[index], parameterValuesArray[index + 1])) {
+      return references[percentilesTableName][index];
+    } else {
+    };
+  };
+};
+
+//=========================================
+// WHR
+//=========================================
+function fillReferenceWHR () {
+  if (patient.gender == 'male') {
+    $('#reference-whr').val('< 0.85');
+  } else {
+    $('#reference-whr').val('< 0.75');
+  };
+};
