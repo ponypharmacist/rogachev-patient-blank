@@ -269,6 +269,18 @@ input:focus {
 .text-bold {
   font-weight: bold; }
 
+.invalid-range {
+  position: absolute;
+  width: 150px;
+  height: 28px;
+  line-height: 28px;
+  text-align: center;
+  left: -168px;
+  top: 1px;
+  background: #fffcad;
+  border-radius: 5px;
+  transition-duration: .35s; }
+
 .table-like-1 .col-2,
 .table-like-2 .col-2 {
   flex-grow: 1;
@@ -757,7 +769,8 @@ th .clr, .thpad {
   .element-remover,
   .diagnosis-hint {
     display: none !important; }
-  .visible {
+  .visible,
+  .invalid-range {
     display: none; }
   .printable {
     display: block !important; } }

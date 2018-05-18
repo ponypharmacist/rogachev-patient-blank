@@ -159,7 +159,6 @@ h5
     background-color: #00807b
     box-shadow: 0 0 0 3px rgba(55, 169, 165, 0.25)
 
-
 // Пациент - таблицы и формы
 .table-like
   width: 100%
@@ -281,6 +280,19 @@ input:focus
 .pasted-text,
 .text-bold
   font-weight: bold
+
+.invalid-range
+  position: absolute
+  width: 150px
+  height: 28px
+  line-height: 28px
+  text-align: center
+  left: -168px
+  top: 1px
+  background: #fffcad
+  border-radius: 5px
+  transition-duration: .35s
+
 
 // Тонкие настройки таблиц отдельных
 .table-like-1 .col-2,
@@ -800,7 +812,8 @@ th .clr, .thpad
   .diagnosis-hint
     display: none!important
 
-  .visible
+  .visible,
+  .invalid-range
     display: none
 
   .printable

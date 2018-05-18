@@ -5,6 +5,7 @@
 // Patient object
 //=========================================
 var patient = {};
+var validation = {};
 
 function genderAgeReady () {
   fillReferenceValues();
@@ -54,6 +55,13 @@ $(document).ready(function(){
     let updatedParameterValue = $(this).val();
     console.log('Updated "' + updatedParameter + '" with: ' + updatedParameterValue);
     patient[updatedParameter] = updatedParameterValue;
+  });
+
+  // Проверка диапазона и уведомление об отклонении
+  $('.range-check').on('change', function() {
+    let pName = $(this).attr('id');
+    let pValue = parseInt($(this).val());
+    validateRange(pName, pValue) ? $('#ir-' + pName).remove() : $('#' + pName).after('<span id="ir-'+ pName +'" class="invalid-range">Вне реф. значений</span>');
   });
 
   // Копирование полей пациента на другие страницы
@@ -108,4 +116,8 @@ function pasteRussianGender() {
     genderSelectedRus = 'Ошибочка, не выбран пол!';
   }
   $('.gender-copy').html(genderSelectedRus);
+};
+
+function validateRange (pName, pValue) {
+  return rangeShort(pValue, validation[pName][0], validation[pName][1]);
 };
