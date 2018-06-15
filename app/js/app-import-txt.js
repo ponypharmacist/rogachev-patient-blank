@@ -188,10 +188,13 @@ function makeTable() {
 
   '\nТочность мелкой моторики	' + txtGenInput('bot2-score-1') +
   '\nИнтеграция мелкой моторики	' + txtGenInput('bot2-score-2') +
+
   '\nЛовкость рук	' + txtGenInput('bot2-score-3') +
   '\nКоординация верх. конечн.	' + txtGenInput('bot2-score-4') +
+
   '\nБилатеральные навыки	' + txtGenInput('bot2-score-5') +
   '\nБаланс	' + txtGenInput('bot2-score-6') +
+
   '\nСкорость бега и ловкость	' + txtGenInput('bot2-score-7') +
   '\nОтжимания	' + txtGenInput('bot2-score-8') +
 
@@ -213,6 +216,13 @@ function txtGen(parameter) {
 function txtGenInput(id) {
   let noData = '-';
   let inputData = $('#' + id).val();
+  let txtString = inputData ? inputData : noData;
+  return txtString;
+};
+
+function txtGenElement(elClass) {
+  let noData = '-';
+  let inputData = $('#' + elClass).html();
   let txtString = inputData ? inputData : noData;
   return txtString;
 };
