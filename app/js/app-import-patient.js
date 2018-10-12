@@ -16,7 +16,6 @@ $(document).ready(function(){
     };
 
     patient.gender && patient.ageConverted && fillReferenceValues();
-    recalculatePercentage();
     refillCopiedFields();
     refillSignatures();
     refillPercentiles();
@@ -25,9 +24,10 @@ $(document).ready(function(){
 
 //=========================================
 // Вспоминаем рассчеты при импорте пациента
+// UNUSED: после удаления биоимпеданса
 //=========================================
 function recalculatePercentage() {
-  let percentageInputs = ['massFat', 'massLean', 'massSkeletalMuscle', 'massActiveCellular'];
+  let percentageInputs = ['massFat', 'massLean'];
   percentageInputs.forEach(function(field, i, percentageInputs) {
     if ( patient[field] >= 0 ) {
       let calculatedPercentage = (parseFloat($('#' + field).val()) / patient.weight * 100).toFixed(1) + '%';

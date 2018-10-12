@@ -2074,6 +2074,7 @@ $(document).ready(function(){
   });
 
   // Считаем % от массы тела для жира, костей и активной клеточной массы
+  // UNUSED: Убрали, потому что удалили антропометрию
   $('.calculate-percentage').on('change', function() {
     let targetCell = $(this).attr('id');
     let calculatedPercentage = (parseFloat(this.value) / patient.weight * 100).toFixed(1) + '%';
@@ -2589,7 +2590,6 @@ $(document).ready(function(){
     };
 
     patient.gender && patient.ageConverted && fillReferenceValues();
-    recalculatePercentage();
     refillCopiedFields();
     refillSignatures();
     refillPercentiles();
@@ -2598,9 +2598,10 @@ $(document).ready(function(){
 
 //=========================================
 // Вспоминаем рассчеты при импорте пациента
+// UNUSED: после удаления биоимпеданса
 //=========================================
 function recalculatePercentage() {
-  let percentageInputs = ['massFat', 'massLean', 'massSkeletalMuscle', 'massActiveCellular'];
+  let percentageInputs = ['massFat', 'massLean'];
   percentageInputs.forEach(function(field, i, percentageInputs) {
     if ( patient[field] >= 0 ) {
       let calculatedPercentage = (parseFloat($('#' + field).val()) / patient.weight * 100).toFixed(1) + '%';
@@ -2804,6 +2805,15 @@ function makeTable() {
   '\nПодпись А2	' + txtGen('doctor-a2') +
   '\nДата А2	' + txtGen('date-a2') +
 
+  '\nR cavi, до' + txtGenInput('sphigmoCaviRBefore') +
+  '\nR cavi, после' + txtGen('sphigmoCaviRAfter') +
+  '\nL cavi, до' + txtGen('sphigmoCaviLBefore') +
+  '\nL cavi, после' + txtGen('sphigmoCaviLAfter') +
+  '\nR abi, до' + txtGen('sphigmoAbiRBefore') +
+  '\nR abi, после' + txtGen('sphigmoAbiRAfter') +
+  '\nL abi, до' + txtGen('sphigmoAbiLBefore') +
+  '\nL abi, после' + txtGen('sphigmoAbiLAfter') +
+
   '\nСмещение по фронтали (глаза открыты, мм)	' + txtGen('shiftFrontalEyesOpen') +
   '\nСмещение по фронтали (глаза закрыты, мм)	' + txtGen('shiftFrontalEyesClosed') +
   '\nСмещение по сагиттали (глаза открыты, мм)	' + txtGen('shiftSaggitalEyesOpen') +
@@ -2816,20 +2826,6 @@ function makeTable() {
   '\nПоложение центра давления	' + txtGen('conclusionCPressureCenterPosition') +
   '\nСтабильность баланса	' + txtGen('conclusionCBalanceStability') +
   '\nПриоритетная сенсорная система	' + txtGen('conclusionCPrimarySensoricSystem') +
-
-  '\nЖировая масса (кг)	' + txtGen('massFat') +
-  '\nЖировая масса (%)	' + txtGenInput('percentage-massFat') +
-  '\nТощая масса (кг)	' + txtGen('massLean') +
-  '\nТощая масса (%)	' + txtGenInput('percentage-massLean') +
-  '\nСкелетно-мышечная масса (кг)	' + txtGen('massSkeletalMuscle') +
-  '\nСкелетно-мышечная масса (%)	' + txtGenInput('percentage-massSkeletalMuscle') +
-  '\nАктивная клеточная масса (кг)	' + txtGen('massActiveCellular') +
-  '\nАктивная клеточная масса (%)	' + txtGenInput('percentage-massActiveCellular') +
-  '\nФазовый угол (градусы)	' + txtGen('phasicAngle') +
-
-  '\nУровень готовности к физическим нагрузкам	' + txtGen('conclusionDPhysicalLoadReadinessLevel') +
-  '\nУровень двигательной активности	' + txtGen('conclusionDPhysicalActivityLevel') +
-  '\nРиск развития метаболического синдрома	' + txtGen('conclusionDMetabolicSyndromDevelopmentRisk') +
 
   '\nПодпись А3	' + txtGen('doctor-a3') +
   '\nДата А3	' + txtGen('date-a3') +
@@ -2848,10 +2844,13 @@ function makeTable() {
 
   '\nТочность мелкой моторики	' + txtGenInput('bot2-score-1') +
   '\nИнтеграция мелкой моторики	' + txtGenInput('bot2-score-2') +
+
   '\nЛовкость рук	' + txtGenInput('bot2-score-3') +
   '\nКоординация верх. конечн.	' + txtGenInput('bot2-score-4') +
+
   '\nБилатеральные навыки	' + txtGenInput('bot2-score-5') +
   '\nБаланс	' + txtGenInput('bot2-score-6') +
+
   '\nСкорость бега и ловкость	' + txtGenInput('bot2-score-7') +
   '\nОтжимания	' + txtGenInput('bot2-score-8') +
 
@@ -2873,6 +2872,13 @@ function txtGen(parameter) {
 function txtGenInput(id) {
   let noData = '-';
   let inputData = $('#' + id).val();
+  let txtString = inputData ? inputData : noData;
+  return txtString;
+};
+
+function txtGenElement(elClass) {
+  let noData = '-';
+  let inputData = $('#' + elClass).html();
   let txtString = inputData ? inputData : noData;
   return txtString;
 };

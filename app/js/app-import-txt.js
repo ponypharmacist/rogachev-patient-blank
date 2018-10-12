@@ -144,6 +144,15 @@ function makeTable() {
   '\nПодпись А2	' + txtGen('doctor-a2') +
   '\nДата А2	' + txtGen('date-a2') +
 
+  '\nR cavi, до	' + txtGenInput('sphigmoCaviRBefore') +
+  '\nR cavi, после	' + txtGen('sphigmoCaviRAfter') +
+  '\nL cavi, до	' + txtGen('sphigmoCaviLBefore') +
+  '\nL cavi, после	' + txtGen('sphigmoCaviLAfter') +
+  '\nR abi, до	' + txtGen('sphigmoAbiRBefore') +
+  '\nR abi, после	' + txtGen('sphigmoAbiRAfter') +
+  '\nL abi, до	' + txtGen('sphigmoAbiLBefore') +
+  '\nL abi, после	' + txtGen('sphigmoAbiLAfter') +
+
   '\nСмещение по фронтали (глаза открыты, мм)	' + txtGen('shiftFrontalEyesOpen') +
   '\nСмещение по фронтали (глаза закрыты, мм)	' + txtGen('shiftFrontalEyesClosed') +
   '\nСмещение по сагиттали (глаза открыты, мм)	' + txtGen('shiftSaggitalEyesOpen') +
@@ -156,20 +165,6 @@ function makeTable() {
   '\nПоложение центра давления	' + txtGen('conclusionCPressureCenterPosition') +
   '\nСтабильность баланса	' + txtGen('conclusionCBalanceStability') +
   '\nПриоритетная сенсорная система	' + txtGen('conclusionCPrimarySensoricSystem') +
-
-  '\nЖировая масса (кг)	' + txtGen('massFat') +
-  '\nЖировая масса (%)	' + txtGenInput('percentage-massFat') +
-  '\nТощая масса (кг)	' + txtGen('massLean') +
-  '\nТощая масса (%)	' + txtGenInput('percentage-massLean') +
-  '\nСкелетно-мышечная масса (кг)	' + txtGen('massSkeletalMuscle') +
-  '\nСкелетно-мышечная масса (%)	' + txtGenInput('percentage-massSkeletalMuscle') +
-  '\nАктивная клеточная масса (кг)	' + txtGen('massActiveCellular') +
-  '\nАктивная клеточная масса (%)	' + txtGenInput('percentage-massActiveCellular') +
-  '\nФазовый угол (градусы)	' + txtGen('phasicAngle') +
-
-  '\nУровень готовности к физическим нагрузкам	' + txtGen('conclusionDPhysicalLoadReadinessLevel') +
-  '\nУровень двигательной активности	' + txtGen('conclusionDPhysicalActivityLevel') +
-  '\nРиск развития метаболического синдрома	' + txtGen('conclusionDMetabolicSyndromDevelopmentRisk') +
 
   '\nПодпись А3	' + txtGen('doctor-a3') +
   '\nДата А3	' + txtGen('date-a3') +

@@ -53,6 +53,7 @@ $(document).ready(function(){
   });
 
   // Считаем % от массы тела для жира, костей и активной клеточной массы
+  // UNUSED: Убрали, потому что удалили антропометрию
   $('.calculate-percentage').on('change', function() {
     let targetCell = $(this).attr('id');
     let calculatedPercentage = (parseFloat(this.value) / patient.weight * 100).toFixed(1) + '%';

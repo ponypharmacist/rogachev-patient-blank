@@ -15,10 +15,10 @@ html(lang = "en")
           .print-menu-link(rel = "a1") I: Антропометрия и&nbsp;соматоскопия
         #pm-item-a2.print-menu-item
           #pp-button-a2.print-page-button(rel = "a2")
-          .print-menu-link(rel = "a2") II: Гониометрия, физ.&nbsp;качества и&nbsp;толерантность
+          .print-menu-link(rel = "a2") II: Гониометрия и&nbsp;стабилометрия
         #pm-item-a3.print-menu-item
           #pp-button-a3.print-page-button(rel = "a3")
-          .print-menu-link(rel = "a3") III: Стабилометрия и&nbsp;биоимпеданс
+          .print-menu-link(rel = "a3") III: Физ.&nbsp;качества и&nbsp;толерантность
         #pm-item-b1.print-menu-item
           #pp-button-b1.print-page-button(rel = "b1")
           .print-menu-link(rel = "b1") BOT краткая форма
@@ -308,7 +308,7 @@ html(lang = "en")
           .row.patient-data
             include ./partials/header.jade
             .col-12
-              h5 Гониометрия, физические качества и толерантность
+              h5 Гониометрия, стабилометрические показатели
             include ./partials/patient-data.jade
 
           .row
@@ -383,6 +383,145 @@ html(lang = "en")
                   .col-2.is-hideable-col-3-3.input-cell
                     input.form-control(type="text" value="20 ± 10")
 
+            // Заключения, блок 2 
+            .col-12.pb-2
+              h5.h5-padded.is-hideable-h2 Заключение 
+                a#hideable-h2.element-remover ✕
+
+              .diagnosis-block.is-hideable-d-2-1
+                b Объем движений изменен в суставах:
+                a#hideable-d-2-1.element-remover ✕
+                textarea#conclsionBMovementLimitedInJoints.form-control.input-diagnosis.update-object(placeholder="..." rows="1" tabindex="64")
+                .diagnosis-hint (повышен/понижен, в каких суставах)
+
+            // Таблица 6. Стабилометрические показатели
+            .col-12.is-hideable-table-6
+              .table-like.table-like-2.table-like-3
+                .row-like.thead-like
+                  .col-4 Стабилометрические показатели 
+                    a#hideable-table-6.element-remover ✕
+                  .col-4.text-center Глаза открыты
+                  .col-4.text-center.is-hideable-col-6-2 Глаза закрыты 
+                    a#hideable-col-6-2.element-remover ✕
+
+                .row-like.thead-like
+                  .col-4
+                  .col-4.col-4-special
+                    .col-6.text-center Абсол.
+                    .col-6.text-center.is-hideable-col-6-1-2 Реф. значения 
+                      a#hideable-col-6-1-2.element-remover ✕
+                  .col-4.col-4-special.is-hideable-col-6-2
+                    .col-6.text-center Абсол.
+                    .col-6.text-center.is-hideable-col-6-2-2 Реф. значения 
+                      a#hideable-col-6-2-2.element-remover ✕
+
+                .row-like.is-hideable-6-1
+                  .col-4.thead-col Смещение по фронтали (мм) 
+                    a#hideable-6-1.element-remover ✕
+                  .col-4.col-4-special
+                    .col-6.input-cell
+                      input#shiftFrontalEyesOpen.form-control.update-object(type="text" placeholder="..." tabindex="80")
+                    .col-6.is-hideable-col-6-1-2.input-cell
+                      input.form-control(type="text" value="0 ± 2.5 мм")
+                  .col-4.col-4-special.is-hideable-col-6-2
+                    .col-6.input-cell
+                      input#shiftFrontalEyesClosed.form-control.update-object(type="text" placeholder="..." tabindex="81")
+                    .col-6.is-hideable-col-6-2-2.input-cell
+                      input.form-control(type="text" value="0 ± 3.1 мм")
+
+                .row-like.is-hideable-6-2
+                  .col-4.thead-col Смещение по сагиттали (мм) 
+                    a#hideable-6-2.element-remover ✕
+                  .col-4.col-4-special
+                    .col-6.input-cell
+                      input#shiftSaggitalEyesOpen.form-control.update-object(type="text" placeholder="..." tabindex="82")
+                    .col-6.is-hideable-col-6-1-2.input-cell
+                      input.form-control(type="text" value="-40 ± 15 мм")
+                  .col-4.col-4-special.is-hideable-col-6-2
+                    .col-6.input-cell
+                      input#shiftSaggitalEyesClosed.form-control.update-object(type="text" placeholder="..." tabindex="83")
+                    .col-6.is-hideable-col-6-2-2.input-cell
+                      input.form-control(type="text" value="-42 ± 17 мм")
+
+                .row-like.is-hideable-6-3
+                  .col-4.thead-col
+                    | Площадь эллипса (мм
+                    sup 2
+                    | ) 
+                    a#hideable-6-3.element-remover ✕
+                  .col-4.col-4-special
+                    .col-6.input-cell
+                      input#ellipseSquareEyesOpen.form-control.update-object(type="text" placeholder="..." tabindex="84")
+                    .col-6.is-hideable-col-6-1-2.input-cell
+                      input.form-control(type="text" value="132")
+                  .col-4.col-4-special.is-hideable-col-6-2
+                    .col-6.input-cell
+                      input#ellipseSquareEyesClosed.form-control.update-object(type="text" placeholder="..." tabindex="85")
+                    .col-6.is-hideable-col-6-2-2.input-cell
+                      input.form-control(type="text" value="164")
+
+                .row-like.is-hideable-6-4
+                  .col-4.thead-col(style="font-size:85%;")
+                    | Средняя скорость центра давления (мм
+                    sup 2
+                    | ) 
+                    a#hideable-6-4.element-remover ✕
+                  .col-4.col-4-special
+                    .col-6.input-cell
+                      input#pressurePointSpeedEyesOpen.form-control.update-object(type="text" placeholder="..." tabindex="86")
+                    .col-6.is-hideable-col-6-1-2.input-cell
+                      input.form-control(type="text" value="10.4")
+                  .col-4.col-4-special.is-hideable-col-6-2
+                    .col-6.input-cell
+                      input#pressurePointSpeedEyesClosed.form-control.update-object(type="text" placeholder="..." tabindex="87")
+                    .col-6.is-hideable-col-6-2-2.input-cell
+                      input.form-control(type="text" value="13.6")
+
+            .col-12
+              h5.h5-padded.is-hideable-h3 Заключение по постуральному контролю 
+                a#hideable-h3.element-remover ✕
+
+              .diagnosis-block.is-hideable-d-3-1
+                b Положение центра давления
+                a#hideable-d-3-1.element-remover ✕
+                textarea#conclusionCPressureCenterPosition.form-control.input-diagnosis.update-object(placeholder="..." rows="1" tabindex="88")
+                .diagnosis-hint (правильное, смещение по сагиттали, фронтали)
+
+              .diagnosis-block.is-hideable-d-3-2
+                b Стабильность баланса
+                a#hideable-d-3-2.element-remover ✕
+                textarea#conclusionCBalanceStability.form-control.input-diagnosis.update-object(placeholder="..." rows="1" tabindex="89")
+                .diagnosis-hint (высокая, средняя, низкая)
+
+              .diagnosis-block.is-hideable-d-3-3
+                b Приоритетная сенсорная система
+                a#hideable-d-3-3.element-remover ✕
+                textarea#conclusionCPrimarySensoricSystem.form-control.input-diagnosis.update-object(placeholder="..." rows="1" tabindex="90")
+                .diagnosis-hint (зрение, проприорецепция)
+
+          .row.signature-row
+            .col-7.signature-block
+              label Исследователь: 
+              select#doctor-a2.select-control.doctor-select.update-object(tabindex="67")
+                include ./partials/doctor-signatures.jade
+              |  
+              span.doctor-signature (подпись)
+              #signature-doctor-a2
+            .col-5
+              label Дата исследования: 
+              input#date-a2.form-control.update-object(type="text" placeholder="..." tabindex="68")
+      // Конец раздела А2
+
+      // Раздел А3: Физ качества
+      #section-a3.section-global
+        .single-page
+          .row.patient-data
+            include ./partials/header.jade
+            .col-12
+              h5 Физические качества и толерантность
+            include ./partials/patient-data.jade
+
+          .row
             // Таблица 4. Физические качества
             .col-12.is-hideable-table-4
               .table-like.table-like-2.table-like-4
@@ -500,8 +639,9 @@ html(lang = "en")
                     input.form-control(type="text" placeholder="...")
 
             // Таблица Непечатная. К ходьбе
-            .col-12.no-print
-              .table-like.table-like-2.no-print-border
+            .col-12
+              // .table-like.table-like-2.no-print-border
+              .table-like.table-like-2
                 .row-like.thead-like
                   .col-4 Показатель 
                   .col-2.text-center Исходно
@@ -564,16 +704,61 @@ html(lang = "en")
                   .col-2.input-cell
                     input#walkE4.form-control.update-object(type="text" placeholder="...")
 
-            // Заключения, блок 2 
-            .col-12
-              h5.h5-padded.is-hideable-h2 Заключение 
-                a#hideable-h2.element-remover ✕
+            // Таблица 7. Сфигмометрия
+            .col-12.is-hideable-table-7
+              .table-like.table-like-2
+                .row-like.thead-like
+                  .col-6 Сфигмометрия 
+                    a#hideable-table-7.element-remover ✕
+                  .col-2.text-center До
+                  .col-2.text-center После
+                  .col-2.text-center.is-hideable-col-7-3 Реф. значения 
+                    a#hideable-col-7-3.element-remover ✕
 
-              .diagnosis-block.is-hideable-d-2-1
-                b Объем движений изменен в суставах:
-                a#hideable-d-2-1.element-remover ✕
-                textarea#conclsionBMovementLimitedInJoints.form-control.input-diagnosis.update-object(placeholder="..." rows="1" tabindex="64")
-                .diagnosis-hint (повышен/понижен, в каких суставах)
+                .row-like.is-hideable-7-1
+                  .col-6.thead-col R cavi
+                    a#hideable-7-1.element-remover ✕
+                  .col-2.input-cell
+                    input#sphigmoCaviRBefore.form-control.update-object(type="text" placeholder="..." maxlength="3" tabindex="40")
+                  .col-2.input-cell
+                    input#sphigmoCaviRAfter.form-control.update-object(type="text" placeholder="..." maxlength="3" tabindex="41")
+                  .col-2.is-hideable-col-7-3.input-cell
+                    input.form-control(type="text" value="...")
+
+                .row-like.is-hideable-7-2
+                  .col-6.thead-col L cavi
+                    a#hideable-7-2.element-remover ✕
+                  .col-2.input-cell
+                    input#sphigmoCaviLBefore.form-control.update-object(type="text" placeholder="..." maxlength="3" tabindex="42")
+                  .col-2.input-cell
+                    input#sphigmoCaviLAfter.form-control.update-object(type="text" placeholder="..." maxlength="3" tabindex="43")
+                  .col-2.is-hideable-col-7-3.input-cell
+                    input.form-control(type="text" value="...")
+
+                .row-like.is-hideable-7-3
+                  .col-6.thead-col R abi
+                    a#hideable-7-3.element-remover ✕
+                  .col-2.input-cell
+                    input#sphigmoAbiRBefore.form-control.update-object(type="text" placeholder="..." maxlength="3" tabindex="44")
+                  .col-2.input-cell
+                    input#sphigmoAbiRAfter.form-control.update-object(type="text" placeholder="..." maxlength="3" tabindex="45")
+                  .col-2.input-cell.is-hideable-col-7-3
+                    input.form-control(type="text" value="...")
+
+                .row-like.is-hideable-7-4
+                  .col-6.thead-col L abi
+                    a#hideable-7-4.element-remover ✕
+                  .col-2.input-cell
+                    input#sphigmoAbiLBefore.form-control.update-object(type="text" placeholder="..." maxlength="3" tabindex="46")
+                  .col-2.input-cell
+                    input#sphigmoAbiLAfter.form-control.update-object(type="text" placeholder="..." maxlength="3" tabindex="47")
+                  .col-2.input-cell.is-hideable-col-7-3
+                    input.form-control(type="text" value="...")
+
+            // Заключения, блок 3
+            .col-12
+              h5.h5-padded.is-hideable-h3 Заключение
+                a#hideable-h3.element-remover ✕
 
               .diagnosis-block.is-hideable-d-2-2
                 b Силовая выносливость
@@ -586,218 +771,6 @@ html(lang = "en")
                 a#hideable-d-2-3.element-remover ✕
                 textarea#conclsionBPhysicalLoadEndurance.form-control.input-diagnosis.update-object(placeholder="..." rows="1" tabindex="66")
                 .diagnosis-hint (снижена, в пределах нормы, повышена)
-
-          .row.signature-row
-            .col-7.signature-block
-              label Исследователь: 
-              select#doctor-a2.select-control.doctor-select.update-object(tabindex="67")
-                include ./partials/doctor-signatures.jade
-              |  
-              span.doctor-signature (подпись)
-              #signature-doctor-a2
-            .col-5
-              label Дата исследования: 
-              input#date-a2.form-control.update-object(type="text" placeholder="..." tabindex="68")
-      // Конец раздела А2
-
-      // Раздел А3: Стабилометрия, биоимпеданс
-      #section-a3.section-global
-        .single-page
-          .row.patient-data
-            include ./partials/header.jade
-            .col-12
-              h5 Стабилометрические показатели и биоимпеданс
-            include ./partials/patient-data.jade
-
-          .row
-            // Таблица 6. Стабилометрические показатели
-            .col-12.is-hideable-table-6
-              .table-like.table-like-2.table-like-3
-                .row-like.thead-like
-                  .col-4 Стабилометрические показатели 
-                    a#hideable-table-6.element-remover ✕
-                  .col-4.text-center Глаза открыты
-                  .col-4.text-center.is-hideable-col-6-2 Глаза закрыты 
-                    a#hideable-col-6-2.element-remover ✕
-
-                .row-like.thead-like
-                  .col-4
-                  .col-4.col-4-special
-                    .col-6.text-center Абсол.
-                    .col-6.text-center.is-hideable-col-6-1-2 Реф. значения 
-                      a#hideable-col-6-1-2.element-remover ✕
-                  .col-4.col-4-special.is-hideable-col-6-2
-                    .col-6.text-center Абсол.
-                    .col-6.text-center.is-hideable-col-6-2-2 Реф. значения 
-                      a#hideable-col-6-2-2.element-remover ✕
-
-                .row-like.is-hideable-6-1
-                  .col-4.thead-col Смещение по фронтали (мм) 
-                    a#hideable-6-1.element-remover ✕
-                  .col-4.col-4-special
-                    .col-6.input-cell
-                      input#shiftFrontalEyesOpen.form-control.update-object(type="text" placeholder="..." tabindex="80")
-                    .col-6.is-hideable-col-6-1-2.input-cell
-                      input.form-control(type="text" value="0 ± 2.5 мм")
-                  .col-4.col-4-special.is-hideable-col-6-2
-                    .col-6.input-cell
-                      input#shiftFrontalEyesClosed.form-control.update-object(type="text" placeholder="..." tabindex="81")
-                    .col-6.is-hideable-col-6-2-2.input-cell
-                      input.form-control(type="text" value="0 ± 3.1 мм")
-
-                .row-like.is-hideable-6-2
-                  .col-4.thead-col Смещение по сагиттали (мм) 
-                    a#hideable-6-2.element-remover ✕
-                  .col-4.col-4-special
-                    .col-6.input-cell
-                      input#shiftSaggitalEyesOpen.form-control.update-object(type="text" placeholder="..." tabindex="82")
-                    .col-6.is-hideable-col-6-1-2.input-cell
-                      input.form-control(type="text" value="-40 ± 15 мм")
-                  .col-4.col-4-special.is-hideable-col-6-2
-                    .col-6.input-cell
-                      input#shiftSaggitalEyesClosed.form-control.update-object(type="text" placeholder="..." tabindex="83")
-                    .col-6.is-hideable-col-6-2-2.input-cell
-                      input.form-control(type="text" value="-42 ± 17 мм")
-
-                .row-like.is-hideable-6-3
-                  .col-4.thead-col
-                    | Площадь эллипса (мм
-                    sup 2
-                    | ) 
-                    a#hideable-6-3.element-remover ✕
-                  .col-4.col-4-special
-                    .col-6.input-cell
-                      input#ellipseSquareEyesOpen.form-control.update-object(type="text" placeholder="..." tabindex="84")
-                    .col-6.is-hideable-col-6-1-2.input-cell
-                      input.form-control(type="text" value="132")
-                  .col-4.col-4-special.is-hideable-col-6-2
-                    .col-6.input-cell
-                      input#ellipseSquareEyesClosed.form-control.update-object(type="text" placeholder="..." tabindex="85")
-                    .col-6.is-hideable-col-6-2-2.input-cell
-                      input.form-control(type="text" value="164")
-
-                .row-like.is-hideable-6-4
-                  .col-4.thead-col(style="font-size:85%;")
-                    | Средняя скорость центра давления (мм
-                    sup 2
-                    | ) 
-                    a#hideable-6-4.element-remover ✕
-                  .col-4.col-4-special
-                    .col-6.input-cell
-                      input#pressurePointSpeedEyesOpen.form-control.update-object(type="text" placeholder="..." tabindex="86")
-                    .col-6.is-hideable-col-6-1-2.input-cell
-                      input.form-control(type="text" value="10.4")
-                  .col-4.col-4-special.is-hideable-col-6-2
-                    .col-6.input-cell
-                      input#pressurePointSpeedEyesClosed.form-control.update-object(type="text" placeholder="..." tabindex="87")
-                    .col-6.is-hideable-col-6-2-2.input-cell
-                      input.form-control(type="text" value="13.6")
-
-            // Заключения, блок 3
-            .col-12
-              h5.h5-padded.is-hideable-h3 Заключение по постуральному контролю 
-                a#hideable-h3.element-remover ✕
-
-              .diagnosis-block.is-hideable-d-3-1
-                b Положение центра давления
-                a#hideable-d-3-1.element-remover ✕
-                textarea#conclusionCPressureCenterPosition.form-control.input-diagnosis.update-object(placeholder="..." rows="1" tabindex="88")
-                .diagnosis-hint (правильное, смещение по сагиттали, фронтали)
-
-              .diagnosis-block.is-hideable-d-3-2
-                b Стабильность баланса
-                a#hideable-d-3-2.element-remover ✕
-                textarea#conclusionCBalanceStability.form-control.input-diagnosis.update-object(placeholder="..." rows="1" tabindex="89")
-                .diagnosis-hint (высокая, средняя, низкая)
-
-              .diagnosis-block.is-hideable-d-3-3
-                b Приоритетная сенсорная система
-                a#hideable-d-3-3.element-remover ✕
-                textarea#conclusionCPrimarySensoricSystem.form-control.input-diagnosis.update-object(placeholder="..." rows="1" tabindex="90")
-                .diagnosis-hint (зрение, проприорецепция)
-
-            // Таблица 7. Биоимпеданс
-            .col-12.is-hideable-table-7
-              .table-like.table-like-2
-                .row-like.thead-like
-                  .col-6 Биоимпеданс 
-                    a#hideable-table-7.element-remover ✕
-                  .col-2.text-center Абсолютное значение
-                  .col-2.text-center.is-hideable-col-7-2 % к массе тела 
-                    a#hideable-col-7-2.element-remover ✕
-                  .col-2.text-center.is-hideable-col-7-3 Половозрастная процентиль 
-                    a#hideable-col-7-3.element-remover ✕
-
-                .row-like.is-hideable-7-1
-                  .col-6.thead-col Жировая масса (кг) 
-                    a#hideable-7-1.element-remover ✕
-                  .col-2.input-cell
-                    input#massFat.form-control.calculate-percentage.update-object(type="text" placeholder="..." tabindex="91")
-                  .col-2.is-hideable-col-7-2.input-cell
-                    input#percentage-massFat.form-control(type="text" placeholder="...")
-                  .col-2.is-hideable-col-7-3.input-cell
-                    input.form-control(type="text" placeholder="...")
-
-                .row-like.is-hideable-7-2
-                  .col-6.thead-col Тощая масса (кг) 
-                    a#hideable-7-2.element-remover ✕
-                  .col-2.input-cell
-                    input#massLean.form-control.calculate-percentage.update-object(type="text" placeholder="..." tabindex="92")
-                  .col-2.is-hideable-col-7-2.input-cell
-                    input#percentage-massLean.form-control(type="text" placeholder="...")
-                  .col-2.is-hideable-col-7-3.input-cell
-                    input.form-control(type="text" placeholder="...")
-
-                .row-like.is-hideable-7-3
-                  .col-6.thead-col Скелетно-мышечная масса 
-                    a#hideable-7-3.element-remover ✕
-                  .col-2.input-cell
-                    input#massSkeletalMuscle.form-control.calculate-percentage.update-object(type="text" placeholder="..." tabindex="93")
-                  .col-2.is-hideable-col-7-2.input-cell
-                    input#percentage-massSkeletalMuscle.form-control(type="text" placeholder="...")
-                  .col-2.is-hideable-col-7-3.input-cell
-                    input.form-control(type="text" placeholder="...")
-
-                .row-like.is-hideable-7-4
-                  .col-6.thead-col Активная клеточная масса (кг) 
-                    a#hideable-7-4.element-remover ✕
-                  .col-2.input-cell
-                    input#massActiveCellular.form-control.calculate-percentage.update-object(type="text" placeholder="..." tabindex="94")
-                  .col-2.is-hideable-col-7-2.input-cell
-                    input#percentage-massActiveCellular.form-control(type="text" placeholder="...")
-                  .col-2.is-hideable-col-7-3.input-cell
-                    input.form-control(type="text" placeholder="...")
-
-                .row-like.is-hideable-7-5
-                  .col-6.thead-col Фазовый угол (градусы) 
-                    a#hideable-7-5.element-remover ✕
-                  .col-2.input-cell
-                    input#phasicAngle.form-control.update-object(type="text" placeholder="..." maxlength="5" tabindex="95")
-                  .col-2.is-hideable-col-7-2.input-cell &nbsp;
-                  .col-2.is-hideable-col-7-3.input-cell
-                    input.form-control(type="text" placeholder="...")
-
-            // Заключения, блок 4
-            .col-12.page-3-last-block
-              h5.h5-padded.is-hideable-h4 Заключение 
-                a#hideable-h4.element-remover ✕
-              .diagnosis-block.is-hideable-d-4-1
-                b Уровень готовности к физическим нагрузкам
-                a#hideable-d-4-1.element-remover ✕
-                textarea#conclusionDPhysicalLoadReadinessLevel.form-control.input-diagnosis.update-object(placeholder="..." rows="1" tabindex="96")
-                .diagnosis-hint (высокая, средняя, низкая)
-
-              .diagnosis-block.is-hideable-d-4-2
-                b Уровень двигательной активности
-                a#hideable-d-4-2.element-remover ✕
-                textarea#conclusionDPhysicalActivityLevel.form-control.input-diagnosis.update-object(placeholder="..." rows="1" tabindex="97")
-                .diagnosis-hint (снижен, адекватен, повышен)
-
-              .diagnosis-block.is-hideable-d-4-3
-                b Риск развития метаболического синдрома
-                a#hideable-d-4-3.element-remover ✕
-                textarea#conclusionDMetabolicSyndromDevelopmentRisk.form-control.input-diagnosis.update-object(placeholder="..." rows="1" tabindex="98")
-                .diagnosis-hint (есть, нет)
 
           .row.signature-row
             .col-7.signature-block
